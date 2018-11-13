@@ -1,0 +1,2 @@
+setelah PULL
+1. npm install
