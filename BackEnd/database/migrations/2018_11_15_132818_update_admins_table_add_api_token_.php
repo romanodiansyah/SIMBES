@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatusesTable extends Migration
+class UpdateAdminsTableAddApiToken extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,7 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->integer('id_pendaftar')->unsigned();
-            $table->integer('id_notifikasi')->unsigned();
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -27,6 +23,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statuses');
+        //
     }
 }
