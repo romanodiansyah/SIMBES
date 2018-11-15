@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRekomendasisTable extends Migration
+class CreateStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateRekomendasisTable extends Migration
      */
     public function up()
     {
-        Schema::create('rekomendasis', function (Blueprint $table) {
-            $table->integer('id_beasiswa')->unsigned();
+        Schema::create('statuses', function (Blueprint $table) {
+            $table->integer('id_pendaftar')->unsigned();
             $table->integer('id_notifikasi')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_beasiswa')->references('id_beasiswa')->on('beasiswas')->onDelete('cascade');
+            $table->foreign('id_pendaftar')->references('id_pendaftar')->on('pendaftars')->onDelete('cascade');
             $table->foreign('id_notifikasi')->references('id_notifikasi')->on('notifikasis')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ class CreateRekomendasisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rekomendasis');
+        Schema::dropIfExists('statuses');
     }
 }

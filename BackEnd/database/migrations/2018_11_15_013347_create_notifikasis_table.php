@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBeritasTable extends Migration
+class CreateNotifikasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateBeritasTable extends Migration
      */
     public function up()
     {
-        Schema::create('beritas', function (Blueprint $table) {
-            $table->increments('id_berita')->unique();
-            $table->integer('id_adm')->unsigned();
-            $table->string('judul');
-            $table->text('deskripsi');
+        Schema::create('notifikasis', function (Blueprint $table) {
+            $table->increments('id_notifikasi')->unqiue();
+            $table->integer('id_user')->unsigned();
             $table->integer('status');
             $table->timestamps();
 
-            $table->foreign('id_adm')->references('id_adm')->on('admins')->onDelete('cascade');
+            $table->foreign('id_user')->references('id_user')->on('students')->onDelete('cascade');
         });
     }
 
@@ -32,6 +30,6 @@ class CreateBeritasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beritas');
+        Schema::dropIfExists('notifikasis');
     }
 }

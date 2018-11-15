@@ -15,22 +15,22 @@ class CreateStudentsTable extends Migration
     {
         //
         Schema::create('students', function(Blueprint $table){
-            $table->increments('id_user');
+            $table->increments('id_user')->unique();
             $table->string('nama');
             $table->integer('jenis_kelamin');
             $table->string('email');
             $table->string('password');
             $table->string('status_aktif');
             $table->string('status_akses');
-            $table->double('ipk');
-            $table->string('no_ktm');
-            $table->string('jenis_identitas');
-            $table->string('no_identitas');
-            $table->string('alamat');
-            $table->string('telepon');
-            $table->string('no_hp');
-            $table->integer('jurusan');
-            $table->integer('fakultas');
+            $table->double('ipk')->nullable();
+            $table->string('no_ktm')->nullable();
+            $table->string('jenis_identitas')->nullable();
+            $table->string('no_identitas')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('telepon')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->integer('jurusan')->nullable();
+            $table->integer('fakultas')->nullable();
         });
     }
 
