@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateAdminsTableAddApiToken extends Migration
+class UpdateAdminsTableAddApiTokenField extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class UpdateAdminsTableAddApiToken extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('admins', function(Blueprint $table){
+            $table->string('api_token')->after('email');
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class UpdateAdminsTableAddApiToken extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('admins', function(Blueprint $table){
+            $table->dropColumn('api_token');
+        });
     }
 }

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Admin;
 use App\Http\Requests;
-
 use App\Transformers\AdminTransformer;
 
 class AdminController extends Controller

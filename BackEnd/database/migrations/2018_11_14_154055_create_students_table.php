@@ -31,6 +31,7 @@ class CreateStudentsTable extends Migration
             $table->string('no_hp')->nullable();
             $table->integer('jurusan')->nullable();
             $table->integer('fakultas')->nullable();
+            $table->timestamps();
         });
     }
 

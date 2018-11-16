@@ -10,9 +10,11 @@
         public function transform(Admin $admin)
         {
             return [
-                'nama' => $admin->nama,
-                'email' => $admin->email,
-                'registered' => $admin->created_at->diffForHumans(),
+                'no_pegawai'    => $admin->no_pegawai,
+                'nama'          => $admin->nama,
+                'jenis_kelamin' => $admin->jenis_kelamin,
+                'email'         => $admin->email,
+                'registered'    => $admin->created_at->diffForHumans(),
             ];
         }
     }
