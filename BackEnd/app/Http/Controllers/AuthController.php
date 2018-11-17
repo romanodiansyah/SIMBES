@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Admin;
 use App\Transformers\AdminTransformer;
+use Auth;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -33,8 +35,31 @@ class AuthController extends Controller
         $response = fractal()
             ->item($admin)
             ->transformWith(new AdminTransformer)
+            ->addMeta([
+                'token' => $admin->api_token
+            ])
             ->toArray();
 
+        return response()->json($response, 201);
+    }
+
+    public function login(Request $request, Admin $admin){
+        if(!Auth::guard('admin')->attempt(['email'=> $request->email,
+            'password'=> $request->password]))
+        {
+            return response()->json(['error' => 'email/password anda salah', 401]);
+        }
+
+        $admin = $admin->find(Auth::guard('admin')->user()->id_adm);
+
+        $response = fractal()
+            ->item($admin)
+            ->transformWith(new AdminTransformer)
+            ->addMeta([
+                'token' => $admin->api_token
+            ])
+            ->toArray();
+        
         return response()->json($response, 201);
     }
 }
