@@ -43,7 +43,7 @@ class AuthController extends Controller
         return response()->json($response, 201);
     }
 
-    public function login(Request $request, Admin $admin){
+    public function loginAdmin(Request $request, Admin $admin){
         if(!Auth::guard('admin')->attempt(['email'=> $request->email,
             'password'=> $request->password]))
         {

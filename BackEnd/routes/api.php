@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
-Route::post('auth/register','AuthController@register');
-Route::post('auth/login','AuthController@login');
+//admin
+Route::post('auth/admin/register','AuthController@register');
+Route::post('auth/admin/login','AuthController@loginAdmin');
 Route::get('admins', 'AdminController@admins');
+Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');
