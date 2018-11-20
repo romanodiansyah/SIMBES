@@ -19,7 +19,7 @@ class AdminController extends Controller
             ->toArray();
     }
 
-    public function beranda(Admin $admin){
+    public function home(Admin $admin){
         $admin = $admin->find(Auth::user()->id_adm);
 
         return fractal()
