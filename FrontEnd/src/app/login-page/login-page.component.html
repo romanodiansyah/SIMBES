@@ -1,12 +1,27 @@
-<div class="wrap">
-  <div class="avatar">
-    <img>
+<body>
+
+  <div class="container">
+    <form (ngSubmit)="loginFunc()">
+      <span class="title">Login</span>
+
+      <div class="inputbox" data-validate = "Email is not valid">
+        <input type="text" name="email" placeholder="Email" ngModel>
+      </div>
+
+      <div class="inputbox" data-validate="Password is not valid">
+        <input type="password" name="pass" placeholder="Password">
+      </div>
+
+      <div class="boxbutton">
+        <button type="submit">SIGN IN</button>
+      </div>
+      
+      <div class="text-center txt">
+        <span class="txt1">Create an account? </span>
+        <a href="#">Sign up</a>
+      </div>
+    </form>
+
   </div>
-  <input type="text" placeholder="username" required>
-  <div class="bar">
-    <i></i>
-  </div>
-  <input type="password" placeholder="password" required>
-  <a href="" class="forgot_link">forgot ?</a>
-  <button>Sign in</button>
-</div>
+
+</body>
