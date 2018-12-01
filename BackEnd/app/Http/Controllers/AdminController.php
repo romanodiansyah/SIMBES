@@ -27,4 +27,12 @@ class AdminController extends Controller
             ->transformWith(new AdminTransformer)
             ->toArray();
     }
+
+    public function listStudent(){
+        
+    }
+
+    public function updateStudent(){
+
+    }
 }
