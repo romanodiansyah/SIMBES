@@ -1,3 +1,31 @@
-<p>
-  register-page works!
-</p>
+<body>
+
+  <div class="container">
+    <form (submit)="registeruser($event)">
+      <span class="title">Daftar Mahasiswa</span>
+
+      <div class="inputbox">
+        <input type="text" name="nama" placeholder="Nama Lengkap">
+      </div>
+
+      <div class="inputbox">
+        <input type="text" name="email" placeholder="Email">
+      </div>
+
+      <div class="inputbox">
+        <input type="password" name="pass" placeholder="Password">
+      </div>
+
+      <div class="boxbutton">
+        <button type="submit">Daftar</button>
+      </div>
+      
+      <div class="text-center txt">
+        <span class="txt1">Sudah punya akun? </span>
+        <a routerLink="">Masuk</a>
+      </div>
+    </form>
+
+  </div>
+
+</body>
