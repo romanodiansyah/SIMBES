@@ -19,6 +19,7 @@ class CreatePendaftarsTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->integer('status');
             $table->string('alamat_berkas');
+            $table->integer('status_aktif');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id_user')->on('students')->onDelete('cascade');
