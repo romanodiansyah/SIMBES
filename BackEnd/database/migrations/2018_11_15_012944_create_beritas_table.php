@@ -18,7 +18,7 @@ class CreateBeritasTable extends Migration
             $table->integer('id_adm')->unsigned();
             $table->string('judul');
             $table->text('deskripsi');
-            $table->integer('status');
+            $table->integer('status_aktif');
             $table->timestamps();
 
             $table->foreign('id_adm')->references('id_adm')->on('admins')->onDelete('cascade');

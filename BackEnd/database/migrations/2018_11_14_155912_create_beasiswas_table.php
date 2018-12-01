@@ -29,6 +29,7 @@ class CreateBeasiswasTable extends Migration
             $table->string('sk');
             $table->string('pendonor');
             $table->timestamps();
+            $table->integer('status_aktif');
 
             $table->foreign('id_adm')->references('id_adm')->on('admins')->onDelete('cascade');
         });

@@ -21,7 +21,6 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('status_aktif');
-            $table->string('status_akses');
             $table->double('ipk')->nullable();
             $table->string('no_ktm')->nullable();
             $table->string('jenis_identitas')->nullable();
@@ -31,6 +30,11 @@ class CreateStudentsTable extends Migration
             $table->string('no_hp')->nullable();
             $table->integer('jurusan')->nullable();
             $table->integer('fakultas')->nullable();
+            $table->string('alamat_transkrip')->nullable();
+            $table->string('alamat_kk')->nullable();
+            $table->string('alamat_fotodiri')->nullable();
+            $table->string('alamat_slipgaji')->nullable();
+            $table->string('alamat_sktm')->nullable();
             $table->timestamps();
         });
     }
