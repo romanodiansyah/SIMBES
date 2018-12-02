@@ -12,6 +12,7 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::get('admin/list/student','AdminController@listStudent');
     Route::post('admin/create/student', 'AuthController@createStudent');
     Route::put('admin/update/student/{student}','AdminController@updateStudent');
+    Route::post('admin/deactive/student/{student}', 'AdminController@deactiveStudent');
 });
 
 // STUDENT

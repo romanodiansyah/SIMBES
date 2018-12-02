@@ -41,6 +41,7 @@ class AdminController extends Controller
 
     public function updateStudent(Request $request, Student $student){
         $student = $student->find($student->id_user);
+
         $student->nama = $request->nama;
         $student->email = $request->email;
         $student->jenis_kelamin = $request->jenis_kelamin;
@@ -55,5 +56,17 @@ class AdminController extends Controller
             ->item($student)
             ->transformWith(new studentTransformer)
             ->toArray();
+    }
+
+    public function deactiveStudent(Student $student){
+        $student = $student->find($student->id_user);
+
+        $student->status_aktif = 0;
+        $student->save();
+
+        return fractal()
+        ->item($student)
+        ->transformWith(new studentTransformer)
+        ->toArray();
     }
 }
