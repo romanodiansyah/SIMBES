@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Admin;
 use App\Transformers\AdminTransformer;
+use App\Student;
+use App\Transformers\StudentTransformer;
 use Auth;
 use App\Http\Controllers\Controller;
 
@@ -28,8 +30,7 @@ class AuthController extends Controller
             'email'         => $request->email,
             'api_token'     => bcrypt($request->email),
             'password'      => bcrypt($request->password),
-            'status_aktif'  => 1,
-            'status_akses'  => 1
+            'status_aktif'  => 1
         ]);
 
         $response = fractal()
@@ -57,6 +58,49 @@ class AuthController extends Controller
             ->transformWith(new AdminTransformer)
             ->addMeta([
                 'token' => $admin->api_token
+            ])
+            ->toArray();
+        
+        return response()->json($response, 201);
+    }
+
+    public function createStudent(Request $request, Student $student)
+    {
+        $this->validate($request, [
+            'nama'          => 'required',
+            'jenis_kelamin' => 'required',
+            'email'         => 'required|email|unique:students',
+            'password'      => 'required|min:6',
+        ]); 
+         $student = $student->create([
+            'nama'          => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'email'         => $request->email,
+            'api_token'     => bcrypt($request->email),
+            'password'      => bcrypt($request->password),
+            'status_aktif'  => 1
+        ]);
+         $response = fractal()
+            ->item($student)
+            ->transformWith(new StudentTransformer)
+            ->addMeta([
+                'token' => $student->api_token
+            ])
+            ->toArray();
+         return response()->json($response, 201);
+    }
+     public function loginStudent(Request $request, Student $student){
+        if(!Auth::guard('student')->attempt(['email'=> $request->email,
+            'password'=> $request->password]))
+        {
+            return response()->json(['error' => 'email/password anda salah', 401]);
+        }
+         $student = $student->find(Auth::guard('student')->user()->id_user);
+         $response = fractal()
+            ->item($student)
+            ->transformWith(new StudentTransformer)
+            ->addMeta([
+                'token' => $student->api_token
             ])
             ->toArray();
         
