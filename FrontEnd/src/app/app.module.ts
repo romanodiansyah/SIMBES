@@ -6,12 +6,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { BerandaAdminPageComponent } from './beranda-admin-page/beranda-admin-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    BerandaAdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,10 @@ import { RegisterPageComponent } from './register-page/register-page.component';
       {
         path: 'register',
         component: RegisterPageComponent
+      },
+      {
+        path: 'berandaadmin',
+        component: BerandaAdminPageComponent
       }
     ])
   ],
