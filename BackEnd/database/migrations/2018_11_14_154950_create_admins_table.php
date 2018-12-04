@@ -21,7 +21,6 @@ class CreateAdminsTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->integer('status_aktif');
-            $table->integer('status_akses');
             $table->timestamps();
         });
     }
