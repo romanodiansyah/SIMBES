@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Beasiswa;
 use Auth;
-
+use App\Transformers\BeasiswaTransformer;
 use Illuminate\Http\Request;
 
 class BeasiswaController extends Controller
@@ -65,10 +65,22 @@ class BeasiswaController extends Controller
     {
         $this->validate($request, [
             'id_beasiswa'       => 'required',
+            'status_aktif'      => 'required',
         ]);
-
-        $updatebeasiswa = Beasiswa::findOrFail($request->id_beasiswa);
         
-        $updatebeasiswa->delete($request->all());
+        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
+        $beasiswa->update($request->all());
+        
+        return $beasiswa;
+    }
+
+    public function readBeasiswa(Beasiswa $beasiswa)
+    {
+        $beasiswa = $beasiswa->all();
+
+        return fractal()
+            ->collection($beasiswa)
+            ->transformWith(new BeasiswaTransformer)
+            ->toArray();
     }
 }
