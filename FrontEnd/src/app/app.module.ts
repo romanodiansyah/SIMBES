@@ -6,12 +6,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { BerandaMahasiswaComponent } from './beranda-mahasiswa/beranda-mahasiswa.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    BerandaMahasiswaComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -20,11 +24,15 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: LoginPageComponent
+        component: BerandaMahasiswaComponent
       },
       {
         path: 'register',
         component: RegisterPageComponent
+      },
+      {
+        path: 'login',
+        component: LoginPageComponent
       }
     ])
   ],

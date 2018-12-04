@@ -1,0 +1,27 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    vertical-align: baseline;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+    float: right;
+}
+
+li {
+    padding: 5px;
+    display: inline;
+}
