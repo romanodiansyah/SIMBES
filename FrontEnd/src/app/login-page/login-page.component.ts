@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../auth.service";
+import { AuthService } from "../Services/auth.service";
 
 @Component({
   selector: 'app-login-page',
@@ -8,7 +8,9 @@ import { AuthService } from "../auth.service";
 })
 export class LoginPageComponent implements OnInit {
 
+  
   constructor() { }
+
 
   ngOnInit() {
   }
@@ -19,6 +21,10 @@ export class LoginPageComponent implements OnInit {
     const email = target.querySelector('#email').value
     const password = target.querySelector('#pass').value
     console.log(email, password)
+  }
+
+  register() {
+
   }
 
 }

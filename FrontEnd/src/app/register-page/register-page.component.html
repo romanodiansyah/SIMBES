@@ -1,19 +1,19 @@
 <body>
 
   <div class="container">
-    <form (submit)="registeruser($event)">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
       <span class="title">Daftar Mahasiswa</span>
 
       <div class="inputbox">
-        <input type="text" name="nama" placeholder="Nama Lengkap">
+        <input [(ngModel)]="nama" type="text" name="nama" placeholder="Nama Lengkap">
       </div>
 
       <div class="inputbox">
-        <input type="text" name="email" placeholder="Email">
+        <input [(ngModel)]="email" type="text" name="email" placeholder="Email">
       </div>
 
       <div class="inputbox">
-        <input type="password" name="pass" placeholder="Password">
+        <input [(ngModel)]="password" type="password" name="pass" placeholder="Password">
       </div>
 
       <div class="boxbutton">
