@@ -18,7 +18,7 @@ class StudentController extends Controller
             ->toArray();
     }
 
-    public function editProfile(Request $request, Student $student){
+    public function updateProfile(Request $request, Student $student){
         $student = $student->find(Auth::user()->id_user);
 
         $student->alamat = $request->alamat;

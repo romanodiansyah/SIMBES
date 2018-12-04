@@ -8,6 +8,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { BerandaMahasiswaComponent } from './beranda-mahasiswa/beranda-mahasiswa.component';
 import { HeaderComponent } from './header/header.component';
+import { BerandaAdminPageComponent } from './beranda-admin-page/beranda-admin-page.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from './header/header.component';
     LoginPageComponent,
     RegisterPageComponent,
     BerandaMahasiswaComponent,
-    HeaderComponent
+    HeaderComponent,
+    BerandaAdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,10 @@ import { HeaderComponent } from './header/header.component';
       {
         path: 'login',
         component: LoginPageComponent
+      },
+      {
+        path: 'berandaadmin',
+        component: BerandaAdminPageComponent
       }
     ])
   ],

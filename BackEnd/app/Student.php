@@ -15,7 +15,7 @@ class Student extends Authenticatable
     protected $fillable = [
         'id_user','nama','jenis_kelamin','email',
         'api_token','password','status_aktif',
-        'status_akses','ipk','no_ktm','jenis_identitas',
+        'ipk','no_ktm','jenis_identitas',
         'no_identitas','alamat','telepon','no_hp',
         'jurusan','fakultas'
     ];
