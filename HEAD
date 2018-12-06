@@ -1,0 +1,345 @@
+commit 67c0dcdd30c683165426f7709f50244eda4f04f5
+Merge: 6740709 122a01f
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Thu Dec 6 08:52:18 2018 +0700
+
+    Merge branch 'master' of https://github.com/romanodiansyah/SIMBES
+
+commit 674070941f8b900cb480b60a366886467456fd44
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Thu Dec 6 08:48:22 2018 +0700
+
+    error gara2 pull
+
+commit 122a01f7c0fa5efa0f861a35446a00a312668621
+Author: Mochamad <mochamad_suryono@apps.ipb.ac.id>
+Date:   Thu Dec 6 08:11:17 2018 +0700
+
+    css login kemarin ilang
+
+commit 815adc58aa3a4563d3ae2378dc1da3f2ff956d3c
+Merge: 32d5352 70de04b
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Wed Dec 5 18:08:55 2018 +0700
+
+    merging error
+
+commit 70de04b704555014c53741b2627b317b9195aa0c
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Wed Dec 5 10:20:58 2018 +0700
+
+    asadep banget
+
+commit dd8d84cf30fc1d8e3368e8af24ece6685ae0c2b0
+Merge: aef655e 52611c2
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Wed Dec 5 10:04:49 2018 +0700
+
+    asadep2
+
+commit aef655e17715807a043a41d40c21ec9dbee3cc91
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Wed Dec 5 09:55:53 2018 +0700
+
+    asadep
+
+commit e5a9486a8d86632efc08ca8dc6a10b07f3ba5452
+Merge: 78e379b be3968f
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Tue Dec 4 18:08:51 2018 +0700
+
+    merge
+
+commit 78e379b510c0197c05a5bec8ce9decc0e0a52591
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Tue Dec 4 18:05:53 2018 +0700
+
+    merge
+
+commit 32d5352a933e47bb5cd6df95b2a106721a58da03
+Merge: 0602203 be3968f
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Dec 4 17:51:09 2018 +0700
+
+    merging
+
+commit 52611c2abea5673b11b987eb2df40dc5e3cda96c
+Merge: 5493692 be3968f
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Tue Dec 4 17:49:21 2018 +0700
+
+    .
+
+commit 5493692e2571c9db1b72d030b356b6230bb86232
+Merge: 8f2c6aa d4b0a6b
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Tue Dec 4 17:46:52 2018 +0700
+
+    .
+
+commit 06022034b5ddd91f52210dce0f4b4f4317f398b2
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Dec 4 17:35:35 2018 +0700
+
+    ganti register
+
+commit be3968f18a84397596a7b17d6f61802545edbcb6
+Merge: a3d057b c76eedc
+Author: pramesywaraj <pramesywara_jp@apps.ipb.ac.id>
+Date:   Tue Dec 4 17:29:01 2018 +0700
+
+    Merge branch 'master' of https://github.com/romanodiansyah/SIMBES
+
+commit a3d057b06ec68674c08499821048d98573de0d7e
+Author: pramesywaraj <pramesywara_jp@apps.ipb.ac.id>
+Date:   Tue Dec 4 17:27:54 2018 +0700
+
+    API connected
+
+commit c76eedc002ce2c2780afe14a34294b30790aea5f
+Merge: e482dce 3019a6f
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Tue Dec 4 17:00:21 2018 +0700
+
+    Merge branch 'master' of https://github.com/romanodiansyah/SIMBES
+
+commit e482dce0b8dd9fc54229774a0c9ab48ee4f0e6ed
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Tue Dec 4 16:59:49 2018 +0700
+
+    Fractal beasiswa
+
+commit fbde28fc47db707621f34c589b0a84b486b2bda6
+Merge: 449dc71 3019a6f
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Dec 4 15:07:37 2018 +0700
+
+    merge
+
+commit 449dc713fc024a880e5b331453a5b956e3254ee0
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Dec 4 15:05:20 2018 +0700
+
+    coba tambah beranda
+
+commit 3019a6fbf2e59d44be3457760176fc3fad581e30
+Merge: a0ab485 0c2a63c
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Sun Dec 2 21:44:40 2018 +0700
+
+    berandaadmin belom diapaapain
+
+commit a0ab485e8ecfbd8185859b1f74d6515e398ac1c0
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Sun Dec 2 21:38:54 2018 +0700
+
+    berandaadmin belom diapaapain
+
+commit 0c2a63c092ac20d74d94fd8690ad21fa07136b1d
+Author: linda <nmlinda97@gmail.com>
+Date:   Sun Dec 2 19:34:54 2018 +0700
+
+    deactive student by admin
+
+commit 8f2c6aa453cc062f0311ada9d804dbfa1c80c8bb
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Sun Dec 2 18:52:53 2018 +0700
+
+    coba
+
+commit 7ecdfdccb7868b0f9f97a1eaae90c2376f5b54df
+Author: linda <nmlinda97@gmail.com>
+Date:   Sun Dec 2 18:52:29 2018 +0700
+
+    update student by admin
+
+commit d4b0a6b04b851c27cd4ee696f227b458ccc10653
+Merge: 949dca2 1d64679
+Author: linda <nmlinda97@gmail.com>
+Date:   Sat Dec 1 11:36:17 2018 +0700
+
+    merge lagi
+
+commit 224ae42e8174f6c9b1b660556e53d4176d500be0
+Author: Mochamad Suryono <mochamad_suryono@apps.ipb.ac.id>
+Date:   Sat Dec 1 11:35:34 2018 +0700
+
+    beranda admin
+
+commit 949dca209eea2a983a1341c53267c02bb00bda4c
+Author: linda <nmlinda97@gmail.com>
+Date:   Sat Dec 1 11:33:27 2018 +0700
+
+    merge
+
+commit 1d64679fc24f745eebf2e638753c1c9447582ebb
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Sat Dec 1 11:23:39 2018 +0700
+
+    Update database, API beasiswa
+
+commit 0b8468a48b96e59d19a0e988a9e6f1c87e2c9bbb
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Sat Dec 1 11:05:47 2018 +0700
+
+    register
+
+commit 322902bd8b8e78623a801677a1d28e2a724cd43f
+Merge: e149964 ddf8fce
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Sat Dec 1 11:00:42 2018 +0700
+
+    Merge branch 'master' of https://github.com/romanodiansyah/SIMBES
+
+commit e1499645258b8faf15f7c2f0cfb9f44de6780647
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Sat Dec 1 11:00:33 2018 +0700
+
+    belom autentikasi login
+
+commit ddf8fcef0653afff9bd7db08738532c383776843
+Author: linda <nmlinda97@gmail.com>
+Date:   Sat Dec 1 10:58:34 2018 +0700
+
+    edit profil by student
+
+commit f45ef98f7e243c4719da013426cc37efa121b059
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Sat Dec 1 01:58:40 2018 +0700
+
+    edit login
+
+commit 4888991519cad556ec887d8e8921e5e15455da33
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Fri Nov 30 21:34:06 2018 +0700
+
+    edit login page
+
+commit 4640b702a42a87dc4288526a85c25cce66e1a48b
+Merge: 4111042 604c402
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Thu Nov 22 09:59:22 2018 +0700
+
+    Merge branch 'master' of https://github.com/romanodiansyah/SIMBES
+
+commit 4111042c3916a2bfe5b56eaf1fe7f9f6376a18fd
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Thu Nov 22 09:57:58 2018 +0700
+
+    routing masih salah
+
+commit 604c40204efd1d845ad488aa3b3718d9de36fa28
+Author: Student <mochamad_suryono@apps.ipb.ac.id>
+Date:   Thu Nov 22 09:32:32 2018 +0700
+
+    judul
+
+commit 95aa01fe5e380db5eb70ddcc1f4cbbd61be8cd73
+Merge: 644bc8c 2913ea0
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Thu Nov 22 09:06:38 2018 +0700
+
+    Merge branch 'master' of https://github.com/romanodiansyah/SIMBES
+
+commit 2913ea06ebeb3d540cc89b83c7165ceecf3260fa
+Author: linda <nmlinda97@gmail.com>
+Date:   Tue Nov 20 20:11:57 2018 +0700
+
+    login register student
+
+commit d7c807db7e5056d24b919284c4c266e36659b5d0
+Author: linda <nmlinda97@gmail.com>
+Date:   Tue Nov 20 16:48:51 2018 +0700
+
+    beranda middleware
+
+commit 644bc8c08025dc492f1f43338d26b92675ed4212
+Merge: c883ca4 e0564f0
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Nov 20 15:00:18 2018 +0700
+
+    merging
+
+commit c883ca46ec5dfc35de08ff2f8998297d2b7abe3f
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Nov 20 14:58:25 2018 +0700
+
+    add register-page
+
+commit e0564f0973671d32d40b3c32864694f2fb80a6ed
+Author: linda <nmlinda97@gmail.com>
+Date:   Mon Nov 19 16:12:40 2018 +0700
+
+    endpoint
+
+commit 1558e26825d8d40e7ea86dcd2b25e50c444fe9ba
+Author: linda <nmlinda97@gmail.com>
+Date:   Sat Nov 17 09:57:00 2018 +0700
+
+    login admin
+
+commit 7bd9407e2147ac661199943cf47330e6eb3c288d
+Author: linda <nmlinda97@gmail.com>
+Date:   Fri Nov 16 07:05:17 2018 +0700
+
+    register admin
+
+commit 531da38eef039e7ebd99bcf27b77428cc68d80c5
+Author: linda <nmlinda97@gmail.com>
+Date:   Thu Nov 15 22:07:30 2018 +0700
+
+    login register
+
+commit 5e0e59c580b58d5f6dd847f77314deef2cf324e3
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Thu Nov 15 19:23:03 2018 +0700
+
+    coba API
+
+commit 707d4266b2603554db9a7e13aba21d60ead41cd1
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Thu Nov 15 15:33:33 2018 +0700
+
+    database
+
+commit ed96dabd404f840a5c8dc254c384343e0e8aee4e
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Thu Nov 15 14:40:01 2018 +0700
+
+    Tambahan database
+
+commit 780e94d64ad138909c98142b44b90e087520f1db
+Author: Mohammad Romano Diansyah <romano.diansyah@gmail.com>
+Date:   Thu Nov 15 00:02:03 2018 +0700
+
+    Update backend database
+
+commit 83a90b723c60387c8fa5eae59855b026608f577e
+Author: Sony Vaio <nuhsatria@gmail.com>
+Date:   Wed Nov 14 22:27:36 2018 +0700
+
+    backend
+
+commit 7831463e1e2126d9336ea8570b7106f1eb651eef
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Nov 13 16:05:31 2018 +0700
+
+    add login page
+
+commit 4ba090990795d084a52341455ae25c35c9b2ea72
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Nov 13 16:04:24 2018 +0700
+
+    tambah komponen login-page
+
+commit 26790928d47567b91f49b104afd4f9ffb1d7e655
+Author: prasetyopamb <prasetyopambudi11@gmail.com>
+Date:   Tue Nov 13 15:48:11 2018 +0700
+
+    add frontend
+
+commit fec64378597df2091841929d71d08494c50f3cb5
+Author: romanodiansyah <romano.diansyah@gmail.com>
+Date:   Thu Sep 6 09:32:36 2018 +0700
+
+    Initial commit
