@@ -16,7 +16,7 @@ class Beasiswa extends Authenticatable
     protected $fillable = [
         'id_adm','nama','deskripsi','persyaratan','jenjangPendidikan',
         'semester','ipkMin','berkas','pembukaan', 'penutupan', 'jumlah_daftar',
-        'sk', 'pendonor', 'status_aktif'
+        'sk', 'pendonor', 'status_aktif','alamat_berkas','alamat_foto',
     ];
 
     protected $hidden = [
