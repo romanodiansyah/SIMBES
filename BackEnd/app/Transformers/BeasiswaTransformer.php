@@ -27,6 +27,8 @@ class BeasiswaTransformer extends TransformerAbstract
             "jumlah_daftar"     => $beasiswa->jumlah_daftar,
             "sk"                => $beasiswa->sk,
             "pendonor"          => $beasiswa->pendonor,
+            "alamat_berkas"     => $beasiswa->alamat_berkas,
+            "alamat_foto"       => $beasiswa->alamat_foto,
             "updated"           => $beasiswa->updated_at->diffForHumans(),
             'registered'        => $beasiswa->created_at->diffForHumans(),
             //

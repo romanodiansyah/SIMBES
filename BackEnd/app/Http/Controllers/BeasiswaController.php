@@ -5,6 +5,7 @@ use App\Beasiswa;
 use Auth;
 use App\Transformers\BeasiswaTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class BeasiswaController extends Controller
 {
@@ -27,7 +28,6 @@ class BeasiswaController extends Controller
             'pendonor'          => 'required',
             'status_aktif'      => 'required',
         ]); 
-
         $beasiswa = $beasiswa->create([
             'id_adm'            => $request->id_adm,
             'nama'              => $request->nama,
@@ -43,8 +43,20 @@ class BeasiswaController extends Controller
             'sk'                => $request->sk,
             'pendonor'          => $request->pendonor,
             'status_aktif'      => $request->status_aktif,
+            ''
         ]);
-        
+        if ($request->hasFile('alamat_foto')){
+           $ext = Input::file('alamat_foto')->getClientOriginalExtension();
+           $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/foto",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+           $beasiswa->alamat_foto=$path;
+           $beasiswa->save();
+        }
+        if ($request->hasFile('alamat_berkas')){
+            $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
+            $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/berkas",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+            $beasiswa->alamat_berkas=$path;
+            $beasiswa->save();
+         }
         return response()->json($beasiswa, 201);
 
     }
@@ -55,11 +67,22 @@ class BeasiswaController extends Controller
             'id_adm'            => 'required',
         ]);
 
-        $updatebeasiswa = Beasiswa::findOrFail($request->id_beasiswa);
+        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
         
-        $updatebeasiswa->update($request->all());
-        
-        return $updatebeasiswa;
+        $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
+        if ($request->hasFile('alamat_foto')){
+            $ext = Input::file('alamat_foto')->getClientOriginalExtension();
+            $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/foto",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+            $beasiswa->alamat_foto=$path;
+            $beasiswa->save();
+         }
+         if ($request->hasFile('alamat_berkas')){
+             $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
+             $path = $request->alamat_berkas->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/berkas",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+             $beasiswa->alamat_berkas=$path;
+             $beasiswa->save();
+          }
+        return $beasiswa;
     }
     public function deleteBeasiswa(Request $request, Beasiswa $beasiswa)
     {

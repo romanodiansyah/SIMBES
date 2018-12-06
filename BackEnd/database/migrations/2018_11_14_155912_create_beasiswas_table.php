@@ -30,7 +30,8 @@ class CreateBeasiswasTable extends Migration
             $table->string('pendonor');
             $table->timestamps();
             $table->integer('status_aktif');
-
+            $table->string('alamat_berkas')->default('0');
+            $table->string('alamat_foto')->default('0');
             $table->foreign('id_adm')->references('id_adm')->on('admins')->onDelete('cascade');
         });
     }

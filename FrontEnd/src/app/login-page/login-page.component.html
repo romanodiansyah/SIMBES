@@ -1,11 +1,11 @@
 <body>
 
   <div class="container">
-    <form (submit)="loginuser($event)">
+    <form (ngSubmit)="myform">
       <span class="title">Login</span>
 
       <div class="inputbox" data-validate = "Email is not valid">
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email" placeholder="Email" formControlName="email" required>
       </div>
 
       <div class="inputbox" data-validate="Password is not valid">
