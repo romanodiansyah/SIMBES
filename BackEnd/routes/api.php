@@ -27,5 +27,5 @@ Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin'
 
 //beasiswa
 Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
-Route::put('beasiswa/update', 'BeasiswaController@updateBeasiswa');
+Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
 Route::delete('beasiswa/delete', 'BeasiswaController@deleteBeasiswa');
