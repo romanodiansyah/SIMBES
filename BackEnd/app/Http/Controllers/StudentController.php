@@ -75,7 +75,7 @@ class StudentController extends Controller
             ->item($student)
             ->transformWith(new studentTransformer)
             ->addMeta([
-                'foto' => $request->all()
+                'updated' => $request->all()
             ])
             ->toArray();
     }
