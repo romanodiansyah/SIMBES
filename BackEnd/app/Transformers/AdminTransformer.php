@@ -14,6 +14,7 @@
                 'nama'          => $admin->nama,
                 'jenis_kelamin' => $admin->jenis_kelamin,
                 'email'         => $admin->email,
+                'status_aktif'  => $admin->status_aktif,
                 'registered'    => $admin->created_at->diffForHumans(),
             ];
         }

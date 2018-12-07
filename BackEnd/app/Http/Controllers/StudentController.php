@@ -33,39 +33,36 @@ class StudentController extends Controller
         $student->telepon = $request->telepon;
         $student->no_hp = $request->no_hp;
         
+        $folder = $student->id_user.'-'.$student->nama;
+            
         if($request->hasFile('alamat_transkrip')){
             $file = $request->file('alamat_transkrip');
             $ext = $file->getClientOriginalExtension();
-            $filename = $student->id_user.'-'.$student->nama;
-            $path = $file->storeAs('student/berkas/'.$filename, 'transkrip.'.$ext);
+            $path = $file->storeAs('student/berkas/'.$folder, 'transkrip.'.$ext);
             $student->alamat_transkrip = $path;
         }
         if($request->hasFile('alamat_kk')){
             $file = $request->file('alamat_kk');
             $ext = $file->getClientOriginalExtension();
-            $filename = $student->id_user.'-'.$student->nama;
-            $path = $file->storeAs('student/berkas/'.$filename, 'kk.'.$ext);
+            $path = $file->storeAs('student/berkas/'.$folder, 'kk.'.$ext);
             $student->alamat_kk = $path;
         }
         if($request->hasFile('alamat_fotodiri')){
             $file = $request->file('alamat_fotodiri');
             $ext = $file->getClientOriginalExtension();
-            $filename = $student->id_user.'-'.$student->nama;
-            $path = $file->storeAs('student/berkas/'.$filename, 'fotodiri.'.$ext);
+            $path = $file->storeAs('student/berkas/'.$folder, 'fotodiri.'.$ext);
             $student->alamat_fotodiri = $path;
         }
         if($request->hasFile('alamat_slipgaji')){
             $file = $request->file('alamat_slipgaji');
             $ext = $file->getClientOriginalExtension();
-            $filename = $student->id_user.'-'.$student->nama;
-            $path = $file->storeAs('student/berkas/'.$filename, 'slipgaji.'.$ext);
+            $path = $file->storeAs('student/berkas/'.$folder, 'slipgaji.'.$ext);
             $student->alamat_slipgaji = $path;
         }
         if($request->hasFile('alamat_sktm')){
             $file = $request->file('alamat_sktm');
             $ext = $file->getClientOriginalExtension();
-            $filename = $student->id_user.'-'.$student->nama;
-            $path = $file->storeAs('student/berkas/'.$filename, 'sktm.'.$ext);
+            $path = $file->storeAs('student/berkas/'.$folder, 'sktm.'.$ext);
             $student->alamat_sktm = $path;
         }
 

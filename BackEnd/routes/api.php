@@ -9,7 +9,11 @@ Route::get('admins', 'AdminController@admins');
 
 Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::get('admin/beranda', 'AdminController@home');
+    Route::post('admin/update/profile', 'AdminController@update');
+    Route::post('admin/deactive', 'AdminController@deactive');
+    //student
     Route::get('admin/list/student','AdminController@listStudent');
+    Route::get('admin/student/{student}','AdminController@readStudentById');
     Route::post('admin/create/student', 'AuthController@createStudent');
     Route::put('admin/update/student/{student}','AdminController@updateStudent');
     Route::post('admin/deactive/student/{student}', 'AdminController@deactiveStudent');

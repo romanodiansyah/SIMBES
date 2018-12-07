@@ -30,6 +30,44 @@ class AdminController extends Controller
             ->toArray();
     }
 
+    public function update(Request $request, Admin $admin){
+        $this->validate($request, [
+            'no_pegawai'    => 'unique:admins',
+            'email'         => 'email|unique:admins',
+        ]);
+
+        $admin = $admin->find(Auth::user()->id_adm);
+        $admin->no_pegawai = $request->get('no_pegawai',$admin->no_pegawai);
+        $admin->nama = $request->get('nama',$admin->nama);
+        $admin->jenis_kelamin = $request->get('jenis_kelamin',$admin->jenis_kelamin);
+        $admin->email = $request->get('email',$admin->email);
+        $admin->save();
+
+        return fractal()
+            ->item($admin)
+            ->transformWith(new AdminTransformer)
+            ->addMeta([
+                'updated' => $request->all()
+            ])
+            ->toArray();
+    }
+
+    public function deactive(Admin $admin){
+        $admin = $admin->find(Auth::user()->id_adm);
+        if($admin->status_aktif == 1){
+            $admin->update(['status_aktif' => 0]);
+        }
+        else{
+            $admin->update(['status_aktif' => 1]);
+        }
+
+        return fractal()
+        ->item($admin)
+        ->transformWith(new AdminTransformer)
+        ->toArray();
+    }
+
+    // STUDENT
     public function listStudent(Student $student){
         $students = $student->all();
 
@@ -37,6 +75,15 @@ class AdminController extends Controller
             ->collection($students)
             ->transformWith(new StudentTransformer)
             ->toArray();        
+    }
+
+    public function readStudentById(Student $student){
+        $student = $student->find($student->id_user);
+
+        return fractal()
+            ->collection($student)
+            ->transformWith(new StudentTransformer)
+            ->toArray();    
     }
 
     public function updateStudent(Request $request, Student $student){
@@ -68,6 +115,9 @@ class AdminController extends Controller
         return fractal()
             ->item($student)
             ->transformWith(new studentTransformer)
+            ->addMeta([
+                'updated' => $request->all()
+            ])
             ->toArray();
     }
 
