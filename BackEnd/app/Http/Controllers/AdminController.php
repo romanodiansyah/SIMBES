@@ -40,17 +40,30 @@ class AdminController extends Controller
     }
 
     public function updateStudent(Request $request, Student $student){
-        $student = $student->find($student->id_user);
+        $this->validate($request, [
+            'nama'          => 'required',
+            'email'         => 'required|email|unique:students',
+            'jenis_kelamin' => 'required',
+            'password'      => 'required|min:6',
+            'jurusan'       => 'required',
+            'fakultas'      => 'required',
+            'status_aktif'  => 'required'
+        ]);
 
-        $student->nama = $request->nama;
-        $student->email = $request->email;
-        $student->jenis_kelamin = $request->jenis_kelamin;
-        $student->password = bcrypt($request->jenis_password);
-        $student->api_token = bcrypt($request->email);
-        $student->alamat = $request->alamat;
-        $student->telepon = $request->telepon;
-        $student->no_hp = $request->no_hp;
-        $student->save();
+        $student = $student->find($student->id_user);
+        $student->update([
+            'nama'          => request('nama'),
+            'email'         => request('email'),
+            'jenis_kelamin' => request('jenis_kelamin'),
+            'password'      => bcrypt(request('password')),
+            'api_token'     => bcrypt(request('api_token')),
+            'alamat'        => request('alamat'),
+            'telepon'       => request('telepon'),
+            'no_hp'         => request('no_hp'),
+            'status_aktif'  => request('status_aktif'),
+            'jurusan'       => request('jurusan'),
+            'fakultas'      => request('fakultas'),
+        ]);
 
         return fractal()
             ->item($student)
@@ -60,9 +73,12 @@ class AdminController extends Controller
 
     public function deactiveStudent(Student $student){
         $student = $student->find($student->id_user);
-
-        $student->status_aktif = 0;
-        $student->save();
+        if($student->status_aktif == 1){
+            $student->update(['status_aktif' => 0]);
+        }
+        else{
+            $student->update(['status_aktif' => 1]);
+        }
 
         return fractal()
         ->item($student)

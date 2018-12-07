@@ -71,6 +71,8 @@ class AuthController extends Controller
             'jenis_kelamin' => 'required',
             'email'         => 'required|email|unique:students',
             'password'      => 'required|min:6',
+            'jurusan'       => 'required',
+            'fakultas'      => 'required'
         ]); 
          $student = $student->create([
             'nama'          => $request->nama,
@@ -78,7 +80,9 @@ class AuthController extends Controller
             'email'         => $request->email,
             'api_token'     => bcrypt($request->email),
             'password'      => bcrypt($request->password),
-            'status_aktif'  => 1
+            'status_aktif'  => 1,
+            'jurusan'       => $request->jurusan,
+            'fakultas'      => $request->fakultas,
         ]);
          $response = fractal()
             ->item($student)

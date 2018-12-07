@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
 Route::post('auth/login','AuthController@loginStudent');
 Route::group(['middleware' => ['auth:student-api']], function () {
     Route::get('beranda', 'StudentController@home');
-    Route::put('update/profile/{profile}','StudentController@updateProfile');
+    Route::post('update/profile/{profile}','StudentController@updateProfile');
 
 });
 Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');

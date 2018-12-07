@@ -16,6 +16,9 @@
                 'telepon'       => $student->telepon,
                 'no_hp'         => $student->no_hp,
                 'status_aktif'  => $student->status_aktif,
+                'jurusan'       => $student->jurusan,
+                'fakultas'      => $student->fakultas,
+                'alamat_transkrip' => $student->alamat_transkrip,
                 'registered'    => $student->created_at->diffForHumans(),
             ];
         }
