@@ -1,0 +1,95 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Fuse</span>
+        </div>
+
+        <div class="title">Directory Structure</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="directory-structure">
+
+            <!-- DIRECTORY STRUCTURE -->
+            <span class="h3 section-title">Demo Structure</span>
+            <p>
+                Here you can see the directory structure of the Fuse:
+            </p>
+            <p class="note">
+                <b>Note:</b> This directory structure is from the demo application. Skeleton project may have a
+                slightly different structure.
+            </p>
+
+            <div class="mv-24" layout="row" layout-align="start start">
+                <div>
+                    <img src="assets/docs/directory-structure.png">
+                </div>
+
+                <div class="pl-32" flex>
+                    <span class="h3 sub-section-title">app/core</span>
+                    <p>
+                        Contains all the core elements that required for Fuse to work. It's highly recommended NOT to
+                        touch or modify anything inside the core directory so you can easily update the template when
+                        a new version released.
+                    </p>
+
+                    <span class="h3 sub-section-title">app/data</span>
+                    <p>
+                        Contains all the json files that holds demo data. We are using json files to emulate API calls
+                        and the data flow. These json files are good for seeing the data structure we are using in our
+                        demo applications so you can use similar data structure to minimize your work.
+                    </p>
+
+                    <span class="h3 sub-section-title">app/main</span>
+                    <p>
+                        Contains all the modules from theme demo. Apps, Components, Custom Pages and everything else you
+                        can see in the theme demo are located in this directory.
+                    </p>
+
+                    <span class="h3 sub-section-title">app/navigation</span>
+                    <p>
+                        Contains the main navigation sidenav.
+                    </p>
+
+                    <span class="h3 sub-section-title">app/quick-panel</span>
+                    <p>
+                        Contains the extra sidenav called Quick Panel.
+                    </p>
+
+                    <span class="h3 sub-section-title">app/toolbar</span>
+                    <p>
+                        Contains the main toolbar module. It's separated from the core as the same reason with the
+                        sidenav modules.
+                    </p>
+
+                    <span class="h3 sub-section-title">index.***.js</span>
+                    <p>
+                        These files are the entry point of the main (fuse) application. Fuse is an Angular module by
+                        itself. It means you can either create your app on top of the Fuse, or you can add Fuse as
+                        another module into your current project. Keep in mind, adding Fuse into your own app as a
+                        module might require some extra work.
+                    </p>
+
+                    <span class="h3 sub-section-title">index.scss</span>
+                    <p>
+                        This is the main scss file. DO NOT REMOVE it as all the other scss files will be injected into
+                        this file before compiled to a css file.
+                    </p>
+
+                </div>
+            </div>
+            <!-- / DIRECTORY STRUCTURE -->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

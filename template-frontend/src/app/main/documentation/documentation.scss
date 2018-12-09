@@ -1,0 +1,127 @@
+.doc-page {
+    font-size: 1.4rem;
+    line-height: 1.5;
+
+    a {
+        border-bottom: 1px dotted;
+
+        &:hover {
+            text-decoration: none;
+            border-bottom: 1px solid;
+        }
+    }
+
+    > .header {
+        height: 140px !important;
+        min-height: 140px !important;
+        max-height: 140px !important;
+        padding: 24px !important;
+    }
+
+    > .content {
+        max-width: 960px;
+
+        .note {
+            padding: 16px;
+            background: material-color('amber', '100');
+            border: 1px solid material-color('amber', '200');
+        }
+
+        .section-title {
+            display: inline-block;
+            margin: 24px 0 2px 0;
+            border-bottom: 1px solid;
+            color: material-color('red', '800');
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+
+        .sub-section-title {
+            @extend .section-title;
+            color: material-color('red', '300');
+        }
+
+        .step-by-step {
+
+            li {
+                margin: 0 0 16px 0;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        .source-code {
+            position: relative;
+            background: #EBEDF1;
+            border: 1px solid #BEC2BE;
+            margin: 8px 0;
+
+            [hljs], hljs {
+                display: block;
+                background-color: transparent;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            pre {
+                white-space: pre;
+            }
+        }
+
+        .text-boxed {
+            font-family: $font-family-code;
+            font-size: 1.3rem;
+            margin: 0;
+            background: #EBEDF1;
+            color: rgba(0, 0, 0, 0.87);
+        }
+    }
+}
+
+// RESPONSIVE
+@media screen and (max-width: $layout-breakpoint-xs) {
+
+    .doc-page {
+
+        .source-code {
+            min-height: 120px;
+        }
+
+        > .header {
+
+            .reference-button {
+                margin: 0;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .content {
+
+            .ms-responsive-table-wrapper {
+
+                table {
+
+                    tbody {
+
+                        td {
+
+                            &.description {
+                                min-width: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
