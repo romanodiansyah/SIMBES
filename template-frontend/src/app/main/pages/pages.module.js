@@ -18,10 +18,7 @@
             'app.pages.maintenance',
             'app.pages.profile',
             'app.pages.search',
-            'app.pages.timeline',
-            'app.pages.admin.login',
-            'app.pages.lembaga.login-v2',
-            // 'app.pages.lembaga.project'
+            'app.pages.timeline'
         ])
         .config(config);
 
