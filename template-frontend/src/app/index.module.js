@@ -23,31 +23,31 @@
             'app.toolbar',
 
             // Quick Panel
-            'app.quick-panel',
+            // 'app.quick-panel',
 
             // Apps
             'app.dashboards',
             'app.calendar',
-            'app.e-commerce',
-            'app.mail',
-            'app.chat',
-            'app.file-manager',
-            'app.gantt-chart',
-            'app.scrumboard',
-            'app.todo',
-            'app.contacts',
-            'app.notes',
+            // 'app.e-commerce',
+            // 'app.mail',
+            // 'app.chat',
+            // 'app.file-manager',
+            // 'app.gantt-chart',
+            // 'app.scrumboard',
+            // 'app.todo',
+            // 'app.contacts',
+            // 'app.notes',
 
             // Pages
             'app.pages',
 
             // User Interface
-            'app.ui',
+            'app.ui'
 
             // Components
-            'app.components',
+            // 'app.components'
 
             // Documentation
-            'app.documentation'
+            // 'app.documentation'
         ]);
 })();
