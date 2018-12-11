@@ -13,7 +13,7 @@ use Auth;
 class BeritaController extends Controller
 {
     public function listBerita(Berita $berita){
-        $beritas = $berita->all();
+        $beritas = $berita->latest()->paginate(10);
 
         return fractal()
             ->collection($beritas)
@@ -80,5 +80,16 @@ class BeritaController extends Controller
             'message' => $msg
         ])
         ->toArray();
+    }
+
+    public function search($key){
+        $beritas = Berita::where('judul','LIKE','%'.$key.'%')
+            ->orwhere('deskripsi','LIKE','%'.$key.'%')
+            ->latest()->paginate(10);
+        
+        return fractal()
+            ->collection($beritas)
+            ->transformWith(new BeritaTransformer)
+            ->toArray();    
     }
 }

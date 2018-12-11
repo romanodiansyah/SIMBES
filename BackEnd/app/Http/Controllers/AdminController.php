@@ -13,7 +13,7 @@ use Auth;
 class AdminController extends Controller
 {
     public function admins(Admin $admin){
-        $admins = $admin->all();
+        $admins = $admin->latest()->paginate(10);
 
         return fractal()
             ->collection($admins)

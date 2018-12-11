@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::get('admin/news/{berita}','BeritaController@readBerita');
     Route::put('admin/update/news/{berita}','BeritaController@update');
     Route::put('admin/deactivate/news/{berita}', 'BeritaController@deactivate');
+    
 });
 
 // STUDENT
@@ -32,10 +33,11 @@ Route::post('auth/login','AuthController@loginStudent');
 Route::group(['middleware' => ['auth:student-api']], function () {
     Route::get('beranda', 'StudentController@home');
     Route::post('update/profile/{profile}','StudentController@updateProfile');
-
+    //berita
+    
 });
 Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');
-
+Route::get('news/search/{key}','BeritaController@search');
 //beasiswa
 Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
 Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
