@@ -25,4 +25,9 @@ class Student extends Authenticatable
     protected $hidden = [
         'password','api_token'
     ];
+
+    public function student()
+    {
+        return $this->hasOne('App\Student','id_user');
+    }
 }

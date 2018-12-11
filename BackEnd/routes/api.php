@@ -8,15 +8,22 @@ Route::post('auth/admin/login','AuthController@loginAdmin');
 Route::get('admins', 'AdminController@admins');
 
 Route::group(['middleware' => ['auth:admin-api']], function(){
+    //admin
     Route::get('admin/beranda', 'AdminController@home');
     Route::post('admin/update/profile', 'AdminController@update');
-    Route::post('admin/deactive', 'AdminController@deactive');
+    Route::post('admin/deactivate', 'AdminController@deactivate');
     //student
     Route::get('admin/list/student','AdminController@listStudent');
-    Route::get('admin/student/{student}','AdminController@readStudentById');
+    Route::get('admin/student/{student}','AdminController@readStudent');
     Route::post('admin/create/student', 'AuthController@createStudent');
     Route::put('admin/update/student/{student}','AdminController@updateStudent');
-    Route::post('admin/deactive/student/{student}', 'AdminController@deactiveStudent');
+    Route::post('admin/deactivate/student/{student}', 'AdminController@deactivateStudent');
+    // berita
+    Route::post('admin/create/news','BeritaController@createNews');
+    Route::get('admin/list/news','BeritaController@listBerita');
+    Route::get('admin/news/{berita}','BeritaController@readBerita');
+    Route::put('admin/update/news/{berita}','BeritaController@update');
+    Route::put('admin/deactivate/news/{berita}', 'BeritaController@deactivate');
 });
 
 // STUDENT
