@@ -1,0 +1,241 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Api Services</span>
+        </div>
+
+        <div class="title">Method 1</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="api-services-method-1">
+
+            <p>
+                Fuse comes with 2 different methods for APIs. They are nothing more than convenient ways of storing and
+                calling $resource objects.
+            </p>
+
+            <p>
+                If you prefer to keep all your API endpoint definitions in one place than you should use this
+                method to store and request your API objects. This method uses
+                <span class="text-boxed">/app/index.api.js</span> and
+                <span class="text-boxed">/app/core/services/api-resolver.service.js</span> files.
+            </p>
+
+            <p>
+                You can use <span class="text-boxed">/app/index.api.js</span> file to store your API endpoint
+                definitions and <span class="text-boxed">/app/core/services/api-resolver.service.js</span> service
+                to resolve your APIs in state definitions.
+            </p>
+
+            <br>
+
+            <!-- defining api endpoints -->
+            <span class="h3 section-title">Defining API Endpoints</span>
+            <p>
+                Here's a very simple API url definition example:
+                <hljs lang="js" class="source-code">
+                    api.getBlogList = $resource('http://api.example.com/getBlogList');
+                </hljs>
+            </p>
+
+            <p>
+                While the above example is a perfectly valid $resource definition, most of the time you will
+                find yourself in a more complex situation where you want url parameters like these:
+                <hljs lang="js" class="source-code">
+                    api.getBlogById = $resource('http://api.example.com/blog/:id', {id: '@id'});
+                </hljs>
+            </p>
+
+            <p>
+                You can also define your custom methods. Custom method definitions allow you to
+                add hardcoded parameters to your API calls that you want to sent every time you
+                make that API call:
+                <hljs lang="js" class="source-code">
+                    api.getBlogById = $resource('http://api.example.com/blog/:id', {id: '@id'}, {
+                        'getFromHomeCategory': {
+                            method: 'GET',
+                            params: {blogCategory: 'home'}
+                        }
+                    });
+                </hljs>
+            </p>
+
+            <p>
+                In addition to these definitions, you can also create multi-dimensional objects.
+                They are nothing to do with the $resource object, it's just a more convenient
+                way that we have created for you to packing your related API urls together:
+                <hljs lang="js" class="source-code">
+                    api.blog = {
+                        list     : $resource('http://api.example.com/blog'),
+                        getById  : $resource('http://api.example.com/blog/:id', {id: '@id'}),
+                        getByDate: $resource('http://api.example.com/blog/:date', {id: '@date'},
+                                {
+                                    get: {
+                                        method: 'GET',
+                                        params: {
+                                            getByDate: true
+                                        }
+                                    }
+                                }
+                        )
+                    }
+                </hljs>
+            </p>
+
+            <p>
+                If you look at the above example, we overrode the 'get' method to put a hardcoded parameter.
+                Now every time we make the <b>getByDate</b> call, the <span class="text-boxed">{getByDate: true}</span>
+                object will also be sent along with whatever data we are sending.
+            </p>
+
+            <p>
+                All the above methods are using standard $resource service. You can learn more about
+                it at: <a href="https://docs.angularjs.org/api/ngResource/service/$resource">https://docs.angularjs.org/api/ngResource/service/$resource</a>
+            </p>
+            <!-- /defining api endpoints -->
+
+            <!-- using defined api endpoints -->
+            <span class="h3 section-title">Using Defined API Endpoints</span>
+            <p>
+                After you defined your API urls, you can use them in Controllers, Services and even
+                in the UIRouter state definitions.
+            </p>
+
+            <p>
+                If we use the last example from above, you can do an API call in your Controllers and
+                Services like this:
+                <hljs lang="js" class="source-code">
+                    function MyController(api)
+                    {
+                        // Get the blog list
+                        api.blog.list.get({},
+
+                                // Success
+                                function (response)
+                                {
+                                    console.log(response);
+                                },
+
+                                // Error
+                                function (response)
+                                {
+                                    console.error(response);
+                                }
+                        );
+
+                        // Get the blog with the id of 3
+                        var id = 3;
+                        api.blog.getById.get({'id': id},
+
+                                // Success
+                                function (response)
+                                {
+                                    console.log(response);
+                                },
+
+                                // Error
+                                function (response)
+                                {
+                                    console.error(response);
+                                }
+                        );
+
+                        // Get the blog with the date by using custom defined method
+                        var date = 112314232132;
+                        api.blog.getByDate.get({'date': date},
+
+                                // Success
+                                function (response)
+                                {
+                                    console.log(response);
+                                },
+
+                                // Error
+                                function (response)
+                                {
+                                    console.error(response);
+                                }
+                        );
+                    }
+                </hljs>
+                Because we are directly using the $resource service, all your API calls will return a
+                $promise object.
+            </p>
+
+            <p>
+                ---
+            </p>
+
+            <p>
+                If you want to do the same calls in your UI Router state definitions, you need to use
+                "apiResolver" service we have prepared for you:
+                <hljs lang="js" class="source-code">
+                    $stateProvider.state('app.blog', {
+                        url    : '/blog',
+                        views  : {
+                            'content@app': {
+                                templateUrl: 'app/main/apps/blog/blog.html',
+                                controller : 'BlogController as vm'
+                            }
+                        },
+                        resolve: {
+                            Blog: function (apiResolver)
+                            {
+                                return apiResolver.resolve('blog.list@get');
+                            }
+                        }
+                    });
+                </hljs>
+            </p>
+
+            <p>
+                You can even use parameters with apiResolver service:
+                <hljs lang="js" class="source-code">
+                    $stateProvider.state('app.blog.show', {
+                        url    : '/blog/:id',
+                        views  : {
+                            'content@app': {
+                                templateUrl: 'app/main/apps/blog/blog.html',
+                                controller : 'BlogController as vm'
+                            }
+                        },
+                        resolve: {
+                            Blog: function (apiResolver, $stateParams)
+                            {
+                                return apiResolver.resolve('blog.getById@get', {'id': $stateParams.id);
+                            }
+                        }
+                    });
+                </hljs>
+            </p>
+
+            <p>
+                And the "Blog" object will be available in your BlogController:
+                <hljs lang="js" class="source-code">
+                    function BlogController(Blog)
+                    {
+                        var vm = this;
+
+                        // Data
+                        vm.blog = Blog;
+                    }
+                </hljs>
+            </p>
+            <!-- /using defined api endpoints -->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

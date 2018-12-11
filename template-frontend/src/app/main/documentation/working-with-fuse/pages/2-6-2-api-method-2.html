@@ -1,0 +1,298 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Api Services</span>
+        </div>
+
+        <div class="title">Method 2</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="api-services-method-2">
+
+            <p>
+                Fuse comes with 2 different methods for APIs. They are nothing more than convenient ways of storing and
+                calling $resource objects.
+            </p>
+
+            <p>
+                If you want to keep all your API endpoint definitions separated from each other than this is the
+                suitable method for you. In Fuse, all the applications and pages that requires a simulated API
+                call are using this method. Mainly because with using this method, we are following the modular
+                structure of the Fuse. Every module can live by itself and removing one will not affect others or
+                will not left any unnecessary codes behind.
+            </p>
+
+            <p>
+                This method requires the <b>msApi</b> service which can be found in
+                <span class="text-boxed">/app/core/services/ms-api.provider.js</span> file.
+            </p>
+
+            <br>
+
+            <!-- defining api endpoints -->
+            <span class="h3 section-title">Defining API Endpoints</span>
+            <p>
+                To register your API endpoints, you can use the following method in the <b>config</b> blocks
+                of your modules:
+
+                <hljs lang="js" class="source-code">
+                    /** @ngInject */
+                    function config($stateProvider, msApiProvider)
+                    {
+                        // State
+                        $stateProvider.state('app.somepage', {
+                            url    : '/somepage',
+                            views  : {
+                                // ...
+                            },
+                            resolve: {
+                                PageData: function (msApi)
+                                {
+                                    return msApi.resolve('app.somepage@get');
+                                }
+                            }
+                        });
+
+                        // Api
+                        msApiProvider.register('app.somepage', ['http://myapi.com/pageData']);
+                    }
+                </hljs>
+            </p>
+
+            <p>
+                If we look at the above example, you can see that we registered our API endpoint using the
+                <span class="text-boxed">msApiProvider.register()</span> method and then resolved it in the
+                state definition by using the<span class="text-boxed">msApi.resolve()</span> method.
+            </p>
+
+            <p class="note">
+                Keep in mind, <b>msApi</b> and <b>msApiProvider</b> are essentially the same service. It has both
+                provider and a normal service so you can inject it into Config blocks as well as into Controllers
+                and other Services.
+            </p>
+            <!-- / defining api endpoints -->
+
+            <!-- register -->
+            <span class="h3 section-title">Register</span>
+            <p>
+                <b>register</b> method is available in both <span class="text-boxed">msApi</span> and
+                <span class="text-boxed">msApiProvider</span>.
+                <hljs lang="js" class="source-code">
+                    msApiProvider.register(Name, Resource);
+                </hljs>
+                <hljs lang="js" class="source-code">
+                    msApi.register(Name, Resource);
+                </hljs>
+            </p>
+
+            <div class="simple-table-container md-whiteframe-1dp mv-16">
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>
+                                (string) Name of the API definition. This will be used for finding the API.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Resource</td>
+                            <td>
+                                (array) Resource definition. You can define your resource here just like defining a
+                                $resource.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                ---
+            </p>
+
+            <p>
+                The <b>resource</b> parameter is essentially the exact same thing that you would put into a
+                <b>$resource</b> service. So lets say you have the following <b>$resource</b> definition:
+                <hljs lang="js" class="source-code">
+                    $resource(url, paramDefaults, actions, options);
+                </hljs>
+                You would simply put definitions inside the resource array just like you were defining a $resource
+                object:
+                <hljs lang="js" class="source-code">
+                    msApiProvider.register('getBlog', [url, paramDefaults, actions, options]);
+                </hljs>
+                Basically, we moved everything from inside the <b>$resource</b> definition into the <b>resource</b>
+                array. The <b>paramDefaults</b>, <b>actions</b> and <b>options</b> are optional just like they are
+                in the $resource.
+            </p>
+            <!-- register -->
+
+            <!-- request -->
+            <span class="h3 section-title">Request</span>
+            <p>
+                To call the APIs in Controllers and other Services, you can use the <span
+                    class="text-boxed">request</span>
+                method. It is only available in <span class="text-boxed">msApi</span> service.
+                <hljs lang="js" class="source-code">
+                    msApi.request(Action, Parameters, Success, Error);
+                </hljs>
+            </p>
+
+            <div class="simple-table-container md-whiteframe-1dp mv-16">
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Action</td>
+                            <td>
+                                (string) API action. This will be used to call the API. Must be separated with an @
+                                symbol: "ApiName@RequestMethod"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters [Optional]</td>
+                            <td>
+                                (object) Optional parameters for the API call.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Success [Optional]</td>
+                            <td>
+                                (function) Optional success call that will be triggered after a successful call.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Error [Optional]</td>
+                            <td>
+                                (function) Optional error call that will be triggered after a failed call.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                <hljs lang="js" class="source-code">
+                    /** @ngInject */
+                    function BlogController(msApi)
+                    {
+                        var vm = this;
+
+                        // Data
+                        vm.blogId = 3;
+
+                        //////////
+                        msApi.request('getBlog@get', {id: vm.blogId},
+
+                                // SUCCESS
+                                function (response)
+                                {
+                                    console.log(response.data)
+                                },
+
+                                // ERROR
+                                function (response)
+                                {
+                                    console.error(response.data)
+                                }
+                        );
+                    }
+                </hljs>
+            </p>
+            <!-- /request -->
+
+            <!-- resolve -->
+            <span class="h3 section-title">Resolve</span>
+            <p>
+                <b>resolve</b> is a special method that you can use in the state definitions. It will return a promise
+                object and is only available in <span class="text-boxed">msApiProvider</span>.
+                <hljs lang="js" class="source-code">
+                    msApiProvider.request(Action, Parameters);
+                </hljs>
+            </p>
+
+            <div class="simple-table-container md-whiteframe-1dp mv-16">
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Action</td>
+                            <td>
+                                (string) API action. This will be used to call the API. Must be separated with an @
+                                symbol: "ApiName@RequestMethod"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters [Optional]</td>
+                            <td>
+                                (object) Optional parameters for the API call.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                <hljs lang="js" class="source-code">
+                    /** @ngInject */
+                    function config($stateProvider, msApiProvider)
+                    {
+                        // State
+                        $stateProvider.state('app.somepage', {
+                            url    : '/somepage',
+                            views  : {
+                                // ...
+                            },
+                            resolve: {
+                                PageData: function (msApi)
+                                {
+                                    return msApi.resolve('app.somepage@get');
+                                }
+                            }
+                        });
+
+                        // Api
+                        msApiProvider.register('app.somepage', ['http://myapi.com/pageData']);
+                    }
+                </hljs>
+            </p>
+            <!-- /request -->
+
+            <p class="note">
+                Angular <b>$resource</b> service has different action names. For example, if you want to make a
+                <b>POST</b> request, you have to use the <b>save</b> action (...@save). Please refer to the <a
+                    href="https://docs.angularjs.org/api/ngResource/service/$resource" target="_blank">
+                official $resource documentation</a> to see the default action names for different request types.
+            </p>
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

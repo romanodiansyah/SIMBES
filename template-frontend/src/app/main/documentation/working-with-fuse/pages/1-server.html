@@ -1,0 +1,66 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+        </div>
+
+        <div class="title">Server</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="server">
+
+            <!-- SERVER -->
+            <span class="h3 section-title">Server</span>
+            <p>
+                As we mentioned before, Fuse uses <b>Yeoman generator for AngularJS with GulpJS</b> for quickly
+                bootstrapping the application and it comes with a built-in server setup so you don't have to worry about
+                setting up a server for your development environment.
+            </p>
+            <p>
+                The built-in server setup uses <a href="https://www.browsersync.io/" target="_blank">browser-sync</a>.
+                There are a lot of benefits of using browser-sync such as testing your app in multiple browser windows
+                and even across multiple devices. Browser-sync will synchronise your actions such as clicking and
+                scrolling across browser windows and devices to make testing easier.
+            </p>
+            <p>
+                To start the server, run the following command in your favorite console application (Terminal, Command
+                Prompt etc.) while in your work folder:
+                <hljs lang="bash" class="source-code">
+                    gulp serve
+                </hljs>
+            </p>
+            <p class="mt-32">
+                This will start up the server, compile scss files, inject dependencies, and will do all other related
+                jobs for you. Then it will automatically fire up your default browser and redirect you to the
+                <b>http://localhost:3000</b> by default.
+            </p>
+            <p>
+                You can check out your console application to get further information about the server. By default, it
+                will run on <b>http://localhost:3000</b> but it might change depending on your setup.
+            </p>
+            <!-- / SERVER -->
+
+            <!-- RELOADING THE SERVER -->
+            <span class="h3 section-title">Reloading the Server</span>
+            <p>
+                The <span class="text-boxed">gulp serve</span> command will watch your files and reload the page for you as you make changes.
+                But for some reason, if you need to manually restart the server, you can do it by pressing <b>Ctrl +
+                C</b> on your keyboard while in the console application and then run the following command once again:
+                <hljs lang="bash" class="source-code">
+                    gulp serve
+                </hljs>
+            </p>
+            <!-- / RELOADING THE SERVER -->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

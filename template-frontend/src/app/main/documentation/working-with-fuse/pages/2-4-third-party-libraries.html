@@ -1,0 +1,88 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Fuse</span>
+        </div>
+
+        <div class="title">Third Party Libraries</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="third-party-libraries">
+
+            <!-- THIRD PARTY LIBRARIES -->
+            <span class="h3 section-title">Third Party Libraries</span>
+            <p>
+                Fuse uses <a href="http://bower.io/" target="_blank">Bower</a> package manager to manage third-party
+                libraries. Combined with the generator, you can add, remove or update third-party libraries in a matter
+                of seconds.
+            </p>
+            <!-- / THIRD PARTY LIBRARIES -->
+
+            <!-- ADDING A THIRD PARTY LIBRARY -->
+            <span class="h3 section-title">Adding a Third-Party Library</span>
+            <p>
+                To add a third party library to your application, open your favorite console application (Terminal,
+                Command Prompt etc.), navigate to your work folder and run the following command by replacing the <b>PACKAGE_NAME</b>
+                with the actual name of the package you want to uninstall:
+                <hljs lang="bash" class="source-code">
+                    bower install PACKAGE_NAME --save
+                </hljs>
+            </p>
+            <p>
+                If you are installing an AngularJS module, then you have to add it as a dependency to your application.
+                You can do that either in <span class="text-boxed">/app/core/core.module.js</span> file or in
+                <span class="text-boxed">/app/index.module.js</span> file.
+            </p>
+            <!-- / ADDING A THIRD PARTY LIBRARY -->
+
+            <!-- REMOVING A THIRD PARTY LIBRARY -->
+            <span class="h3 section-title">Removing a Third-Party Library</span>
+            <p>
+                To remove a third party library from your application, open your favorite console application (Terminal,
+                Command Prompt etc.), navigate to your work folder and run the following command by replacing the <b>PACKAGE_NAME</b>
+                with the actual name of the package you want to install:
+                <hljs lang="bash" class="source-code">
+                    bower uninstall PACKAGE_NAME --save
+                </hljs>
+            </p>
+            <p>
+                If you are uninstalling an AngularJS module, make sure you remove it from your dependencies lists as
+                well. You can check both <span class="text-boxed">/app/core/core.module.js</span> file and
+                <span class="text-boxed">/app/index.module.js</span> file to make sure you remove the dependency
+                injections.
+            </p>
+            <!-- / REMOVING A THIRD PARTY LIBRARY -->
+
+            <p class="note">
+                <b>Note:</b> Other than adding or removing package names to or from the dependency lists, you shouldn't
+                need to anything else to include the actual library into your application. Just reload your server and
+                everything will be injected automatically.
+            </p>
+
+            <p class="note">
+                <b>Note:</b> Sometimes, bower packages might have dependencies to other packages. Normally, uninstalling
+                a package will remove its dependencies only if those dependencies are not in use. If you find yourself
+                with lots of unnecessary packages in your <b>bower_components</b> folder, running
+                <hljs lang="bash" class="source-code">
+                    bower prune
+                </hljs>
+                command will remove all the unnecessary packages. This should only uninstall the packages that are
+                not in use, but you should still be careful. Bower will output the names of the removed modules to the
+                console, so pay attention when you run the above command and make sure it didn't remove any important
+                packages.
+            </p>
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

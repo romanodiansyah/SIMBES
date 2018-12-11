@@ -8,9 +8,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { BerandaMahasiswaComponent } from './beranda-mahasiswa/beranda-mahasiswa.component';
 import { HeaderComponent } from './header/header.component';
-import { BerandaAdminPageComponent } from './beranda-admin-page/beranda-admin-page.component';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http'; 
+import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
 @NgModule({
@@ -19,8 +19,7 @@ import { HttpModule } from '@angular/http';
     LoginPageComponent,
     RegisterPageComponent,
     BerandaMahasiswaComponent,
-    HeaderComponent,
-    BerandaAdminPageComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,13 +37,10 @@ import { HttpModule } from '@angular/http';
       {
         path: 'login',
         component: LoginPageComponent
-      },
-      {
-        path: 'berandaadmin',
-        component: BerandaAdminPageComponent
       }
     ]),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
