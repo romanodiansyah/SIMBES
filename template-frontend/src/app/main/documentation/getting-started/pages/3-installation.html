@@ -1,0 +1,127 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Getting Started</span>
+        </div>
+
+        <div class="title">Installation</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="installation">
+
+            <!-- INSTALLING PREREQUISITES -->
+            <span class="h3 section-title">A. Installing Prerequisites</span>
+            <ol class="step-by-step">
+                <li>
+                    Download and install the latest <a href="https://nodejs.org/en/" target="_blank">Node.js</a> from
+                    its web site.
+                </li>
+
+                <li>
+                    Download and install the latest <a href="https://git-scm.com/" target="_blank">Git</a> from its web
+                    site.
+                </li>
+
+                <li>
+                    Open your favorite console application (Terminal, Command Prompt etc.), run the following command
+                    and wait for it to finish:
+                    <hljs lang="bash" class="source-code">
+                        npm install -g bower
+                    </hljs>
+                </li>
+
+                <li>
+                    Run the following command and wait for it to finish:
+                    <hljs lang="bash" class="source-code">
+                        npm install -g gulp
+                    </hljs>
+                </li>
+            </ol>
+            <p class="mt-24">
+                Now you are ready to install the Fuse.
+            </p>
+            <!-- / PREREQUISITES -->
+
+            <!-- / INSTALLING FUSE-->
+            <span class="h3 section-title">B. Installing Fuse</span>
+            <ol class="step-by-step">
+                <li>
+                    Unzip the zip file that you have downloaded from Themeforest. Inside the zip file, you will find the
+                    Skeleton Project <b>(Fuse-1.x.x.zip)</b> along with the Demo Project <b>(Fuse-1.x.x-demo.zip)</b>,
+                    PSD designs and a readme file.
+                </li>
+                <li>
+                    For this documentation, we will be using the Skeleton Project which is the exact same template minus
+                    the demo content so you don't have to clean up the demo content.
+                </li>
+                <li>
+                    Extract the contents of the zip file <b>(Fuse-1.x.x.zip)</b> into a folder that you will
+                    work within. For this documentation, we will refer that as "<em>your work folder</em>".
+                </li>
+                <li>
+                    Open your favorite console application (Terminal, Command Prompt etc.), navigate into your work
+                    folder, run the following command and wait for it to finish:
+                    <hljs lang="bash" class="source-code">
+                        npm install
+                    </hljs>
+
+                    <p>
+                        This command will install all the required Node.js modules into the <b>node_modules</b>
+                        directory inside your work folder.
+                    </p>
+
+                    <p class="note">
+                        <b>Note:</b> Installing Node.js packages may throw a lot of warnings and errors along the way.
+                        As long as the process finishes without any error notes such as "Killed", you will be fine.
+                    </p>
+                </li>
+
+                <li>
+                    Run the following command and wait it for to finish:
+                    <hljs lang="bash" class="source-code">
+                        bower install
+                    </hljs>
+
+                    <p>
+                        This command will install all the required bower packages into the <b>bower_components</b>
+                        directory inside your work folder.
+                    </p>
+                </li>
+
+                <p>And now, you are ready to run the Fuse for the first time.</p>
+            </ol>
+            <!-- / INSTALLING FUSE-->
+
+            <!-- RUNNING FUSE-->
+            <span class="h3 section-title">C. Running Fuse</span>
+            <ol class="step-by-step">
+                <li>
+                    While still in your work folder, run the following command in the console application:
+                    <hljs lang="bash" class="source-code">
+                        gulp serve
+                    </hljs>
+                </li>
+
+                <p>
+                    And that's it. Gulp will take care everything and start the Fuse. Your default browser will be
+                    opened automatically, and you will be able to navigate through the template.
+                </p>
+                <p>
+                    For more information about gulp commands, check the <a ui-sref="app.working-with-fuse.server">Working
+                    with Fuse</a> section.
+                </p>
+            </ol>
+            <!-- / RUNNING FUSE-->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

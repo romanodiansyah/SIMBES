@@ -17,7 +17,9 @@ class Student extends Authenticatable
         'api_token','password','status_aktif',
         'ipk','no_ktm','jenis_identitas',
         'no_identitas','alamat','telepon','no_hp',
-        'jurusan','fakultas'
+        'jurusan','fakultas', 'alamat_transkrip',
+        'alamat_kk', 'alamat_fotodiri','alamat_kk',
+        'alamat_slipgaji','alamat_sktm'
     ];
 
     protected $hidden = [

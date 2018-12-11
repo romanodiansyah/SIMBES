@@ -1,0 +1,62 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Fuse</span>
+        </div>
+
+        <div class="title">Multilanguage</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="multilanguage">
+
+            <!-- angular-translate -->
+            <span class="h3 section-title">angular-translate</span>
+            <p>
+                Fuse uses <a href="https://angular-translate.github.io/" target="_blank">angular-translate</a> module
+                to manage multiple languages. We already made some configurations and prepared the directory
+                structure for you to quickly start working with it.
+            </p>
+
+            <span class="h3 section-title">Important Notes</span>
+            <p>
+                Before you start working on the multiple languages, there are couple things you need to know about
+                angular-translate module. Even though the module itself is out of scope of this documentation, we
+                will talk about couple things to make your life easier.
+            </p>
+
+            <br>
+
+            <p>
+                angular-translate module will <b>NOT</b> work with missing language files. For example, if you add a
+                new language (let's say Portuguese), you have to create <b>pt.json</b> files for every module
+                you have! If angular-translate module is missing even one translation file, it won't activate
+                the language. There are ways to make the module work even with missing files, but you need to
+                check out the official documentation to learn more about it.
+            </p>
+
+            <br>
+
+            <p>
+                In <span class="text-boxed">/app/toolbar/toolbar.controller.js</span> file, there is an information
+                toastr about the missing languages. Please read the comment on that section and do what needs to be done
+                in order to make the multilanguage work:
+            </p>
+
+            <img src="assets/docs/multilanguage.png">
+            <!-- / angular-translate -->
+
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

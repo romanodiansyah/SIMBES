@@ -1,0 +1,129 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+        </div>
+
+        <div class="title">Production</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="production">
+
+            <!-- BUILDING? WHAT IS THAT? -->
+            <span class="h3 section-title">Building? What is that?</span>
+            <p>
+                As we mentioned earlier, Fuse is more than a traditional admin template. It's more of a base application
+                that you can start working with in order to speed up your development process. Once you finish your
+                development, you can build the application. Building process is a combination of couple other processes.
+            </p>
+            <p>
+                Mainly, after building your application, all your html files are going to be injected into a single
+                javascript file and they will become entities in the Angular's <b>$templateCache</b> service. All your
+                style and javascript files will be minified and uglified. And most importantly, you will be able to
+                run your application from a simple host without needing Node.js, Gulp or any other tools we mentioned.
+            </p>
+            <p>
+                Your app will become a simple HTML/Javascript application.
+            </p>
+            <!-- / BUILDING? WHAT IS THAT? -->
+
+            <!-- BUILDING -->
+            <span class="h3 section-title">Building</span>
+            <p>
+                To build your application, simply run the following command in your favorite console application
+                (Terminal, Command Prompt etc.) and wait for it to finish:
+                <hljs lang="bash" class="source-code">
+                    gulp build
+                </hljs>
+            </p>
+            <p>
+                And that's it. Now the production version of your app is living under the <b>/dist</b> directory within
+                your work folder. You can directly upload the contents of <b>/dist</b> folder to your server, and it
+                will work.
+            </p>
+            <br>
+            <p>
+                <b>Note:</b> If you are going to work within a subfolder, you need to edit the <b>index.html</b> file
+                and modify the following line according to your directory structure:
+                <hljs lang="html" class="source-code">
+                    <base href="/">
+                </hljs>
+                For example, if you are going to work from a folder called <b>fuse</b> in your host, then you have to
+                modify the base link like this:
+                <hljs lang="html" class="source-code">
+                    <base href="/fuse/">
+                </hljs>
+            </p>
+            <!-- / BUILDING -->
+
+            <!-- BUILDING FOR DEVELOPMENT -->
+            <span class="h3 section-title">Building for development</span>
+            <p>
+                Since version <b>1.2.0</b>, we have added a new console command to build your application into a
+                development mode. The main difference is, by running this command, the minification and uglifying
+                processes will be skipped so you can use Fuse in a more traditional way (including it to your own
+                MVC application etc.)
+            </p>
+            <p>
+                Before running any command though, you must do one modification in the <b>index.html</b> file. This
+                modification is required for this command to work properly. Also, after running this command, you should
+                revert the changes in order to keep using Fuse with commands like <span
+                    class="text-boxed">gulp serve</span>.
+            </p>
+            <p>
+                Replace the following lines from <b>index.html</b> file:
+            </p>
+            <img src="assets/docs/build-dev-before.png">
+            <p>
+                with these:
+            </p>
+            <img src="assets/docs/build-dev-after.png">
+            <p>
+                And then to build your application into the development mode, use the following command:
+                <hljs lang="bash" class="source-code">
+                    gulp build:dev
+                </hljs>
+            </p>
+            <p class="note">
+                <b>Note:</b> We added this command on popular demand. This is way outside of the intended use of the
+                Fuse and we do NOT recommend it. Also because we didn't develop the Fuse for the uses like this, we
+                won't be able to support you and your app if you choose to go this way.
+            </p>
+            <!-- BUILDING FOR DEVELOPMENT -->
+
+            <!-- HTACCESS -->
+            <span class="h3 section-title">.htaccess</span>
+            <p>
+                Fuse uses HTML5 mode in its location service. It means, you will see URLs like
+                <b>www.example.com/mail</b> rather than seeing URLs like this one: <b>www.example.com/#/mail</b>
+            </p>
+            <p>
+                Also, without following .htaccess rules, you can't access your application directly. So typing <b>www.example.com/mail</b>
+                to the url bar or refreshing your application will cause an Internal Server Error.
+            </p>
+            <p>
+                Create an <b>.htaccess</b> that stays with the same directory as your <b>index.html</b> and paste the
+                following code inside it:
+<pre class="source-code"><code style="background:none">&lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine On
+    # Send all requests to the index.html unless
+    # it's a directory or a file that actually exists
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.html [L]
+&lt;/IfModule&gt;</code></pre>
+            </p>
+            <!-- / HTACCESS -->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

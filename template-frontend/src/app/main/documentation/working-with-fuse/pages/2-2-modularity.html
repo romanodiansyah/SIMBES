@@ -1,0 +1,71 @@
+<div class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="column" layout-align="center start">
+        <div class="breadcrumb">
+            <span class="parent">Working with Fuse</span>
+            <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+            <span class="parent">Fuse</span>
+        </div>
+
+        <div class="title">Modularity</div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div id="modularity">
+
+            <!-- MODULARITY -->
+            <span class="h3 section-title">Example Module</span>
+            <p>
+                Fuse has a very modular structure and because of it, it's very easy to add new modules or remove any of
+                the available modules from the app. As an example for the modular structure, we can take a look at the
+                Mail application:
+            </p>
+            <p>
+                <img src="assets/docs/mail-modular-structure.png">
+            </p>
+            <p>
+                It might look a little bit too much complicated at first but given enough time, you will realise that
+                working with a modular structure is a lot easier than putting everything together.
+            </p>
+            <p>
+                In this example, you can see that everything related to our Mail app is in one location. Translations,
+                styles, different pages, dialogs, sidenavs etc. they all are in one place. This will not only make
+                managing your app easier, it also allows you to add/remove modules (even in runtime) without creating
+                wholes or dead-ends in your application.
+            </p>
+            <!-- / MODULARITY -->
+
+            <!-- ADDING A MODULE -->
+            <span class="h3 section-title">Adding a Module</span>
+            <p>
+                To add a new module, simply put your module files into your preferred location inside the <span
+                    class="text-boxed">app/</span> directory and then add the module name as a dependency into the
+                <span class="text-boxed">app/index.module.js</span> file.
+            </p>
+            <p>
+                You don't need worry about injecting any of your module files into anywhere else as <b>Yeoman generator
+                for AngularJS with GulpJS</b> does that automatically. It will automatically find your controllers,
+                directives, html templates, css files etc. and it will inject them into correct locations.
+            </p>
+            <!-- / ADDING A MODULE -->
+
+            <!-- REMOVING A MODULE -->
+            <span class="h3 section-title">Removing a Module</span>
+            <p>
+                Removing a module is very easy too. All you have to do is to locate the module name from dependency list
+                inside the <span class="text-boxed">app/index.module.js</span> file and remove it. Then you can remove
+                the actual module files. Just like adding a new module, you don't have to worry about any leftover
+                injectors as they were automatically injected by <b>Yeoman generator for AngularJS with GulpJS</b>.
+            </p>
+            <!-- / REMOVING A MODULE -->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../Services/auth.service";
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -8,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
 
+  
   constructor() { }
 
   myform : FormGroup;
@@ -19,6 +21,10 @@ export class LoginPageComponent implements OnInit {
   loginuser(event) {
     event.preventDefault()
     console.log(event)
+  }
+
+  register() {
+
   }
 
 }
