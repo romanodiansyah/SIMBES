@@ -81,7 +81,7 @@ class AdminController extends Controller
         $student = $student->find($student->id_user);
 
         return fractal()
-            ->collection($student)
+            ->item($student)
             ->transformWith(new StudentTransformer)
             ->toArray();    
     }
