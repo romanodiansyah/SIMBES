@@ -9,7 +9,11 @@ Route::get('admins', 'AdminController@admins');
 
 Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::get('admin/beranda', 'AdminController@home');
+    Route::post('admin/update/profile', 'AdminController@update');
+    Route::post('admin/deactive', 'AdminController@deactive');
+    //student
     Route::get('admin/list/student','AdminController@listStudent');
+    Route::get('admin/student/{student}','AdminController@readStudentById');
     Route::post('admin/create/student', 'AuthController@createStudent');
     Route::put('admin/update/student/{student}','AdminController@updateStudent');
     Route::post('admin/deactive/student/{student}', 'AdminController@deactiveStudent');
@@ -20,7 +24,7 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
 Route::post('auth/login','AuthController@loginStudent');
 Route::group(['middleware' => ['auth:student-api']], function () {
     Route::get('beranda', 'StudentController@home');
-    Route::put('update/profile/{profile}','StudentController@updateProfile');
+    Route::post('update/profile/{profile}','StudentController@updateProfile');
 
 });
 Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');
@@ -29,3 +33,7 @@ Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin'
 Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
 Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
 Route::delete('beasiswa/delete', 'BeasiswaController@deleteBeasiswa');
+Route::get('beasiswa','BeasiswaController@readBeasiswa');
+
+//pendaftar
+Route::post('pendaftar/create','PendaftarController@createPendaftar');

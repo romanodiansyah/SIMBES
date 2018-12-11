@@ -43,17 +43,16 @@ class BeasiswaController extends Controller
             'sk'                => $request->sk,
             'pendonor'          => $request->pendonor,
             'status_aktif'      => $request->status_aktif,
-            ''
         ]);
         if ($request->hasFile('alamat_foto')){
            $ext = Input::file('alamat_foto')->getClientOriginalExtension();
-           $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/foto",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+           $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."/foto",$beasiswa->id_beasiswa.'.'.$ext);
            $beasiswa->alamat_foto=$path;
            $beasiswa->save();
         }
         if ($request->hasFile('alamat_berkas')){
             $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
-            $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/berkas",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+            $path = $request->alamat_berkas->storeAs('beasiswa/'.$beasiswa->id_beasiswa."/berkas",$beasiswa->id_beasiswa.'.'.$ext);
             $beasiswa->alamat_berkas=$path;
             $beasiswa->save();
          }
@@ -72,13 +71,13 @@ class BeasiswaController extends Controller
         $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
         if ($request->hasFile('alamat_foto')){
             $ext = Input::file('alamat_foto')->getClientOriginalExtension();
-            $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/foto",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+            $path = $request->alamat_foto->storeAs('beasiswa/'.$beasiswa->id_beasiswa."/foto",$beasiswa->id_beasiswa.'.'.$ext);
             $beasiswa->alamat_foto=$path;
             $beasiswa->save();
          }
          if ($request->hasFile('alamat_berkas')){
              $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
-             $path = $request->alamat_berkas->storeAs('beasiswa/'.$beasiswa->id_beasiswa."-".$beasiswa->nama."/berkas",$beasiswa->id_beasiswa.'-'.$beasiswa->nama.'.'.$ext);
+             $path = $request->alamat_berkas->storeAs('beasiswa/'.$beasiswa->id_beasiswa."/berkas",$beasiswa->id_beasiswa.'.'.$ext);
              $beasiswa->alamat_berkas=$path;
              $beasiswa->save();
           }
