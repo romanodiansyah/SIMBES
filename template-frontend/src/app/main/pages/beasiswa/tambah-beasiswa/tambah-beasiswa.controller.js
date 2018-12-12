@@ -12,6 +12,11 @@
         var vm = this;
 
         // Data
+        vm.options = {
+            pembukaan   : '',
+            penutupan   : ''
+        };
+
         vm.horizontalStepper = {
             step1: {},
             step2: {},

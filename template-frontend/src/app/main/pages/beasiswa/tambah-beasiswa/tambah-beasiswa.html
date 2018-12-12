@@ -172,35 +172,62 @@
                         </md-tab-label>
                         <md-tab-body>
                             <form name="wizardStep3" ms-form-wizard-form novalidate>
-                                <div layout="column" layout-gt-xs="row">
-                                    <!-- <md-input-container flex="100" flex-gt-xs="50">
-                                        <input mdc-datetime-picker="" date="true" time="true" type="text" name="pembukaan" ng-model="vm.formWizard.pembukaan"
-                                               placeholder="Start Date: Pengumpulan Berkas"
-                                               max-date="vm.formWizard.penutupan"
-                                               readonly="readonly"
-                                               required>
+                                <div layout="column" layout-gt-xs="row" flex>
+                                    <md-input-container flex="100" flex-gt-xs="50">
+                                        <label>Tanggal Pendaftaran</label>
+                                        <md-datepicker ms-datepicker-fix ng-model="vm.options.pembukaan"
+                                            md-max-date="vm.options.penutupan"
+                                            md-placeholder="Enter date"
+                                            required></md-datepicker>
                                         <div ng-messages="wizardStep3.pembukaan.$error"
-                                             role="alert">
+                                            role="alert">
                                             <div ng-message="required">
-                                                <span>Start Date: Pengumpulan Berkas field is required.</span>
+                                                <span>Tanggal Pendaftaran field is required.</span>
                                             </div>
                                         </div>
-                                    </md-input-container> -->
+                                    </md-input-container>
 
-                                    <!-- <md-input-container flex="100" flex-gt-xs="50">
-                                        <input mdc-datetime-picker="" date="true" time="true" type="text" name="penutupan" ng-model="vm.formWizard.penutupan"
-                                            placeholder="End Date: Pengumpulan Berkas"
-                                            min-date="vm.formWizard.pembukaan"
-                                            readonly="readonly"
-                                            required>
-                                        <div ng-messages="wizardStep3.penutupan.$error"
-                                             role="alert">
-                                            <div ng-message="required">
-                                                <span>End Date: Pengumpulan Berkas field is required.</span>
+                                    <md-input-container flex="100" flex-gt-xs="50">
+                                        <label>Tanggal Penutupan</label>
+                                            <md-datepicker ms-datepicker-fix ng-model="vm.options.penutupan"
+                                                md-min-date="vm.options.pembukaan"
+                                                md-placeholder="Enter date"
+                                                required></md-datepicker>
+                                            <div ng-messages="wizardStep3.penutupan.$error"
+                                                role="alert">
+                                                <div ng-message="required">
+                                                    <span>Tanggal Penutupan field is required.</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </md-input-container> -->
+                                    </md-input-container>
                                 </div>
+
+                                <md-input-container class="md-block">
+                                    <input type="number" name="jumlah_daftar" ng-model="vm.formWizard.jumlah_daftar"
+                                        placeholder="Jumlah Penerima Beasiswa"
+                                        required>
+                                    <div ng-messages="wizardStep3.jumlah_daftar.$error"
+                                        role="alert">
+                                        <div ng-message="required">
+                                            <span>Jumlah Penerima Beasiswa field is required.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <label>Surat Keputusan Beasiswa</label>
+                                    <textarea ng-model="vm.formWizard.sk" md-maxlength="10000" max-rows="50"
+                                        required></textarea>
+                                    <div ng-messages="wizardStep3.sk.$error"
+                                        role="alert" multiple>
+                                        <div ng-message="required">
+                                            <span>Surat Keputusan Beasiswa field is required.</span>
+                                        </div>
+                                        <div ng-message="md-maxlength">
+                                            <span>Deskripsi Beasiswa can't be longer than 10,000 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
                             </form>
                         </md-tab-body>
                     </md-tab>
