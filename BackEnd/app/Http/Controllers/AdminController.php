@@ -13,7 +13,7 @@ use Auth;
 class AdminController extends Controller
 {
     public function admins(Admin $admin){
-        $admins = $admin->all();
+        $admins = $admin->latest()->paginate(10);
 
         return fractal()
             ->collection($admins)
@@ -31,11 +31,6 @@ class AdminController extends Controller
     }
 
     public function update(Request $request, Admin $admin){
-        $this->validate($request, [
-            'no_pegawai'    => 'unique:admins',
-            'email'         => 'email|unique:admins',
-        ]);
-
         $admin = $admin->find(Auth::user()->id_adm);
         $admin->no_pegawai = $request->get('no_pegawai',$admin->no_pegawai);
         $admin->nama = $request->get('nama',$admin->nama);
@@ -52,18 +47,22 @@ class AdminController extends Controller
             ->toArray();
     }
 
-    public function deactive(Admin $admin){
-        $admin = $admin->find(Auth::user()->id_adm);
+    public function deactivate(Admin $admin){
         if($admin->status_aktif == 1){
             $admin->update(['status_aktif' => 0]);
+            $msg = 'Deactivated';
         }
         else{
             $admin->update(['status_aktif' => 1]);
+            $msg = 'Deactivated';
         }
 
         return fractal()
         ->item($admin)
         ->transformWith(new AdminTransformer)
+        ->addMeta([
+            'message' => $msg
+        ])
         ->toArray();
     }
 
@@ -77,7 +76,7 @@ class AdminController extends Controller
             ->toArray();        
     }
 
-    public function readStudentById(Student $student){
+    public function readStudent(Student $student){
         $student = $student->find($student->id_user);
 
         return fractal()
@@ -121,7 +120,7 @@ class AdminController extends Controller
             ->toArray();
     }
 
-    public function deactiveStudent(Student $student){
+    public function deactivateStudent(Student $student){
         $student = $student->find($student->id_user);
         if($student->status_aktif == 1){
             $student->update(['status_aktif' => 0]);
