@@ -42,12 +42,12 @@
             'app.pages',
 
             // User Interface
-            'app.ui'
+            'app.ui',
 
             // Components
             // 'app.components'
 
             // Documentation
-            // 'app.documentation'
+            'app.documentation'
         ]);
 })();
