@@ -19,8 +19,7 @@
             'app.pages.profile',
             // 'app.pages.search',
             // 'app.pages.timeline',
-			'app.pages.beasiswa',
-			'app.pages.beasiswa.tambah-beasiswa'
+			'app.pages.beasiswa'
         ])
         .config(config);
 
