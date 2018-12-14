@@ -123,31 +123,8 @@
                                     UPLOAD A FILE
                                 </md-button>
                             </div>
-
-                            <div layout="row" layout-align="start start" layout-wrap>
-                                <div ng-repeat="image in vm.product.images" ng-switch="image.type">
-                                    <div class="product-image uploading" ng-switch-when="uploading" layout="row"
-                                        layout-align="center center">
-                                        <div class="overlay" layout="column" layout-align="center center">
-                                            <md-progress-linear md-mode="determinate"
-                                                    value="{{image.file.progress() * 100}}">
-                                            </md-progress-linear>
-                                        </div>
-                                        <img class="media" flow-img="image.file">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <!-- / ADD FILE BUTTON -->
-
-                        <!-- CONTENT -->
-                        <md-content class="content" flex ms-scroll>
-                            <div ng-if="vm.currentView === 'grid'"
-                                ng-include="'app/main/apps/file-manager/views/grid/grid-view.html'"></div>
-                            <div ng-if="vm.currentView === 'list'"
-                                ng-include="'app/main/apps/file-manager/views/list/list-view.html'"></div>
-                        </md-content>
-                        <!-- / CONTENT -->
                     </div>
                 </md-tab-body>
             </md-tab>
@@ -160,15 +137,6 @@
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form>
-                            <!-- <h3 class="secondary-text">Pembukaan Beasiswa</h3>
-                            <md-input-container md-no-float class="md-block">
-                                <input type="datetime" name="pembukaan" ng-model="vm.product.pembukaan">
-                            </md-input-container>
-
-                            <h3 class="secondary-text">Penutupan Beasiswa</h3>
-                            <md-input-container md-no-float class="md-block">
-                                <input type="datetime" name="penutupan" ng-model="vm.product.pembukaan">
-                            </md-input-container> -->
                             <div layout-gt-sm="row" layout-align="start center">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label translate="EC.PEMBUKAAN_BEASISWA">Pembukaan Beasiswa</label>
