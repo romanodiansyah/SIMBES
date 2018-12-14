@@ -8,8 +8,8 @@
             'app.pages.auth.login-v2',
             // 'app.pages.auth.register',
             'app.pages.auth.register-v2',
-            // 'app.pages.auth.forgot-password',
-            // 'app.pages.auth.reset-password',
+            'app.pages.auth.forgot-password',
+            'app.pages.auth.reset-password',
             // 'app.pages.auth.lock',
             // 'app.pages.coming-soon',
             // 'app.pages.error-404',
@@ -32,6 +32,13 @@
             title : 'PAGES',
             group : true,
             weight: 2
+        });
+
+        msNavigationServiceProvider.saveItem('pages.auth', {
+            title : 'User',
+            icon  : 'icon-account',
+            state : 'app.pages_auth',
+            weight: 3
         });
     }
 })();
