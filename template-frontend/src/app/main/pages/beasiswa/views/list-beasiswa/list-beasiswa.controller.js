@@ -24,15 +24,8 @@
                     width  : '72px'
                 },
                 {
-                    // Target the image column
-                    targets   : 1,
-                    filterable: false,
-                    sortable  : false,
-                    width     : '80px'
-                },
-                {
                     // Target the quantity column
-                    targets: 4,
+                    targets: 3,
                     render : function (data, type)
                     {
                         if ( type === 'display' )
@@ -56,7 +49,7 @@
                 },
                 {
                     // Target the status column
-                    targets   : 8,
+                    targets   : 7,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -85,7 +78,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 9,
+                    targets           : 8,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
