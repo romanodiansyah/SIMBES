@@ -20,4 +20,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function berita()
+    {
+        return $this->hasMany('App\Berita','id_adm','id_adm');
+    }
 }
