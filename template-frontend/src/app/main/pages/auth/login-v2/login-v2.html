@@ -48,7 +48,8 @@
 
                 <md-button type="submit" class="link md-raised md-accent submit-button" ui-sref="app.dashboards_project" aria-label="LOG IN"
                            ng-disabled="loginForm.$invalid || loginForm.$pristine"
-                           translate="LOGIN_V2.LOG_IN" translate-attr-aria-label="LOGIN_V2.LOG_IN">
+                           translate="LOGIN_V2.LOG_IN" translate-attr-aria-label="LOGIN_V2.LOG_IN"
+                           ng-clilck="vm.login()">
                     LOG IN
                 </md-button>
             </form>

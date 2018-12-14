@@ -22,7 +22,9 @@
                     controller : 'LoginV2Controller as vm'
                 }
             },
-            bodyClass: 'login-v2'
+            bodyClass: 'login-v2',
+            params: {Data:null}
+
         });
 
         // Translation
