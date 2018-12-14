@@ -178,7 +178,8 @@
         var api = {};
 
         // Base Url
-        api.baseUrl = 'app/data/';
+        // api.baseUrl = 'app/data/';
+        api.baseUrl = 'http://localhost:8000/api/'
 
         /**
          * Here you can find all the definitions that the Demo Project requires

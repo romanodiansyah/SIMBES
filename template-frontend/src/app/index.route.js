@@ -11,7 +11,35 @@
     {
         $locationProvider.html5Mode(true);
 
-        $urlRouterProvider.otherwise('/pages/auth/login-v2');
+        // // INTERCEPTORS
+        //     $httpProvider.interceptors.push(function($q, $location) {
+        //         return {
+        //             'request': function(config) {
+        //                 config.headers = config.headers || {};
+        //                 config.headers["Content-Type"] = "application/json";
+        //                 var token = $localStorageProvider.get("token") || window.localStorage['ngStorage-token'];
+        //                 if (token && !config.noAuth) {
+        //                     config.headers.token = token;
+        //                 }
+        //                 return config;
+        //             },
+        //             'responseError': function (response){
+        //                 if (response.status == 403){
+        //                     window.location.href = '/login';
+        //                 }else if (response.status == 200){
+        //                     var token = response.headers("token");
+        //                     if (token){
+        //                         $localStorageProvider.set("token", token);
+        //                     }
+        //                 }
+        //                 return $q.reject(response);
+        //             }
+        //         };
+        //     });
+
+            $urlRouterProvider.otherwise('/pages/auth/login-v2');
+
+
 
         /**
          * Layout Style Switcher

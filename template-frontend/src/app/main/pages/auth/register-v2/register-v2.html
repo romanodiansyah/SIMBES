@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </md-input-container>
-
+<!-- 
                 <md-input-container class="md-block" md-no-float>
                     <input type="password" name="passwordConfirm" ng-model="vm.form.passwordConfirm"
                            placeholder="Password (Confirm)"
@@ -83,7 +83,7 @@
                             <span translate="REGISTER_V2.ERRORS.PASSWORD_CONFIRM_REQUIRED">Password (Confirm) field is required</span>
                         </div>
                     </div>
-                </md-input-container>
+                </md-input-container> -->
 
                 <div class="terms" layout="row" layout-align="center center">
                     <md-checkbox name="terms" ng-model="data.cb1" aria-label="I read and accept" required></md-checkbox>
@@ -96,7 +96,8 @@
                 <md-button type="submit" class="md-raised md-accent submit-button" aria-label="CREATE MY ACCOUNT"
                            ng-disabled="registerForm.$invalid || registerForm.$pristine"
                            translate="REGISTER_V2.CREATE_ACCOUNT"
-                           translate-attr-aria-label="REGISTER_V2.CREATE_ACCOUNT">
+                           translate-attr-aria-label="REGISTER_V2.CREATE_ACCOUNT"
+                           ng-click="vm.register()">
                     CREATE MY ACCOUNT
                 </md-button>
             </form>
