@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pendaftar;
+use App\Student;
 use Auth;
 //use App\Transformers\PendaftarTransformer;
 use Illuminate\Support\Facades\Input;
+use App\Transformers\StudentTransformer;
 
 class PendaftarController extends Controller
 {
@@ -34,5 +36,53 @@ class PendaftarController extends Controller
             $pendaftar->save();
          }
         return response()->json($pendaftar, 201);
+    }
+
+    public function deletePendaftar(Request $request, pendaftar $pendaftar)
+    {
+        $this->validate($request,[
+            'id_pendaftar' => 'required',
+        ]);
+
+        $pendaftar = pendaftar::findOrFail($request->id_pendaftar);
+        if($pendaftar->status_aktif == 0)
+        {
+            $pendaftar->update(['status_aktif => 1']);
+        }
+        else
+        {
+            $pendaftar->update(['status_aktif => 0']);
+        }
+        return $pendaftar;
+
+    }
+    public function updatePendaftar(Request $request, pendaftar $pendaftar)
+    {
+        $this->validate($request, [
+            'id_pendaftar'       => 'required',
+        ]);
+
+        $pendaftar = pendaftar::findOrFail($request->id_beasiswa);
+        
+        $pendaftar->update($request->except('alamat_berkas'));
+         if ($request->hasFile('alamat_berkas')){
+             $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
+             $path = $request->alamat_berkas->storeAs('beasiswa/'.$pendaftar->id_beasiswa."/berkas/pendaftar",$pendaftar->id_pendaftar.'.'.$ext);
+             $pendaftar->alamat_berkas=$path;
+             $pendaftar->save();
+          }
+        return $pendaftar;
+    }
+    public function readPendaftar(Request $request,pendaftar $pendaftar, Student $student)
+    {
+        $this->validate($request,[
+            'id_beasiswa'   => 'required',
+        ]);
+        $pendaftar = pendaftar::where('id_beasiswa','=',$request->id_beasiswa)->first();
+        $student = Student::where('id_user','=',$pendaftar->id_user)->get();
+        return fractal()
+            ->collection($student)
+            ->transformWith(new StudentTransformer)
+            ->toArray();
     }
 }
