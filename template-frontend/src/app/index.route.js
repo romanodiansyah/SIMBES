@@ -7,35 +7,38 @@
         .config(routeConfig);
 
     /** @ngInject */
-    function routeConfig($stateProvider, $urlRouterProvider, $locationProvider)
+    function routeConfig($stateProvider, $urlRouterProvider, $locationProvider, $localStorageProvider, $httpProvider)
     {
         $locationProvider.html5Mode(true);
 
         // // INTERCEPTORS
-        //     $httpProvider.interceptors.push(function($q, $location) {
-        //         return {
-        //             'request': function(config) {
-        //                 config.headers = config.headers || {};
-        //                 config.headers["Content-Type"] = "application/json";
-        //                 var token = $localStorageProvider.get("token") || window.localStorage['ngStorage-token'];
-        //                 if (token && !config.noAuth) {
-        //                     config.headers.token = token;
-        //                 }
-        //                 return config;
-        //             },
-        //             'responseError': function (response){
-        //                 if (response.status == 403){
-        //                     window.location.href = '/login';
-        //                 }else if (response.status == 200){
-        //                     var token = response.headers("token");
-        //                     if (token){
-        //                         $localStorageProvider.set("token", token);
-        //                     }
-        //                 }
-        //                 return $q.reject(response);
-        //             }
-        //         };
-        //     });
+            $httpProvider.interceptors.push(function($q, $location) {
+                return {
+                    'request': function(config) {
+                        config.headers = config.headers || {};
+                        config.headers["Content-Type"] = "application/json";
+                        config.headers["Accept"] = "application/json";
+                        
+                        var token = $localStorageProvider.get("token") || window.localStorage['ngStorage-token'];
+                        if (token && !config.noAuth) {
+                            config.headers.token = token;
+                            config.headers["Authorization"] = "Bearer "+ token;
+                        }
+                        return config;
+                    },
+                    'responseError': function (response){
+                        if (response.status == 403){
+                            window.location.href = '/pages/auth/login-v2';
+                        }else if (response.status == 200){
+                            var token = response.headers("token");
+                            if (token){
+                                $localStorageProvider.set("token", token);
+                            }
+                        }
+                        return $q.reject(response);
+                    }
+                };
+            });
 
             $urlRouterProvider.otherwise('/pages/auth/login-v2');
 
