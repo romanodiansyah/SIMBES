@@ -5,9 +5,9 @@
     angular
         .module('app.pages', [
             // 'app.pages.auth.login',
-            // 'app.pages.auth.login-v2',
+            'app.pages.auth.login-v2',
             // 'app.pages.auth.register',
-            // 'app.pages.auth.register-v2',
+            'app.pages.auth.register-v2',
             // 'app.pages.auth.forgot-password',
             // 'app.pages.auth.reset-password',
             // 'app.pages.auth.lock',

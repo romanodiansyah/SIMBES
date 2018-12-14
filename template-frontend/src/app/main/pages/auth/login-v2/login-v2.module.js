@@ -30,7 +30,7 @@
 
         // Navigation
         msNavigationServiceProvider.saveItem('pages.auth.login-v2', {
-            title : 'Login v2',
+            title : 'Login',
             state : 'app.pages_auth_login-v2',
             weight: 2
         });

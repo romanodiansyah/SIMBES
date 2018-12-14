@@ -30,7 +30,7 @@
 
         // Navigation
         msNavigationServiceProvider.saveItem('pages.auth.register-v2', {
-            title : 'Register v2',
+            title : 'Register',
             state : 'app.pages_auth_register-v2',
             weight: 4
         });

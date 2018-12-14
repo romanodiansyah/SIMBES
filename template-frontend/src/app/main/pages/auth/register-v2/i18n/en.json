@@ -1,10 +1,12 @@
 {
     "REGISTER_V2": {
-        "INTRO_TITLE": "Welcome to the FUSE!",
-        "INTRO_DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis viverra.",
+        "INTRO_TITLE": "Selamat datang di Sistem Informasi Beasiswa IPB!",
+        "INTRO_DESCRIPTION": "Student First: trust, respect, and responsibility.",
         "TITLE": "Create an account",
-        "DESCRIPTION": "Sed mollis velit facilisis facilisis viverra",
-        "NAME": "Name",
+        "DESCRIPTION": "Create your account to access Beasiswa",
+        "NOPEGAWAI": "Nomor Pegawai",
+        "NAMA": "Nama Lengkap",
+        "JENISKELAMIN": "Jenis Kelamin",
         "EMAIL": "Email",
         "PASSWORD": "Password",
         "PASSWORD_CONFIRM": "Password (Confirm)",
@@ -14,6 +16,8 @@
         "ALREADY_HAVE": "Already have an account?",
         "LOGIN": "Log in",
         "ERRORS": {
+            "NOPEGAWAI_REQUIRED": "Nomor Pegawai field is required",
+            "NAMA_REQUIRED": "Nama Lengkap",
             "USERNAME_REQUIRED": "Username field is required",
             "EMAIL_REQUIRED": "Email field is required",
             "EMAIL_MUST_VALID": "Email must be a valid e-mail address",

@@ -1,9 +1,9 @@
 {
     "LOGIN_V2": {
-        "INTRO_TITLE": "Welcome to the FUSE!",
-        "INTRO_DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis viverra.",
+        "INTRO_TITLE": "Selamat datang di Sistem Informasi Beasiswa IPB!",
+        "INTRO_DESCRIPTION": "Student First: trust, respect, and responsibility",
         "TITLE": "Log in to your account",
-        "DESCRIPTION": "Sed mollis velit facilisis facilisis viverra",
+        "DESCRIPTION": "Let's find your Beasiswa",
         "EMAIL": "Email",
         "PASSWORD": "Password",
         "REMEMBER_ME": "Remember Me",
