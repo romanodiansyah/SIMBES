@@ -3,16 +3,16 @@
     'use strict';
 
     angular
-        .module('app.pages.berita')
-        .controller('ListBeritaController', ListBeritaController);
+        .module('app.user-database.mahasiswa')
+        .controller('ListMahasiswaController', ListMahasiswaController);
 
     /** @ngInject */
-    function ListBeritaController($state, api, $http, $localStorage)
+    function ListMahasiswaController($state, Products)
     {
         var vm = this;
 
         // Data
-        //vm.listNews = listNews;
+        vm.products = Products;
 
         vm.dtInstance = {};
         vm.dtOptions = {
@@ -25,7 +25,7 @@
                 },
                 {
                     // Target the status column
-                    targets   : 2,
+                    targets   : 7,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -54,7 +54,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 3,
+                    targets           : 8,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
@@ -80,44 +80,29 @@
             scrollY     : 'auto',
             responsive  : true
         };
-        vm.submitted = false;
+
         // Methods
-        vm.gotoAddlistNews = gotoAddlistNews;
-        vm.gotolistNewsDetail = gotolistNewsDetail;
+        vm.gotoAddProduct = gotoAddProduct;
+        vm.gotoProductDetail = gotoProductDetail;
+
         //////////
-        $http.get(api.baseUrl + 'admin/list/news').then(function (response){
-            vm.listNews = response.data.data;
-            console.log('Data news:', vm.listNews);
-            
-        }, function (response){
-            console.log('Data failed :', response)
-            
-            // alert(response.data.message)
-        });
-
-
-
-        
 
         /**
-         * Go to add listNews
+         * Go to add product
          */
-        function gotoAddlistNews()
+        function gotoAddProduct()
         {
-            
-            $state.go('app.pages_berita_list-berita.add');
+            $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
         }
 
-
-
         /**
-         * Go to listNews detail
+         * Go to product detail
          *
          * @param id
          */
-        function gotolistNewsDetail(id)
+        function gotoProductDetail(id)
         {
-            $state.go('app.pages_berita_list-berita.detail', {id: id});
+            $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id});
         }
     }
 })();

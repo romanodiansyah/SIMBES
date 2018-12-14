@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Transformers\StudentTransformer;
 use Auth;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -75,5 +76,17 @@ class StudentController extends Controller
                 'updated' => $request->all()
             ])
             ->toArray();
+    }
+
+    public function export_pdf(Request $request)
+    {
+        $this->validate($request, [
+            'id_user'       => 'required',
+        ]);
+
+        $data = Student::get(); //where('id_user','=',$request->id_user)->get();
+        //dd($data);
+        $pdf = PDF::loadView('pdf', array('data'=>$data));
+        return $pdf->download('student.pdf');
     }
 }

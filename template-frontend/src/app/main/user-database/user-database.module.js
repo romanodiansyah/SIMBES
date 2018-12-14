@@ -4,7 +4,7 @@
 
     angular
         .module('app.user-database', [
-            
+            'app.user-database.mahasiswa'
         ])
         .config(config);
 
