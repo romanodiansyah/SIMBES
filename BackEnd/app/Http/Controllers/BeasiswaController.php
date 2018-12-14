@@ -87,12 +87,17 @@ class BeasiswaController extends Controller
     {
         $this->validate($request, [
             'id_beasiswa'       => 'required',
-            'status_aktif'      => 'required',
         ]);
         
         $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
-        $beasiswa->update($request->all());
-        
+        if($beasiswa->status_aktif == 0)
+        {
+            $beasiswa->update(['status_aktif => 1']);
+        }
+        else
+        {
+            $beasiswa->update(['status_aktif => 0']);
+        }
         return $beasiswa;
     }
 
