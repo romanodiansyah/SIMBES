@@ -32,7 +32,7 @@
                 // },
                 {
                     // Target the status column
-                    targets   : 3,
+                    targets   : 2,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -61,7 +61,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 4,
+                    targets           : 3,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
