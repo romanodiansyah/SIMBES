@@ -18,8 +18,7 @@
 		msNavigationServiceProvider.saveItem('pages.auth', {
             title : 'User',
             icon  : 'icon-account',
-			state : 'app.pages.auth',
-            weight: 1
+            weight: 3
         });
 
         msNavigationServiceProvider.saveItem('pages.auth.register-v2', {
