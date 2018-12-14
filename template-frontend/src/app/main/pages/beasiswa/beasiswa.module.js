@@ -79,7 +79,7 @@
         $translatePartialLoaderProvider.addPart('app/main/pages/beasiswa');
 
         // Api
-        msApiProvider.register('e-commerce.products', ['app/data/beasiswa/list-beasiswa.json']);
+        msApiProvider.register('beasiswa.products', ['app/data/beasiswa/list-beasiswa.json']);
 
         // Navigation
         msNavigationServiceProvider.saveItem('pages.beasiswa', {

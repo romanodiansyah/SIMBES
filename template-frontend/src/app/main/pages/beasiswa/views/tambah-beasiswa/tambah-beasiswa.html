@@ -221,20 +221,12 @@
                         <form>
                             <md-input-container class="md-block">
                                 <label translate="EC.PEMBUKAAN_BEASISWA">Pembukaan Beasiswa</label>
-                                <md-datepicker ms-datepicker-fix ng-model="vm.product.pembukaan"
-                                    md-max-date="vm.product.penutupan"
-                                    md-placeholder="Enter date"
-                                    required>
-                                </md-datepicker>
+                                <input type="datetime-local" ng-model="vm.product.pembukaan" max="vm.product.penutupan">
                             </md-input-container>
                             
                             <md-input-container class="md-block">
                                 <label translate="EC.PENUTUPAN_BEASISWA">Penutupan Beasiswa</label>
-                                <md-datepicker ms-datepicker-fix ng-model="vm.product.penutupan"
-                                    md-min-date="vm.product.pembukaan"
-                                    md-placeholder="Enter date"
-                                    required>
-                                </md-datepicker>
+                                <input type="datetime-local" ng-model="vm.product.penutupan" min="vm.product.pembukaan">
                             </md-input-container>
 
                             <md-input-container class="md-block">

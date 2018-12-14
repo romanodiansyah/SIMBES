@@ -11,11 +11,11 @@
         <div class="header" layout="row" layout-align="space-between center">
             <div class="white-fg" layout="column" layout-align="start start">
                 <div class="h1" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-cube-outline"></md-icon>
-                    <span translate="EC.BEASISWA">Beasiswa</span>
+                    <md-icon md-font-icon="icon-newspaper"></md-icon>
+                    <span translate="EC.BERITA">Berita</span>
                 </div>
                 <div class="product-count secondary-text">
-                    <span translate="EC.TOTAL_BEASISWA">Total Beasiswa:</span>
+                    <span translate="EC.TOTAL_BERITA">Total Berita:</span>
                     <span>{{vm.products.length}}</span>
                 </div>
             </div>
@@ -28,7 +28,7 @@
 
             <div>
                 <md-button class="md-raised md-background" ng-click="vm.gotoAddProduct()">
-                    <span translate="EC.TAMBAH_BEASISWA">Tambah Beasiswa</span>
+                    <span translate="EC.TAMBAH_BERITA">Tambah Berita</span>
                 </md-button>
             </div>
         </div>
@@ -60,57 +60,12 @@
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Nama</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Pendonor</span>
+                                    <span class="column-title">Judul</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Deskripsi</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Kuota</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Jenjang Pendidikan</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Semester</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">IPK Minimal</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Persyaratan (lainnya)</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Tanggal Pembukaan</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Tanggal Penutupan</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Surat Keputusan</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
@@ -129,21 +84,12 @@
                         <tr ng-repeat="product in ::vm.products">
                             <td>{{product.id}}</td>
                             <td><img class="product-image" ng-src="{{product.images[0].url}}"></td>
-                            <td>{{product.nama}}</td>
-                            <td>{{product.pendonor}}</td>
+                            <td>{{product.judul}}</td>
                             <td>{{product.deskripsi}}</td>
-                            <td>{{product.jumlah_daftar}}</td>
-                            <td>{{product.jenjangPendidikan}}</td>
-                            <td>{{product.semester}}</td>
-                            <td>{{product.ipkMin}}</td>
-                            <td>{{product.persyaratan}}</td>
-                            <td>{{product.pembukaan}}</td>
-                            <td>{{product.penutupan}}</td>
-                            <td>{{product.sk}}</td>
                             <td>{{product.active}}</td>
                             <td>
                                 <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Beasiswa Details"
-                                           translate translate-attr-aria-label="EC.DETAIL_BEASISWA">
+                                           translate translate-attr-aria-label="EC.DETAIL_BERITA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>
                             </td>

@@ -3,11 +3,11 @@
     'use strict';
 
     angular
-        .module('app.pages.beasiswa')
-        .factory('BeasiswaService', BeasiswaService);
+        .module('app.pages.berita')
+        .factory('BeritaService', BeritaService);
 
     /** @ngInject */
-    function BeasiswaService($q, $mdToast, msApi)
+    function BeritaService($q, $mdToast, msApi)
     {
         var products = [];
 
@@ -42,7 +42,7 @@
             // the products
             else
             {
-                msApi.request('beasiswa.products@get', {},
+                msApi.request('berita.products@get', {},
 
                     // SUCCESS
                     function (response)
@@ -121,8 +121,6 @@
                         type   : 'image'
                     }
                 ],
-                jumlah_daftar   : 0,
-                ipkMin          : 0,
                 active          : false
             };
         }
@@ -148,7 +146,7 @@
             // Show a toast
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent('Beasiswa created!')
+                    .textContent('Berita created!')
                     .position('top right')
             );
         }
