@@ -4,7 +4,7 @@
             <span>S</span>
         </div>
         <div class="title" translate="REGISTER_V2.INTRO_TITLE">
-            Selamat datang di Sistem Informasi Beasiswa IPB!
+            Sistem Informasi Beasiswa IPB
         </div>
         <div class="description" translate="REGISTER_V2.INTRO_DESCRIPTION">
             Student First: trust, respect, and responsibility.
@@ -18,7 +18,7 @@
             </div>
 
             <div class="title" translate="REGISTER_V2.TITLE">Create an account</div>
-            <div class="description" translate="REGISTER_V2.DESCRIPTION">Create your account to access Beasiswa.
+            <div class="description" translate="REGISTER_V2.DESCRIPTION">Let's find your Beasiswa
             </div>
 
             <form name="registerForm" novalidate>
@@ -44,19 +44,9 @@
                     </div>
                 </md-input-container>
 
-                <md-input-container class="md-block" md-no-float>
-                    <h3 class="secondary-text" translate translate-attr-placeholder="REGISTER_V2.JENISKELAMIN">Jenis Kelamin</h3>
-                    <md-radio-button value="laki-laki" ng-model="vm.form.jenis_kelamin" class="md-primary">Laki-Laki</md-radio-button>
-                    <md-radio-button value="perempuan" ng-model="vm.form.jenis_kelamin" class="md-primary">Perempuan</md-radio-button>
-                    <!-- <label>
-                        <input type="radio" name="jenis_kelamin" ng-model="vm.form.jenis_kelamin" value="laki-laki" checked>
-                        Laki-Laki
-                    </label></br> -->
-                    <!-- <label>
-                        <input type="radio" name="jenis_kelamin" ng-model="vm.form.jenis_kelamin" value="perempuan" checked>
-                        Perempuan
-                    </label> -->
-                </md-input-container>
+                <h3 class="secondary-text" translate translate-attr-placeholder="REGISTER_V2.JENISKELAMIN">Jenis Kelamin</h3>
+                <input type="radio" value="1" ng-model="vm.form.jenis_kelamin">Laki-Laki
+                <input type="radio" value="2" ng-model="vm.form.jenis_kelamin">Perempuan
 
                 <md-input-container class="md-block" md-no-float>
                     <input type="email" name="email" ng-model="vm.form.email" placeholder="Email"
