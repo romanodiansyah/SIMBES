@@ -31,6 +31,7 @@ class BeasiswaTransformer extends TransformerAbstract
             "alamat_foto"       => $beasiswa->alamat_foto,
             "updated"           => $beasiswa->updated_at->diffForHumans(),
             'registered'        => $beasiswa->created_at->diffForHumans(),
+            'status_aktif'      => $beasiswa->status_aktif,
             //
         ];
     }

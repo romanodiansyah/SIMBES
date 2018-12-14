@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pendaftar;
+use App\Student;
 use Auth;
 //use App\Transformers\PendaftarTransformer;
 use Illuminate\Support\Facades\Input;
+use App\Transformers\StudentTransformer;
 
 class PendaftarController extends Controller
 {
@@ -70,5 +72,17 @@ class PendaftarController extends Controller
              $pendaftar->save();
           }
         return $pendaftar;
+    }
+    public function readPendaftar(Request $request,pendaftar $pendaftar, Student $student)
+    {
+        $this->validate($request,[
+            'id_beasiswa'   => 'required',
+        ]);
+        $pendaftar = pendaftar::where('id_beasiswa','=',$request->id_beasiswa)->first();
+        $student = Student::where('id_user','=',$pendaftar->id_user)->get();
+        return fractal()
+            ->collection($student)
+            ->transformWith(new StudentTransformer)
+            ->toArray();
     }
 }
