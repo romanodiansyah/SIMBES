@@ -19,11 +19,6 @@
         vm.product = Product;
         vm.categoriesSelectFilter = '';
 
-        vm.path = Documents.data.path;
-        vm.folders = Documents.data.folders;
-        vm.files = Documents.data.files;
-        vm.selected = vm.files[0];
-
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
             /*target                   : 'api/media/image',
