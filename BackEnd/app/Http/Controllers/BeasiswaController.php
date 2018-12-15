@@ -110,4 +110,20 @@ class BeasiswaController extends Controller
             ->transformWith(new BeasiswaTransformer)
             ->toArray();
     }
+
+    public function search($key){
+        $beasiswa = Beasiswa::where('nama','LIKE','%'.$key.'%')
+            ->orwhere('deskripsi','LIKE','%'.$key.'%')
+            ->orwhere('persyaratan','LIKE','%'.$key.'%')
+            ->orwhere('jenjangPendidikan','LIKE','%'.$key.'%')
+            ->orwhere('semester','LIKE','%'.$key.'%')
+            ->orwhere('ipkMin','LIKE','%'.$key.'%')
+            ->orwhere('pendonor','LIKE','%'.$key.'%')
+            ->latest()->paginate(10);
+        
+        return fractal()
+            ->collection($beasiswa)
+            ->transformWith(new BeasiswaTransformer)
+            ->toArray();    
+    }
 }
