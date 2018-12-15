@@ -22,7 +22,8 @@
                     controller : 'RegisterV2Controller as vm'
                 }
             },
-            bodyClass: 'register-v2'
+            bodyClass: 'register-v2',
+            params: {Data:null}
         });
 
         // Translate
