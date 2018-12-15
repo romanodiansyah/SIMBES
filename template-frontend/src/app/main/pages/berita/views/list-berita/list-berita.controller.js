@@ -23,16 +23,16 @@
                     targets: 0,
                     width  : '72px'
                 },
-                {
-                    // Target the image column
-                    targets   : 1,
-                    filterable: false,
-                    sortable  : false,
-                    width     : '80px'
-                },
+                // {
+                //     // Target the image column
+                //     targets   : 1,
+                //     filterable: false,
+                //     sortable  : false,
+                //     width     : '80px'
+                // },
                 {
                     // Target the status column
-                    targets   : 4,
+                    targets   : 3,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -61,7 +61,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 5,
+                    targets           : 4,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
