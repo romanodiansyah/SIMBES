@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\pendaftar;
 use App\Student;
+use App\Beasiswa;
 use Auth;
 //use App\Transformers\PendaftarTransformer;
 use Illuminate\Support\Facades\Input;
 use App\Transformers\StudentTransformer;
+use Carbon\Carbon;
 
 class PendaftarController extends Controller
 {
@@ -21,21 +23,38 @@ class PendaftarController extends Controller
             'status'            => 'required',
             'status_aktif'      => 'required',
         ]);
-        $pendaftar = $pendaftar->create([
-            'id_pendaftar'      => $request->id_pendaftar,
-            'id_beasiswa'       => $request->id_beasiswa,
-            'id_user'           => $request->id_user,
-            'status'            => $request->status,
-            'status_aktif'      => $request->status_aktif,
-            'alamat_berkas'     => 0,
-        ]);
-        if ($request->hasFile('alamat_berkas')){
-            $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
-            $path = $request->alamat_berkas->storeAs('beasiswa/'.$pendaftar->id_beasiswa."/berkaspendaftar",$pendaftar->id_beasiswa.'.'.$ext);
-            $pendaftar->alamat_berkas=$path;
-            $pendaftar->save();
-         }
-        return response()->json($pendaftar, 201);
+        $beasiswa = Beasiswa::where('id_beasiswa','=',$request->id_beasiswa)->first();
+       //dd($beasiswa);
+       $pembukaan = Carbon::parse($beasiswa->pembukaan);
+       $penutupan = Carbon::parse($beasiswa->penutupan);
+       $datenow = Carbon::parse(date('Y-m-d H:i:s'));
+        if($pembukaan > $datenow)
+        {
+            return "Pendaftaran belum dibuka!";
+        }
+        else{
+            if($penutupan < $datenow)
+            {
+                return "Pendaftaran telah ditutup!";
+            }
+            else{
+                $pendaftar = $pendaftar->create([
+                    'id_pendaftar'      => $request->id_pendaftar,
+                    'id_beasiswa'       => $request->id_beasiswa,
+                    'id_user'           => $request->id_user,
+                    'status'            => $request->status,
+                    'status_aktif'      => $request->status_aktif,
+                    'alamat_berkas'     => 0,
+                ]);
+                if ($request->hasFile('alamat_berkas')){
+                    $ext = Input::file('alamat_berkas')->getClientOriginalExtension();
+                    $path = $request->alamat_berkas->storeAs('beasiswa/'.$pendaftar->id_beasiswa."/berkaspendaftar",$pendaftar->id_beasiswa.'.'.$ext);
+                    $pendaftar->alamat_berkas=$path;
+                    $pendaftar->save();
+                 }
+                return response()->json($pendaftar, 201); 
+            }
+        }
     }
 
     public function deletePendaftar(Request $request, pendaftar $pendaftar)
