@@ -1,0 +1,19 @@
+{
+    "EC": {
+        "SEARCH": "Search",
+        "EDIT": "Edit",
+        "EMAIL": "Email",
+        "GO_TO_MAHASISWA": "Go to Mahasiswa",
+        "DETAIL_MAHASISWA": "Detail Mahasiswa",
+        "SIMPAN": "SIMPAN",
+        "INFORMASI_UMUM": "Informasi Umum",
+        "NAMA_MAHASISWA": "Nama Lengkap",
+        "JENISKELAMIN": "Jenis Kelamin",
+        "PASSWORD": "Password",
+        "JURUSAN": "Departemen",
+        "FAKULTAS": "Fakultas",
+        "MAHASISWA": "Mahasiswa",
+        "TOTAL_MAHASISWA": "Total Mahasiswa",
+        "TAMBAH_MAHASISWA": "Tambah Mahasiswa"
+    }
+}

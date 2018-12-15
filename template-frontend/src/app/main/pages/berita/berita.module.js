@@ -34,13 +34,8 @@
                         controller : 'ListBeritaController as vm'
                     }
                 },
-                resolve  : {
-                    Products: function (BeritaService)
-                    {
-                        return BeritaService.getProducts();
-                    }
-                },
-                bodyClass: 'berita'
+                bodyClass: 'berita',
+                params: {Data: null}
             })
             .state('app.pages_berita_list-berita.add', {
                 url      : '/add',
@@ -50,29 +45,19 @@
                         controller : 'TambahBeritaController as vm'
                     }
                 },
-                resolve: {
-                    Product: function (BeritaService)
-                    {
-                        return BeritaService.newProduct();
-                    }
-                },
-                bodyClass: 'berita'
+                bodyClass: 'berita',
+                params: {Data: null}
             })
             .state('app.pages_berita_list-berita.detail', {
-                url      : '/:id',
+                url      : 'berita/:id',
                 views    : {
                     'content@app': {
                         templateUrl: 'app/main/pages/berita/views/tambah-berita/tambah-berita.html',
                         controller : 'TambahBeritaController as vm'
                     }
                 },
-                resolve  : {
-                    Product: function ($stateParams, Products, BeritaService)
-                    {
-                        return BeritaService.getProduct($stateParams.id);
-                    }
-                },
-                bodyClass: 'berita'
+                bodyClass: 'berita',
+                params: {Data: null}
             });
 
         // Translation

@@ -4,7 +4,7 @@
     <div class="header md-accent-bg" layout="row" layout-align="start center">
         <div class="white-fg" layout="row" layout-align="start center" flex>
             <md-button class="goto-products-button md-icon-button" aria-label="Go to Berita"
-                       ng-click="vm.gotoProducts()"
+                       ng-click="vm.gotoListNews()"
                        translate translate-attr-aria-label="EC.GO_TO_BERITA">
                 <md-icon md-font-icon="icon-arrow-left"></md-icon>
             </md-button>
@@ -12,7 +12,7 @@
             <div layout="row" layout-align="start center">
                 <div layout="column" layout-align="start start">
                     <div class="h2">
-                        {{vm.product.judul}}
+                        {{vm.news.judul}}
                     </div>
                     <div class="subtitle secondary-text">
                         <span translate="EC.DETAIL_BERITA">Detail Berita</span>
@@ -22,7 +22,7 @@
         </div>
 
         <div>
-            <md-button class="md-raised md-background" ng-click="vm.saveProduct()"
+            <md-button class="md-raised md-background" ng-click="vm.saveNews(vm.news)"
                        ng-disabled="!vm.isFormValid('productForm')">
                 <span translate="EC.SIMPAN">SIMPAN</span>
             </md-button>
@@ -37,20 +37,20 @@
 
             <md-tab>
                 <md-tab-label>
-                    <span translate="EC.INFORMASI_UMUM">Informasi Umum</span>
+                    <span translate="EC.INFORMASI_UMUM">Berita</span>
                 </md-tab-label>
 
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form id="productForm" name="productForm">
                             <md-input-container class="md-block">
-                                <label translate="EC.NAMA_BERITA">Nama Berita</label>
-                                <input type="text" ng-model="vm.product.judul" required>
+                                <label translate="EC.NAMA_BERITA">Judul Berita</label>
+                                <input type="text" ng-model="vm.news.judul" required>{{vm.news.judul}}
                             </md-input-container>
 
                             <h3 class="secondary-text" translate="EC.DESKRIPSI_BERITA">Deskripsi Berita</h3>
-                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.product.deskripsi"
-                                          class="pb-32"></text-angular>
+                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.news.deskripsi"
+                                          class="pb-32">{{vm.news.deskripsi}}</text-angular>
                             
                     
                             <!-- <md-icon md-font-icon="icon-clock" class="m-0 mr-16"></md-icon>

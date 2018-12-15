@@ -11,8 +11,12 @@
         <div class="header" layout="row" layout-align="space-between center">
             <div class="white-fg" layout="column" layout-align="start start">
                 <div class="h1" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-newspaper"></md-icon>
-                    <span translate="EC.BERITA">Berita</span>
+                    <md-icon md-font-icon="icon-baby"></md-icon>
+                    <span translate="EC.MAHASISWA">Mahasiswa</span>
+                </div>
+                <div class="product-count secondary-text">
+                    <span translate="EC.TOTAL_MAHASISWA">Total Mahasiswa:</span>
+                    <span>{{vm.products.length}}</span>
                 </div>
             </div>
 
@@ -23,8 +27,8 @@
             </div>
 
             <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoAddlistNews()">
-                    <span translate="EC.TAMBAH_BERITA">Tambah Berita</span>
+                <md-button class="md-raised md-background" ng-click="vm.gotoAddProduct()">
+                    <span translate="EC.TAMBAH_MAHASISWA">Tambah Mahasiswa</span>
                 </md-button>
             </div>
         </div>
@@ -51,12 +55,37 @@
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Judul</span>
+                                    <span class="column-title">Nama Lengkap</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Status Aktif</span>
+                                    <span class="column-title">Jenis Kelamin</span>
+                                </div>
+                            </th>
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title">Email</span>
+                                </div>
+                            </th>
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title">Password</span>
+                                </div>
+                            </th>
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title">Departemen</span>
+                                </div>
+                            </th>
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title">Fakultas</span>
+                                </div>
+                            </th>
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title">Active</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
@@ -67,13 +96,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="listNews in ::vm.listNews">
-                            <td>{{listNews.id_berita}}</td>
-                            <td>{{listNews.judul}}</td>
-                            <td>{{listNews.status_aktif}}</td>
+                        <tr ng-repeat="product in ::vm.products">
+                            <td>{{product.id}}</td>
+                            <td>{{product.nama}}</td>
+                            <td>{{product.jenis_kelamin}}</td>
+                            <td>{{product.email}}</td>
+                            <td>{{product.password}}</td>
+                            <td>{{product.jurusan}}</td>
+                            <td>{{product.fakultas}}</td>
+                            <td>{{product.active}}</td>
                             <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotolistNewsDetail(listNews.id)" aria-label="Beasiswa Details"
-                                           translate translate-attr-aria-label="EC.DETAIL_BERITA">
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Beasiswa Details"
+                                           translate translate-attr-aria-label="EC.DETAIL_MAHASISWA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>
                             </td>

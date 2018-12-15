@@ -7,16 +7,65 @@
         .controller('TambahBeritaController', TambahBeritaController);
 
     /** @ngInject */
-    function TambahBeritaController($scope, $document, $state, BeritaService, Product)
+    function TambahBeritaController($scope, $state, $http, $localStorage, api)
     {
         var vm = this;
+        vm.submitted = false;
+        
+        vm.gotoListNews = gotoListNews;
+        vm.saveNews = saveNews;
+        vm.gotoNewsDetail = gotoNewsDetail;
+
+        function gotoListNews(){
+            
+            window.location.href = '/list-berita';
+        }
+        vm.news = news;
+        function saveNews(news){
+            console.log(vm.news)
+
+            if(null){
+                $http.post(api.baseUrl+ 'admin/create/news', news).then(function (response){
+                    console.log('news', response);
+                    $localStorage.user = response.data
+                    console.log(window.localStorage);
+                    // $state.go('app.dashboards.project');
+                    window.location.href = '/list-berita'
+                    vm.submitted = true;
+                    
+                    }, function(response){
+                        console.log(response);
+                        alert(response.data.message);
+                        vm.submitted = false;
+                        $state.go('app.pages_berita_list-berita.add');
+                    });
+            }else{
+                vm.newsId = vm.news.id_berita;
+                $http.get(api.baseUrl + 'admin/news' + vm.newsId).then(function (response){
+                    vm.news = response.data;
+                    console.log('news:', vm.news);
+                    window.location.href = '/list-berita'
+                    vm.submitted = true;
+                    
+                }, function (response){
+                    console.log('Data failed :', response)
+                    // alert(response.data.message)
+                });
+            }
+        }
+
+
+        function gotoNewsDetail(data){
+            
+            $state.go('app.pages_berita_list-berita.detail', {id: data.id, Data: data});
+        }
 
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-        vm.product = Product;
+        //vm.product = Product;
         // vm.productStatuses = ProductStatuses;
         vm.categoriesSelectFilter = '';
         vm.ngFlowOptions = {
@@ -33,155 +82,14 @@
             flow: {}
         };
         vm.dropping = false;
-        vm.imageZoomOptions = {};
-        // vm.newStatus = '';
-
+     
 
         // Methods
-        vm.saveProduct = saveProduct;
-        vm.gotoProducts = gotoProducts;
-        vm.onCategoriesSelectorOpen = onCategoriesSelectorOpen;
-        vm.onCategoriesSelectorClose = onCategoriesSelectorClose;
-        vm.fileAdded = fileAdded;
-        vm.upload = upload;
-        vm.fileSuccess = fileSuccess;
-        vm.isFormValid = isFormValid;
-        vm.updateImageZoomOptions = updateImageZoomOptions;
-        // vm.updateStatus = updateStatus;
-
+         vm.isFormValid = isFormValid;
+     
         //////////
 
-        init();
-
-        /**
-         * Initialize
-         */
-        function init()
-        {
-            if ( vm.product.images.length > 0 )
-            {
-                vm.updateImageZoomOptions(vm.product.images[0].url);
-            }
-        }
-
-        /**
-         * Save product
-         */
-        function saveProduct()
-        {
-            // Since we have two-way binding in place, we don't really need
-            // this function to update the products array in the demo.
-            // But in real world, you would need this function to trigger
-            // an API call to update your database.
-            if ( vm.product.id )
-            {
-                BeritaService.updateProduct(vm.product.id, vm.product);
-            }
-            else
-            {
-                BeritaService.createProduct(vm.product);
-            }
-
-        }
-
-        /**
-         * Go to products page
-         */
-        function gotoProducts()
-        {
-            $state.go('app.pages_berita_list-berita');
-        }
-
-        /**
-         * On categories selector open
-         */
-        function onCategoriesSelectorOpen()
-        {
-            // The md-select directive eats keydown events for some quick select
-            // logic. Since we have a search input here, we don't need that logic.
-            $document.find('md-select-header input[type="search"]').on('keydown', function (e)
-            {
-                e.stopPropagation();
-            });
-        }
-
-        /**
-         * On categories selector close
-         */
-        function onCategoriesSelectorClose()
-        {
-            // Clear the filter
-            vm.categoriesSelectFilter = '';
-
-            // Unbind the input event
-            $document.find('md-select-header input[type="search"]').unbind('keydown');
-        }
-
-        /**
-         * File added callback
-         * Triggers when files added to the uploader
-         *
-         * @param file
-         */
-        function fileAdded(file)
-        {
-            // Prepare the temp file data for media list
-            var uploadingFile = {
-                id  : file.uniqueIdentifier,
-                file: file,
-                type: 'uploading'
-            };
-
-            // Append it to the media list
-            vm.product.images.unshift(uploadingFile);
-        }
-
-        /**
-         * Upload
-         * Automatically triggers when files added to the uploader
-         */
-        function upload()
-        {
-            // Set headers
-            vm.ngFlow.flow.opts.headers = {
-                'X-Requested-With': 'XMLHttpRequest',
-                //'X-XSRF-TOKEN'    : $cookies.get('XSRF-TOKEN')
-            };
-
-            vm.ngFlow.flow.upload();
-        }
-
-        /**
-         * File upload success callback
-         * Triggers when single upload completed
-         *
-         * @param file
-         * @param message
-         */
-        function fileSuccess(file, message)
-        {
-            // Iterate through the media list, find the one we
-            // are added as a temp and replace its data
-            // Normally you would parse the message and extract
-            // the uploaded file data from it
-            angular.forEach(vm.product.images, function (media, index)
-            {
-                if ( media.id === file.uniqueIdentifier )
-                {
-                    // Normally you would update the media item
-                    // from database but we are cheating here!
-                    var fileReader = new FileReader();
-                    fileReader.readAsDataURL(media.file.file);
-                    fileReader.onload = function (event)
-                    {
-                        media.url = event.target.result;
-                    };
-
-                    // Update the image type so the overlay can go away
-                    media.type = 'image';
-                }
-            });
-        }
+        // init();
 
         /**
          * Checks if the given form valid
@@ -195,50 +103,5 @@
                 return $scope[formName].$valid;
             }
         }
-
-        /**
-         * Update image zoom options
-         *
-         * @param url
-         */
-        function updateImageZoomOptions(url)
-        {
-            vm.imageZoomOptions = {
-                images: [
-                    {
-                        thumb : url,
-                        medium: url,
-                        large : url
-                    }
-                ]
-            };
-        }
-        /**
-         * Update order status
-         *
-         * @param id
-         */
-        // function updateStatus(id)
-        // {
-        //     if ( !id )
-        //     {
-        //         return;
-        //     }
-
-        //     for ( var i = 0; i < vm.productStatuses.length; i++ )
-        //     {
-        //         if ( vm.productStatuses[i].id === parseInt(id) )
-        //         {
-        //             vm.product.status.unshift({
-        //                 id   : vm.productStatuses[i].id,
-        //                 name : vm.productStatuses[i].name,
-        //                 color: vm.productStatuses[i].color,
-        //                 date : moment().format('YYYY/MM/DD HH:mm:ss')
-        //             });
-
-        //             break;
-        //         }
-        //     }
-        // }
     }
 })();

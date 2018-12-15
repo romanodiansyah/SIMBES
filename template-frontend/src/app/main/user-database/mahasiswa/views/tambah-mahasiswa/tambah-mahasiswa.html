@@ -1,0 +1,96 @@
+<div id="e-commerce-product" class="page-layout simple tabbed" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="start center">
+        <div class="white-fg" layout="row" layout-align="start center" flex>
+            <md-button class="goto-products-button md-icon-button" aria-label="Go to Mahasiswa"
+                       ng-click="vm.gotoProducts()"
+                       translate translate-attr-aria-label="EC.GO_TO_MAHASISWA">
+                <md-icon md-font-icon="icon-arrow-left"></md-icon>
+            </md-button>
+
+            <div layout="row" layout-align="start center">
+                <div layout="column" layout-align="start start">
+                    <div class="h2">
+                        {{vm.product.nama}}
+                    </div>
+                    <div class="subtitle secondary-text">
+                        <span translate="EC.DETAIL_MAHASISWA">Detail Mahasiswa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <md-button class="md-raised md-background" ng-click="vm.saveProduct()"
+                       ng-disabled="!vm.isFormValid('productForm')">
+                <span translate="EC.SIMPAN">SIMPAN</span>
+            </md-button>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <md-tabs md-dynamic-height>
+
+            <md-tab>
+                <md-tab-label>
+                    <span translate="EC.INFORMASI_UMUM">Informasi Umum</span>
+                </md-tab-label>
+
+                <md-tab-body>
+                    <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
+                        <form id="productForm" name="productForm">
+                            <md-input-container class="md-block">
+                                <label translate="EC.NAMA_MAHASISWA">Nama Lengkap</label>
+                                <input type="text" ng-model="vm.product.nama" required>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.JENISKELAMIN">Jenis Kelamin</label>
+                                <md-select ng-model="vm.product.jenis_kelamin">
+                                    <md-option ng-repeat="jenis_kelamin in vm.jenis_kelamin" value="{{jenis_kelamin.abbrev}}">
+                                        {{jenis_kelamin.abbrev}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.EMAIL">Email</label>
+                                <input type="email" ng-model="vm.product.email" required>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.PASSWORD">Password</label>
+                                <input type="password" ng-model="vm.product.password" required>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.JURUSAN">Departemen</label>
+                                <md-select ng-model="vm.product.jurusan">
+                                    <md-option ng-repeat="jurusan in vm.jurusan" value="{{jurusan.abbrev}}">
+                                        {{jurusan.abbrev}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.FAKULTAS">Fakultas</label>
+                                <md-select ng-model="vm.product.fakultas">
+                                    <md-option ng-repeat="fakultas in vm.fakultas" value="{{fakultas.abbrev}}">
+                                        {{fakultas.abbrev}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </form>
+                    </div>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>
