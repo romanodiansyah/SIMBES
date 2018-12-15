@@ -17,6 +17,7 @@
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
         vm.product = Product;
+        // vm.productStatuses = ProductStatuses;
         vm.categoriesSelectFilter = '';
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
@@ -33,6 +34,8 @@
         };
         vm.dropping = false;
         vm.imageZoomOptions = {};
+        // vm.newStatus = '';
+
 
         // Methods
         vm.saveProduct = saveProduct;
@@ -44,6 +47,7 @@
         vm.fileSuccess = fileSuccess;
         vm.isFormValid = isFormValid;
         vm.updateImageZoomOptions = updateImageZoomOptions;
+        // vm.updateStatus = updateStatus;
 
         //////////
 
@@ -209,5 +213,32 @@
                 ]
             };
         }
+        /**
+         * Update order status
+         *
+         * @param id
+         */
+        // function updateStatus(id)
+        // {
+        //     if ( !id )
+        //     {
+        //         return;
+        //     }
+
+        //     for ( var i = 0; i < vm.productStatuses.length; i++ )
+        //     {
+        //         if ( vm.productStatuses[i].id === parseInt(id) )
+        //         {
+        //             vm.product.status.unshift({
+        //                 id   : vm.productStatuses[i].id,
+        //                 name : vm.productStatuses[i].name,
+        //                 color: vm.productStatuses[i].color,
+        //                 date : moment().format('YYYY/MM/DD HH:mm:ss')
+        //             });
+
+        //             break;
+        //         }
+        //     }
+        // }
     }
 })();
