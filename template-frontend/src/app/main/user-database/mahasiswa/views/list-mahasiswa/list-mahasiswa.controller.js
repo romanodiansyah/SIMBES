@@ -3,11 +3,11 @@
     'use strict';
 
     angular
-        .module('app.pages.berita')
-        .controller('ListBeritaController', ListBeritaController);
+        .module('app.user-database.mahasiswa')
+        .controller('ListMahasiswaController', ListMahasiswaController);
 
     /** @ngInject */
-    function ListBeritaController($state, Products)
+    function ListMahasiswaController($state, Products)
     {
         var vm = this;
 
@@ -23,16 +23,9 @@
                     targets: 0,
                     width  : '72px'
                 },
-                // {
-                //     // Target the image column
-                //     targets   : 1,
-                //     filterable: false,
-                //     sortable  : false,
-                //     width     : '80px'
-                // },
                 {
                     // Target the status column
-                    targets   : 2,
+                    targets   : 7,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -61,7 +54,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 4,
+                    targets           : 8,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
@@ -99,7 +92,7 @@
          */
         function gotoAddProduct()
         {
-            $state.go('app.pages_berita_list-berita.add');
+            $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
         }
 
         /**
@@ -109,7 +102,7 @@
          */
         function gotoProductDetail(id)
         {
-            $state.go('app.pages_berita_list-berita.detail', {id: id});
+            $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id});
         }
     }
 })();
