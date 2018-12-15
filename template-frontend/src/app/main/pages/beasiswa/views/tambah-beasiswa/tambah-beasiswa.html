@@ -103,7 +103,7 @@
 
             <md-tab>
                 <md-tab-label>
-                    <span translate="EC.BERKAS">BERKAS BEASISWA</span>
+                    <span translate="EC.BERKAS">Berkas Beasiswa</span>
                 </md-tab-label>
     
                 <md-tab-body>
@@ -123,31 +123,8 @@
                                     UPLOAD A FILE
                                 </md-button>
                             </div>
-
-                            <div layout="row" layout-align="start start" layout-wrap>
-                                <div ng-repeat="image in vm.product.images" ng-switch="image.type">
-                                    <div class="product-image uploading" ng-switch-when="uploading" layout="row"
-                                        layout-align="center center">
-                                        <div class="overlay" layout="column" layout-align="center center">
-                                            <md-progress-linear md-mode="determinate"
-                                                    value="{{image.file.progress() * 100}}">
-                                            </md-progress-linear>
-                                        </div>
-                                        <img class="media" flow-img="image.file">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <!-- / ADD FILE BUTTON -->
-
-                        <!-- CONTENT -->
-                        <md-content class="content" flex ms-scroll>
-                            <div ng-if="vm.currentView === 'grid'"
-                                ng-include="'app/main/apps/file-manager/views/grid/grid-view.html'"></div>
-                            <div ng-if="vm.currentView === 'list'"
-                                ng-include="'app/main/apps/file-manager/views/list/list-view.html'"></div>
-                        </md-content>
-                        <!-- / CONTENT -->
                     </div>
                 </md-tab-body>
             </md-tab>
@@ -180,16 +157,6 @@
                                     <input type="date" ng-model="vm.product.penutupan" min="vm.product.pembukaan">
                                 </md-input-container>
                             </div>
-
-                            <!-- <md-input-container class="md-block">
-                                <label translate="EC.PEMBUKAAN_BEASISWA">Pembukaan Beasiswa</label>
-                                <input type="datetime-local" ng-model="vm.product.pembukaan" max="vm.product.penutupan">
-                            </md-input-container> -->
-                            
-                            <!-- <md-input-container class="md-block">
-                                <label translate="EC.PENUTUPAN_BEASISWA">Penutupan Beasiswa</label>
-                                <input type="datetime-local" ng-model="vm.product.penutupan" min="vm.product.pembukaan">
-                            </md-input-container> -->
 
                             <md-input-container class="md-block">
                                 <label translate="EC.SURAT_KEPUTUSAN_BEASISWA">Surat Keputusan Beasiswa</label>

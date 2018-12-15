@@ -248,16 +248,5 @@
                 ]
             };
         }
-
-        /**
-         * Toggle details
-         *
-         * @param item
-         */
-        function toggleDetails(item)
-        {
-            vm.selected = item;
-            toggleSidenav('details-sidenav');
-        }
     }
 })();
