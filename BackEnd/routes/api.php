@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth:student-api']], function () {
 });
 Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');
 Route::get('news/search/{key}','BeritaController@search');
+Route::get('student/pdf','StudentController@export_pdf');
 //beasiswa
 Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
 Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
