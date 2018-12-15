@@ -53,14 +53,14 @@
                                     <span class="column-title">ID</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <!-- <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Image</span>
                                 </div>
-                            </th>
+                            </th> -->
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Judul</span>
+                                    <span class="column-title">Nama</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
@@ -83,7 +83,7 @@
                     <tbody>
                         <tr ng-repeat="product in ::vm.products">
                             <td>{{product.id}}</td>
-                            <td><img class="product-image" ng-src="{{product.images[0].url}}"></td>
+                            <!-- <td><img class="product-image" ng-src="{{product.images[0].url}}"></td> -->
                             <td>{{product.judul}}</td>
                             <td>{{product.deskripsi}}</td>
                             <td>{{product.active}}</td>

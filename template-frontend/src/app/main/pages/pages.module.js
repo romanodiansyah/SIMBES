@@ -4,13 +4,8 @@
 
     angular
         .module('app.pages', [
-            // 'app.pages.auth.login',
             'app.pages.auth.login-v2',
-            // 'app.pages.auth.register',
             'app.pages.auth.register-v2',
-            // 'app.pages.auth.forgot-password',
-            // 'app.pages.auth.reset-password',
-            // 'app.pages.auth.lock',
             // 'app.pages.coming-soon',
             // 'app.pages.error-404',
             // 'app.pages.error-500',
@@ -20,7 +15,7 @@
             // 'app.pages.search',
             // 'app.pages.timeline',
 			'app.pages.beasiswa',
-			'app.pages.berita'
+            'app.pages.berita'
         ])
         .config(config);
 
@@ -32,6 +27,13 @@
             title : 'PAGES',
             group : true,
             weight: 2
+        });
+
+        msNavigationServiceProvider.saveItem('pages.auth', {
+            title : 'Authentication',
+            icon  : 'icon-lock-outline',
+            state : 'app.pages_auth',
+            weight: 3
         });
     }
 })();
