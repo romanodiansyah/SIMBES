@@ -117,7 +117,7 @@
         function logout()
         {
             $localStorage.$reset();
-            $state.go('app.pages.auth.login-v2');
+            window.location.href = '/pages/auth/login-v2'
         }
 
         /**
