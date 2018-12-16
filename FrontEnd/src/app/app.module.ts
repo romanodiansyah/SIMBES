@@ -10,7 +10,9 @@ import { BerandaMahasiswaComponent } from './beranda-mahasiswa/beranda-mahasiswa
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
+import { DetailComponent } from './detail/detail.component'; 
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginPageComponent,
     RegisterPageComponent,
     BerandaMahasiswaComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

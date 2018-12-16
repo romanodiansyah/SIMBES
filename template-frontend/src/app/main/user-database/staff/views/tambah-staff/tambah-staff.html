@@ -65,6 +65,14 @@
                                 <label translate="EC.EMAIL">Email</label>
                                 <input type="email" ng-model="vm.product.email" required>
                             </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.STATUS">Status Aktif</label>
+                                <md-select ng-model="vm.product.status_aktif">
+                                    <md-option value="1">Aktif</md-option>
+                                    <md-option value="0">Tidak Aktif</md-option>
+                                </md-select>
+                            </md-input-container>
                         </form>
                     </div>
                 </md-tab-body>

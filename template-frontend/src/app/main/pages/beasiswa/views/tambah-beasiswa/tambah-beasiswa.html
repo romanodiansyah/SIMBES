@@ -44,6 +44,14 @@
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form id="beasiswaForm" name="beasiswaForm">
                             <md-input-container class="md-block">
+                                <label translate="EC.STATUS">Status Aktif</label>
+                                <md-select ng-model="vm.product.status_aktif">
+                                    <md-option value="1">Aktif</md-option>
+                                    <md-option value="0">Tidak Aktif</md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
                                 <label translate="EC.NAMA_BEASISWA">Nama Beasiswa</label>
                                 <input type="text" ng-model="vm.beasiswa.nama" required>
                             </md-input-container>
@@ -53,14 +61,14 @@
                                 <input type="text" ng-model="vm.beasiswa.pendonor" required>
                             </md-input-container>
 
-                            <h3 class="secondary-text" translate="EC.DESKRIPSI_BEASISWA">Deskripsi Beasiswa</h3>
-                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.deskripsi"
-                                          class="pb-32"></text-angular>
-                            
                             <md-input-container class="md-block">
                                 <label translate="EC.KUOTA_PENERIMAAN_BEASISWA">Kuota Penerimaan Beasiswa</label>
                                 <input type="number" step="1" ng-model="vm.beasiswa.jumlah_daftar">
                             </md-input-container>
+                            
+                            <h3 class="secondary-text" translate="EC.DESKRIPSI_BEASISWA">Deskripsi Beasiswa</h3>
+                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.deskripsi"
+                                          class="pb-32"></text-angular>
                         </form>
                     </div>
                 </md-tab-body>

@@ -43,6 +43,14 @@
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form id="productForm" name="productForm">
                             <md-input-container class="md-block">
+                                <label translate="EC.STATUS">Status Aktif</label>
+                                <md-select ng-model="vm.product.status_aktif">
+                                    <md-option value="1">Aktif</md-option>
+                                    <md-option value="0">Tidak Aktif</md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
                                 <label translate="EC.NAMA_BERITA">Judul Berita</label>
                                 <input type="text" ng-model="vm.news.judul" required>
                             </md-input-container>
@@ -50,25 +58,6 @@
                             <h3 class="secondary-text" translate="EC.DESKRIPSI_BERITA">Deskripsi Berita</h3>
                             <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.news.deskripsi"
                                           class="pb-32"></text-angular>
-                            
-                    
-                            <!-- <md-icon md-font-icon="icon-clock" class="m-0 mr-16"></md-icon>
-                            <div class="h2 secondary-text" translate="EC.BERITA_STATUS">Berita Status</div>
-                            <div class="update-status" layout="row" layout-align="start center">
-                                <md-input-container flex>
-                                    <label>Select a status</label>
-                                    <md-select ng-model="vm.newStatus">
-                                        <md-option ng-repeat="status in vm.productStatuses" value="{{status.id}}">
-                                            {{status.name}}
-                                        </md-option>
-                                    </md-select>
-                                </md-input-container>
-                    
-                                <md-button class="md-raised md-accent" ng-click="vm.updateStatus(vm.newStatus)"
-                                        ng-disabled="!vm.newStatus">
-                                    Update Status
-                                </md-button>
-                            </div>                                           -->
                         </form>
                     </div>
                 </md-tab-body>

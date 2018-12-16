@@ -13,6 +13,13 @@ use App\Transformers\StudentTransformer;
 use Auth;
 use Excel;
 use App\Exports\ExportPendaftar;
+use Illuminate\Filesystem\Filesystem;
+use Zip;
+use ZanySoft\Zip\ZipManager;
+use Storage;
+use PDF;
+use File;
+
 class AdminController extends Controller
 {
     public function admins(Admin $admin){
@@ -148,5 +155,51 @@ class AdminController extends Controller
         ob_clean();
         return Excel::download(new ExportPendaftar($beasiswa->id_beasiswa),
         "Pendaftar Beasiswa-".$beasiswa->nama.'.xlsx');
+    }
+
+    public function export_zip(Request $request)
+    {
+        $beasiswa = Beasiswa::where('id_beasiswa','=',$request->id_beasiswa)->first();
+        $pendaftars = pendaftar::where('id_beasiswa','=',$request->id_beasiswa)->get();
+        if($pendaftars->isEmpty()){
+            return 'Tidak ada pendaftar!';
+        }
+        foreach ($pendaftars as $pendaftar){
+            $sementara1 = Student::where('id_user','=',$pendaftar->id_user)
+            ->first();
+            $allFiles = Storage::files('student/'.$sementara1->id_user.'/berkas'.'/');
+            $matchingFiles = preg_grep('/'.$sementara1->id_user.'\./',$allFiles);
+            foreach ($matchingFiles as $match){
+                Storage::copy($match,'student/'.$sementara1->id_user.'/ZIP/data');
+            }
+            $data = Student::where('id_user','=',$pendaftar->id_user)->get();
+            if(!Storage::exists('student/'.$pendaftar->id_user.'/ZIP/data/')) {
+
+                Storage::makeDirectory('student/'.$pendaftar->id_user.'/ZIP/data/', 0775, true); //creates directory
+            
+            }
+            $pdf = PDF::loadView('pdf', array('data'=>$data));            
+            $pdf->save(storage_path().'/app/student/'.$pendaftar->id_user.'/ZIP/data/'.'From Pengajuan-'.$data[0]->id_user.'.pdf');
+            $allFilesbeasiswa = Storage::files('beasiswa/'.$sementara1->id_user.'/berkas'.'/');
+            $matchingFilesbeasiswa = preg_grep('/'.$sementara1->id_user.'\./',$allFilesbeasiswa);
+            foreach ($matchingFiles as $match){
+                Storage::copy($match,'student/'.$sementara1->id_user.'/ZIP/berkas');
+            }
+            
+            $zip = Zip::create(storage_path().'/app/student/'.$sementara1->id_user.'/ZIP'.'/'.$sementara1->id_user.'.zip');
+            $zip->add(storage_path().'/app/student/'.$sementara1->id_user.'/ZIP/data','storage/app/student/'.$sementara1->id_user.'/ZIP/berkas');
+            $zip->close();
+        }
+        
+        foreach ($pendaftars as $pendaftar){
+            $manager = new ZipManager();
+            $sementara1 = Student::where('id_user','=',$pendaftar->id_user)
+            ->first();
+            $manager->addZip(Zip::open(storage_path().'/app/student/'.$sementara1->id_user.'/ZIP'.'/'.$sementara1->id_user.'.zip'));
+        }
+
+        $manager->merge(storage_path().'/app/beasiswa/'.$beasiswa->id_beasiswa.'/ZIP'.'/'.$beasiswa->id_beasiswa.'.zip',true);
+        $manager->close();
+
     }
 }
