@@ -25,6 +25,7 @@ Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
 Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
 Route::post('beasiswa/delete', 'BeasiswaController@deleteBeasiswa');
 Route::get('beasiswa','BeasiswaController@readBeasiswa');
+Route::get('beasiswa/view','BeasiswaController@viewBeasiswa');
 
     // berita
     Route::post('admin/create/news','BeritaController@createNews');

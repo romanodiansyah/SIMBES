@@ -23,6 +23,12 @@ class PendaftarController extends Controller
             'status'            => 'required',
             'status_aktif'      => 'required',
         ]);
+
+        $pendaftar = pendaftar::where('id_beasiswa','=',$request->id_beasiswa)->where('id_user','=',$request->id_user)->get();
+        if(!$pendaftar->isEmpty())
+        {
+            return "Anda sudah mendaftar!";
+        }
         $beasiswa = Beasiswa::where('id_beasiswa','=',$request->id_beasiswa)->first();
        //dd($beasiswa);
        $pembukaan = Carbon::parse($beasiswa->pembukaan);
