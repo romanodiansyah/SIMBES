@@ -10,7 +10,8 @@
     function TambahBeasiswaController($scope, $state, $http, $localStorage, api)
     {
         var vm = this;
-
+        vm.submitted = false;
+        
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
