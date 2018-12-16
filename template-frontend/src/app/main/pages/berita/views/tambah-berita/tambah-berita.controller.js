@@ -64,8 +64,6 @@
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
         //vm.product = Product;
-        // vm.productStatuses = ProductStatuses;
-        vm.categoriesSelectFilter = '';
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
             /*target                   : 'api/media/image',
@@ -78,9 +76,7 @@
         vm.ngFlow = {
             // ng-flow will be injected into here through its directive
             flow: {}
-        };
-        vm.dropping = false;
-     
+        };     
 
         // Methods
          vm.isFormValid = isFormValid;

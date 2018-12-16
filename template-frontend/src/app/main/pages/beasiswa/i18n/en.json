@@ -85,6 +85,7 @@
         "BEASISWA": "Beasiswa",
         "TOTAL_BEASISWA": "Total Beasiswa",
         "TAMBAH_BEASISWA": "Tambah Beasiswa",
-        "BERKAS": "Berkas Beasiswa"
+        "BERKAS": "Berkas Beasiswa",
+        "STATUS": "Status Aktif"
     }
 }

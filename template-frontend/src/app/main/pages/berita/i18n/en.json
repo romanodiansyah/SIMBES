@@ -73,6 +73,7 @@
         "POSTER_BERITA": "Poster Berita",
         "BERITA": "Berita",
         "TOTAL_BERITA": "Total Berita",
-        "TAMBAH_BERITA": "Tambah Berita"
+        "TAMBAH_BERITA": "Tambah Berita",
+        "STATUS": "Status Aktif"
     }
 }

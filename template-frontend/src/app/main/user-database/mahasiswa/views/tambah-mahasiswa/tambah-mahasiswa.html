@@ -50,10 +50,9 @@
 
                             <md-input-container class="md-block">
                                 <label translate="EC.JENISKELAMIN">Jenis Kelamin</label>
-                                <md-select ng-model="vm.student.jenis_kelamin">
-                                    <md-option ng-repeat="jenis_kelamin in vm.jenis_kelamin" value="{{jenis_kelamin.abbrev}}">
-                                        {{jenis_kelamin.abbrev}}
-                                    </md-option>
+                                <md-select ng-model="vm.product.jenis_kelamin">
+                                    <md-option value="1">Laki-Laki</md-option>
+                                    <md-option value="2">Perempuan</md-option>
                                 </md-select>
                             </md-input-container>
 
@@ -66,22 +65,44 @@
                                 <label translate="EC.PASSWORD">Password</label>
                                 <input type="password" ng-model="vm.student.password" required>
                             </md-input-container>
-
+                            
                             <md-input-container class="md-block">
                                 <label translate="EC.JURUSAN">Departemen</label>
                                 <md-select ng-model="vm.student.jurusan">
-                                    <md-option ng-repeat="jurusan in vm.jurusan" value="{{jurusan.abbrev}}">
-                                        {{jurusan.abbrev}}
-                                    </md-option>
+                                    <md-option value="1">Statistika</md-option>
+                                    <md-option value="2">Geofisika dan Meteorologi</md-option>
+                                    <md-option value="3">Biologi</md-option>
+                                    <md-option value="4">Kimia</md-option>
+                                    <md-option value="5">Matematika</md-option>
+                                    <md-option value="6">Ilmu Komputer</md-option>
+                                    <md-option value="7">Fisika</md-option>                                        <md-option value="8">Ekonomi dan Manajemen</md-option>
+                                    <md-option value="8">Biokimia</md-option>
+                                    <md-option value="9">Aktuaria</md-option>
                                 </md-select>
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.FAKULTAS">Fakultas</label>
                                 <md-select ng-model="vm.student.fakultas">
-                                    <md-option ng-repeat="fakultas in vm.fakultas" value="{{fakultas.abbrev}}">
-                                        {{fakultas.abbrev}}
-                                    </md-option>
+                                    <md-option value="1">Pertanian</md-option>
+                                    <md-option value="2">Kedokteran Hewan</md-option>
+                                    <md-option value="3">Perikanan dan Ilmu Kelautan</md-option>
+                                    <md-option value="4">Peternakan</md-option>
+                                    <md-option value="5">Kehutanan</md-option>
+                                    <md-option value="6">Teknologi Pertanian</md-option>
+                                    <md-option value="7">Matematika dan Ilmu Pengetahuan Alam</md-option>
+                                    <md-option value="8">Ekonomi dan Manajemen</md-option>
+                                    <md-option value="9">Ekologi Manusia</md-option>
+                                    <md-option value="10">Sekolah Vokasi</md-option>
+                                    <md-option value="11">Sekolah Bisnis</md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.STATUS">Status Aktif</label>
+                                <md-select ng-model="vm.product.status_aktif">
+                                    <md-option value="1">Aktif</md-option>
+                                    <md-option value="0">Tidak Aktif</md-option>
                                 </md-select>
                             </md-input-container>
                         </form>
