@@ -29,13 +29,13 @@ class StatusController extends Controller
         ]);
 
         $notifikasi = Notifikasi::where('id_user','=',$request->id_user)->get();
-
+        $count = count($notifikasi);
         if($notifikasi->isEmpty())
         {
-            return "Tidak ada rekomendasi";
+            return "Tidak ada notifikasi";
         }
         else{
-            return "Ada rekomendasi";
+            return "Ada notifikasi sebanyak:".$count;
         }
     }
 
@@ -45,9 +45,8 @@ class StatusController extends Controller
             'id_notifikasi'            => 'required',
         ]);
 
-    
-
-        
+        $notifikasi = Notifikasi::where('id_notifikasi','=',$request->id_notifikasi)->first();
+        $notifikasi = $notifikasi->update(['status => 1']);
 
     }
 }
