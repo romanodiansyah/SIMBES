@@ -161,6 +161,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        ZanySoft\Zip\ZipServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -228,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Fractal' => Spatie\Fractal\FractalFacade::class,
+        'Zip' => ZanySoft\Zip\ZipFacade::class,
     ],
 
 ];
