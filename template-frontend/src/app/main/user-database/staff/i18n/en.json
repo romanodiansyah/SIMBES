@@ -12,6 +12,7 @@
         "JENISKELAMIN": "Jenis Kelamin",
         "STAFF": "Staff",
         "TOTAL_STAFF": "Total Staff",
-        "TAMBAH_STAFF": "Tambah Staff"
+        "TAMBAH_STAFF": "Tambah Staff",
+        "STATUS": "Status Aktif"
     }
 }

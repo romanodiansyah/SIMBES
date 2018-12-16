@@ -15,19 +15,19 @@ class BeasiswaController extends Controller
     {
         $this->validate($request, [
             // 'id_adm'            => 'required',
-            'nama'              => 'required',
-            'deskripsi'         => 'required',
-            'persyaratan'       => 'required',
-            'jenjangPendidikan' => 'required',
-            'semester'          => 'required',
-            'ipkMin'            => 'required',
+            // 'nama'              => 'required',
+            // 'deskripsi'         => 'required',
+            // 'persyaratan'       => 'required',
+            // 'jenjangPendidikan' => 'required',
+            // 'semester'          => 'required',
+            // 'ipkMin'            => 'required',
             // 'berkas'            => 'required',
-            'pembukaan'         => 'required',
-            'penutupan'         => 'required',
-            'jumlah_daftar'     => 'required',
-            'sk'                => 'required',
-            'pendonor'          => 'required',
-            'status_aktif'      => 'required',
+            // 'pembukaan'         => 'required',
+            // 'penutupan'         => 'required',
+            // 'jumlah_daftar'     => 'required',
+            // 'sk'                => 'required',
+            // 'pendonor'          => 'required',
+            // 'status_aktif'      => 'required',
         ]); 
         $admin = $admin->find(Auth::user()->id_adm);
         
@@ -127,5 +127,14 @@ class BeasiswaController extends Controller
             ->collection($beasiswa)
             ->transformWith(new BeasiswaTransformer)
             ->toArray();    
+    }
+
+    public function viewBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
+    {
+        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
+        return fractal()
+        ->item($beasiswa)
+        ->transformWith(new BeasiswaTransformer)
+        ->toArray();
     }
 }

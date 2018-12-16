@@ -18,23 +18,6 @@
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
         //vm.product = Product;
-        //vm.jurusanSelectFilter = '';
-
-        vm.jenis_kelamin = ('Laki-Laki Perempuan').split(' ').map(function (jenis_kelamin)
-        {
-            return {abbrev: jenis_kelamin};
-        });
-        
-
-        vm.jurusan = ('Statistika,Geofisika dan Meteorologi,Biologi,Kimia,Matematika,Ilmu Komputer,Fisika,Biokimia').split(',').map(function (jurusan)
-        {
-            return {abbrev: jurusan};
-        });
-
-        vm.fakultas = ('Pertanian,Kedokteran Hewan,Perikanan dan Ilmu Kelautan,Peternakan,Kehutanan,Teknologi Pertanian,Matematika dan Ilmu Pengetahuan Alam,Ekonomi dan Manajemen,Ekologi Manusia,Sekolah Vokasi,Sekolah Bisnis').split(',').map(function (fakultas)
-        {
-            return {abbrev: fakultas};
-        });
         
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here

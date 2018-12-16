@@ -110,6 +110,15 @@
          */
         function gotoStudentDetail(id)
         {
+            $http.get(api.baseUrl + 'admin/student/'+id).then(function (response){
+                vm.student = response.data.data;
+                console.log('Data mahasiswa:', vm.student);
+    
+            }, function (response){
+                console.log('Data failed :', response)
+                alert(response.data.message)
+            });
+    
             $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id});
         }
     }
