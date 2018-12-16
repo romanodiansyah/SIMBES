@@ -81,24 +81,24 @@
         };
 
         // Methods
-        vm.gotoAddStaff = gotoAddStaff;
-        vm.gotoProductDetail = gotoProductDetail;
+        vm.gotoAddAdmin = gotoAddAdmin;
+        vm.gotoAdminDetail = gotoAdminDetail;
 
         //////////
         // * api
-        $http.get(api.baseUrl + 'admin/list/staff').then(function (response){
-            vm.staffs = response.data.data;
-            console.log('Data Staff:', vm.staffs);
+        $http.get(api.baseUrl + 'admin/list/admin').then(function (response){
+            vm.admins = response.data.data;
+            console.log('Data Staff:', vm.admins);
 
         }, function (response){
-            console.log('Data failed :', response)
+            console.log('Data failed:', response)
             alert(response.data.message)
         });
 
         /**
          * Go to add product
          */
-        function gotoAddStaff()
+        function gotoAddAdmin()
         {
             $state.go('app.user-database_staff_list-staff.add');
         }
@@ -108,8 +108,16 @@
          *
          * @param id
          */
-        function gotoProductDetail(id)
+        function gotoAdminDetail(id)
         {
+            $http.get(api.baseUrl + 'admin/admin/'+id).then(function (response){
+                vm.admin = response.data.data;
+                console.log('Data Staff:', vm.admin);
+    
+            }, function (response){
+                console.log('Data failed:', response)
+                alert(response.data.message)
+            });
             $state.go('app.user-database_staff_list-staff.detail', {id: id});
         }
     }

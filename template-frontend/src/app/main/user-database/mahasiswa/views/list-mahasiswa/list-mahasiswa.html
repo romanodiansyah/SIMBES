@@ -44,42 +44,42 @@
                        dt-options="vm.dtOptions">
                     <thead>
                         <tr>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="5%">
                                 <div class="table-header">
                                     <span class="column-title">ID</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="15%">
                                 <div class="table-header">
                                     <span class="column-title">Nama Lengkap</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="15%">
                                 <div class="table-header">
                                     <span class="column-title">Jenis Kelamin</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="15%">
                                 <div class="table-header">
                                     <span class="column-title">Email</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="20%">
                                 <div class="table-header">
                                     <span class="column-title">Departemen</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="20%">
                                 <div class="table-header">
                                     <span class="column-title">Fakultas</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="5%">
                                 <div class="table-header">
                                     <span class="column-title">Status Aktif</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <th class="secondary-text" width="5%">
                                 <div class="table-header">
                                     <span class="column-title">Actions</span>
                                 </div>
@@ -88,15 +88,15 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="student in ::vm.students">
-                            <td>{{student.id_user}}</td>
-                            <td>{{student.nama}}</td>
-                            <td>{{student.jenis_kelamin}}</td>
-                            <td>{{student.email}}</td>
-                            <td>{{student.jurusan}}</td>
-                            <td>{{student.fakultas}}</td>
-                            <td>{{student.status_aktif}}</td>
-                            <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoStudentDetail(student.id_user)" aria-label="Beasiswa Details"
+                            <td width="5%">{{student.id_user}}</td>
+                            <td width="15%">{{student.nama}}</td>
+                            <td width="15%">{{student.jenis_kelamin}}</td>
+                            <td width="15%">{{student.email}}</td>
+                            <td width="20%">{{student.jurusan}}</td>
+                            <td width="20%">{{student.fakultas}}</td>
+                            <td width="5%">{{student.status_aktif}}</td>
+                            <td width="5%">
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoStudentDetail(student.id_user)" aria-label="Mahasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_MAHASISWA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>

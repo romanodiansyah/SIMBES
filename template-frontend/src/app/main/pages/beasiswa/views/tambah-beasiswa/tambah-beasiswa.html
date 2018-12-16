@@ -64,7 +64,7 @@
                             
                             <md-input-container class="md-block">
                                 <label translate="EC.STATUS">Status Aktif</label>
-                                <md-select ng-model="vm.product.status_aktif">
+                                <md-select ng-model="vm.beasiswa.status_aktif">
                                     <md-option value="1">Aktif</md-option>
                                     <md-option value="0">Tidak Aktif</md-option>
                                 </md-select>
@@ -82,16 +82,6 @@
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form>
-                            <!-- <md-input-container class="md-block">
-                                <label translate="EC.JENJANG_PENDIDIKAN">Jenjang Pendidikan</label>
-                                <input type="text" ng-model="vm.beasiswa.jenjangPendidikan">
-                            </md-input-container> -->
-
-                            <!-- <md-input-container class="md-block">
-                                <label translate="EC.SEMESTER">Semester</label>
-                                <input type="text" ng-model="vm.beasiswa.semester">
-                            </md-input-container> -->
-
                             <md-input-container class="md-block">
                                 <label translate="EC.JENJANG_PENDIDIKAN">Jenjang Pendidikan</label>
                                 <md-select multiple="{{false}}" ng-model="vm.beasiswa.jenjangPendidikan">
