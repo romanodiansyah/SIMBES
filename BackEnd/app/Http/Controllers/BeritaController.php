@@ -52,6 +52,7 @@ class BeritaController extends Controller
     public function update(Request $request, Berita $berita){
         $berita->judul = $request->get('judul',$berita->judul);
         $berita->deskripsi = $request->get('deskripsi',$berita->deskripsi);
+        $berita->status_aktif = $request->get('status_aktif',$berita->status_aktif);
         $berita->save();
 
         return fractal()

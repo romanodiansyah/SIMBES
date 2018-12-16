@@ -74,6 +74,8 @@ class AdminController extends Controller
         $admin->nama = $request->get('nama',$admin->nama);
         $admin->jenis_kelamin = $request->get('jenis_kelamin',$admin->jenis_kelamin);
         $admin->email = $request->get('email',$admin->email);
+        $admin->status_aktif = $request->get('status_aktif',$admin->status_aktif);
+
         $admin->save();
 
         return fractal()
