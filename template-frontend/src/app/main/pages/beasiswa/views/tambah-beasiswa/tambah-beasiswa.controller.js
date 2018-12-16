@@ -180,9 +180,5 @@
                 return $scope[formName].$valid;
             }
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 38d7cf43217e6ab4b83cdf176a9cc80eeb4b6e93
     }
 })();
