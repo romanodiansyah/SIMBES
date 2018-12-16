@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
-import { DetailComponent } from './detail/detail.component'; 
+import { DetailComponent } from './detail/detail.component';
+import { ListBeasiswaComponent } from './list-beasiswa/list-beasiswa.component';
+import { ListBeritaComponent } from './list-berita/list-berita.component'; 
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { DetailComponent } from './detail/detail.component';
     BerandaMahasiswaComponent,
     HeaderComponent,
     FooterComponent,
-    DetailComponent
+    DetailComponent,
+    ListBeasiswaComponent,
+    ListBeritaComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,14 @@ import { DetailComponent } from './detail/detail.component';
       {
         path: 'login',
         component: LoginPageComponent
+      },
+      {
+        path: 'listbeasiswa',
+        component: ListBeasiswaComponent
+      },
+      {
+        path: 'listberita',
+        component: ListBeritaComponent
       }
     ]),
     FormsModule,

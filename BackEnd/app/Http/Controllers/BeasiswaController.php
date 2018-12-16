@@ -15,19 +15,19 @@ class BeasiswaController extends Controller
     {
         $this->validate($request, [
             // 'id_adm'            => 'required',
-            'nama'              => 'required',
-            'deskripsi'         => 'required',
-            'persyaratan'       => 'required',
-            'jenjangPendidikan' => 'required',
-            'semester'          => 'required',
-            'ipkMin'            => 'required',
+            // 'nama'              => 'required',
+            // 'deskripsi'         => 'required',
+            // 'persyaratan'       => 'required',
+            // 'jenjangPendidikan' => 'required',
+            // 'semester'          => 'required',
+            // 'ipkMin'            => 'required',
             // 'berkas'            => 'required',
-            'pembukaan'         => 'required',
-            'penutupan'         => 'required',
-            'jumlah_daftar'     => 'required',
-            'sk'                => 'required',
-            'pendonor'          => 'required',
-            'status_aktif'      => 'required',
+            // 'pembukaan'         => 'required',
+            // 'penutupan'         => 'required',
+            // 'jumlah_daftar'     => 'required',
+            // 'sk'                => 'required',
+            // 'pendonor'          => 'required',
+            // 'status_aktif'      => 'required',
         ]); 
         $admin = $admin->find(Auth::user()->id_adm);
         
