@@ -14,12 +14,12 @@ class CreateStatusesTable extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
+            $table->increments('id_notifikasi')->unqiue();
+            $table->integer('id_user')->unsigned();
+            $table->integer('status');
             $table->integer('id_pendaftar')->unsigned();
-            $table->integer('id_notifikasi')->unsigned();
-            $table->timestamps();
-
             $table->foreign('id_pendaftar')->references('id_pendaftar')->on('pendaftars')->onDelete('cascade');
-            $table->foreign('id_notifikasi')->references('id_notifikasi')->on('notifikasis')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

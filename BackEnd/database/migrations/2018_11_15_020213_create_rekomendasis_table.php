@@ -14,12 +14,12 @@ class CreateRekomendasisTable extends Migration
     public function up()
     {
         Schema::create('rekomendasis', function (Blueprint $table) {
+            $table->increments('id_notifikasi')->unqiue();
+            $table->integer('id_user')->unsigned();
+            $table->integer('status');
             $table->integer('id_beasiswa')->unsigned();
-            $table->integer('id_notifikasi')->unsigned();
-            $table->timestamps();
-
             $table->foreign('id_beasiswa')->references('id_beasiswa')->on('beasiswas')->onDelete('cascade');
-            $table->foreign('id_notifikasi')->references('id_notifikasi')->on('notifikasis')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
