@@ -11,13 +11,16 @@
     {
         var vm = this;
         vm.submitted = false;
-        
+        $localStorage.formBeasiswa = $localStorage.formBeasiswa ? $localStorage.formBeasiswa : {};
+        vm.beasiswa = $localStorage.formBeasiswa;
+
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-
+        
+        
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
             /*target                   : 'api/media/image',

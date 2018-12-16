@@ -83,9 +83,6 @@
             responsive  : true
         };
 
-        // Methods
-        vm.gotoAddBeasiswa = gotoAddBeasiswa;
-
         //////////
 
         // *api
