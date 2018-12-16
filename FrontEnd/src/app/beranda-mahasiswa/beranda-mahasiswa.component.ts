@@ -11,25 +11,32 @@ const url = "http://localhost:8000/api/";
   styleUrls: ['./beranda-mahasiswa.component.css']
 })
 export class BerandaMahasiswaComponent implements OnInit {
-   beasiswa: any;
+    listApplicableBeasiswa: any[];
+    listClosedBeasiswa: any[];
  // headers = new HttpHeaders().set('Content-Type','application/json');
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     public http: HttpClient) { 
-      let headers = new Headers({'Content-Type':'application/json'});
+      // let headers = new Headers({'Content-Type':'application/json'});
       // let options = new RequestOptions({headers: headers});
       // if (localStorage.getItem("token") != null) {
-        this.http.get(url+'beasiswa')
-      .subscribe((res:any) => {
+      this.http.get(url+'beasiswa/applicable').subscribe((res:any) => {
         console.log(res);
-        localStorage.setItem('listBeasiswa', res.data);
-        this.beasiswa = res.data;
+        localStorage.setItem('listBeasiswaApplicable', res.data);
+        this.listApplicableBeasiswa = res.data;
       },err =>{
         console.log("error get listBeasiswa", err);
       });
       // }
-      console.log(this.beasiswa);
+      console.log(this.listApplicableBeasiswa);
+      this.http.get(url+'beasiswa/closed').subscribe((res:any) => {
+        console.log(res);
+        localStorage.setItem('listBeasiswaclosed', res.data);
+        this.listClosedBeasiswa = res.data;
+      },err =>{
+        console.log("error get listBeasiswa", err);
+      });
+      console.log(this.listClosedBeasiswa);
     }
 
   ngOnInit() {

@@ -33,7 +33,7 @@
                 <i class="icon-graduation"></i>
                 <h2 class="timelin-title">Pendaftaran Dibuka</h2>
               </li>
-              <li *ngFor="let item of beasiswa">
+              <li *ngFor="let item of listApplicableBeasiswa">
                 <div class="content-text">
                   <h3 class="line-title">{{item.nama}}</h3>
                   <span>{{item.pembukaan}} - {{item.penutupan}}</span>
@@ -52,11 +52,11 @@
                 <i class="icon-briefcase"></i>
                 <h2 class="timelin-title">Pendaftaran Ditutup</h2>
               </li>
-              <li>
+              <li *ngFor="let item2 of listClosedBeasiswa">
                 <div class="content-text">
-                  <h3 class="line-title">Judul Beasiswa</h3>
-                  <span>pembukaan - penutupan</span>
-                  <p class="line-text">deskripsi singkat</p>
+                  <h3 class="line-title">{{item2.nama}}</h3>
+                  <span>{{item2.pembukaan}} - {{item2.penutupan}}</span>
+                  <p class="line-text">{{item2.deskripsi}}</p>
                 </div>
               </li>
             </ul>
