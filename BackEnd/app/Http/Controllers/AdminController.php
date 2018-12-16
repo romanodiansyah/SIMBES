@@ -7,9 +7,12 @@ use App\Admin;
 use App\Http\Requests;
 use App\Transformers\AdminTransformer;
 use App\Student;
+use App\Beasiswa;
+use App\pendaftar;
 use App\Transformers\StudentTransformer;
 use Auth;
-
+use Excel;
+use App\Exports\ExportPendaftar;
 class AdminController extends Controller
 {
     public function admins(Admin $admin){
@@ -133,5 +136,17 @@ class AdminController extends Controller
         ->item($student)
         ->transformWith(new studentTransformer)
         ->toArray();
+    }
+
+    public function export_excel(Request $request)
+    {
+        $this->validate($request, [
+            'id_beasiswa'          => 'required',
+        ]);
+        
+        $beasiswa = Beasiswa::where('id_beasiswa','=',$request->id_beasiswa)->first();
+        ob_clean();
+        return Excel::download(new ExportPendaftar($beasiswa->id_beasiswa),
+        "Pendaftar Beasiswa-".$beasiswa->nama.'.xlsx');
     }
 }
