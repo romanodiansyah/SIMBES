@@ -19,7 +19,7 @@
                 </div>
                 <div class="product-count secondary-text">
                     <span translate="EC.TOTAL_PENDAFTAR">Total Pendaftar:</span>
-                    <span>{{vm.beasiswas.length}}</span>
+                    <span>{{vm.pendaftars.length}}</span>
                 </div>
             </div>
             <div class="actions" layout="row" layout-align="end center">
@@ -92,26 +92,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="beasiswa in ::vm.beasiswas">
-                            <td width="10%">{{beasiswa.id_pendaftar}}</td>
-                            <td width="10%">{{beasiswa.nama}}</td>
-                            <td width="20%">{{beasiswa.email}}</td>
+                        <tr ng-repeat="pendaftar in ::vm.pendaftars, i in index">
+                            <td width="10%">{{i++}}</td>
+                            <td width="10%">{{pendaftar.nama}}</td>
+                            <td width="20%">{{pendaftar.email}}</td>
 
-                            <td width="20%" ng-if="beasiswa.alamat_berkas == 1">
+                            <td width="20%" ng-if="pendaftar.alamat_berkas == 1">
                                 <md-button class="md-raised md-background">
                                     <span>Download</span>
                                 </md-button>
                             </td>
-                            <td width="20%" ng-if="beasiswa.alamat_berkas == 0">Tidak ada berkas</td>
+                            <td width="20%" ng-if="pendaftar.alamat_berkas == 0">Tidak ada berkas</td>
 
-                            <td width="10%" ng-if="beasiswa.status_aktif == 1">Aktif</td>
-                            <td width="10%" ng-if="beasiswa.status_aktif == 0">Tidak Aktif</td>
+                            <td width="10%" ng-if="pendaftar.status_aktif == 1">Aktif</td>
+                            <td width="10%" ng-if="pendaftar.status_aktif == 0">Tidak Aktif</td>
 
-                            <td width="30%">
-                                <md-button class="md-raised md-accent" ng-click="vm.gotoListPendaftar()">
+                            <td width="30%" ng-if="pendaftar.status == 2">Diterima</td>
+                            <td width="30%" ng-if="pendaftar.status == 3">Ditolak</td>
+                            <td width="30%" ng-if="pendaftar.status == 1">
+                                <md-button class="md-raised md-accent" ng-click="vm.AccPendaftar(pendaftar.id_pendaftar)">
                                     <span translate="EC.ACCEPT">Accept</span>
                                 </md-button>
-                                <md-button class="md-raised md-primary" ng-click="vm.gotoListPendaftar()">
+                                <md-button class="md-raised md-primary" ng-click="vm.DecPendaftar(pendaftar.id_pendaftar)">
                                     <span translate="EC.DECLINE">Decline</span>
                                 </md-button>
                             </td>

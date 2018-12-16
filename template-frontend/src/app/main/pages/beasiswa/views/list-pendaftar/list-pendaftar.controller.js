@@ -10,7 +10,7 @@
     function ListPendaftarBeasiswaController($state, $scope, api, $http, $localStorage)
     {
         var vm = this;
-
+        vm.pendaftars = $localStorage.pendaftars;
         // Data
         
         vm.dtInstance = {};
@@ -47,7 +47,8 @@
         // Methods
         vm.gotoListPenerima = gotoListPenerima;
         vm.gotoListBeasiswa = gotoListBeasiswa;
-
+        vm.AccPendaftar = AccPendaftar;
+        vm.DecPendaftar = DecPendaftar;
         //////////
 
         // *api
@@ -70,7 +71,30 @@
 
         function gotoListBeasiswa()
         {
+            $localStorage.pendaftar = {};
             $state.go('app.pages_beasiswa_list-beasiswa');
+        }
+
+        function AccPendaftar(id){
+            $http.post(api.baseUrl + 'pendaftar/accept/'+id).then(function (response){
+                vm.AccPendaftar = response.data.data;
+                console.log('acc pendaftar', vm.beasiswas);
+    
+            }, function (response){
+                console.log('Data failed :', response)
+                alert(response.data.message)
+            });
+        }
+
+        function DecPendaftar(id){
+            $http.post(api.baseUrl + 'pendaftar/decline/'+id).then(function (response){
+                vm.DecPendaftar = response.data.data;
+                console.log('dec pendaftar:', vm.DecPendaftar);
+    
+            }, function (response){
+                console.log('Data failed :', response)
+                alert(response.data.message)
+            });
         }
     }
 })();
