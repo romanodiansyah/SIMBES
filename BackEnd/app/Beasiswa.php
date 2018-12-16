@@ -21,4 +21,9 @@ class Beasiswa extends Authenticatable
 
     protected $hidden = [
     ];
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin','id_adm','id_adm');
+    }
 }

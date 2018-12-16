@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Transformers\StudentTransformer;
 use Auth;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -38,31 +39,31 @@ class StudentController extends Controller
         if($request->hasFile('alamat_transkrip')){
             $file = $request->file('alamat_transkrip');
             $ext = $file->getClientOriginalExtension();
-            $path = $file->storeAs('student/berkas/'.$folder, $student->id_user.'-transkrip.'.$ext);
+            $path = $file->storeAs('student/'.$folder.'/berkas', $student->id_user.'-transkrip.'.$ext);
             $student->alamat_transkrip = $path;
         }
         if($request->hasFile('alamat_kk')){
             $file = $request->file('alamat_kk');
             $ext = $file->getClientOriginalExtension();
-            $path = $file->storeAs('student/berkas/'.$folder, $student->id_user.'-kk.'.$ext);
+            $path = $file->storeAs('student/'.$folder.'/berkas', $student->id_user.'-kk.'.$ext);
             $student->alamat_kk = $path;
         }
         if($request->hasFile('alamat_fotodiri')){
             $file = $request->file('alamat_fotodiri');
             $ext = $file->getClientOriginalExtension();
-            $path = $file->storeAs('student/berkas/'.$folder, $student->id_user.'-fotodiri.'.$ext);
+            $path = $file->storeAs('student/'.$folder.'/berkas', $student->id_user.'-fotodiri.'.$ext);
             $student->alamat_fotodiri = $path;
         }
         if($request->hasFile('alamat_slipgaji')){
             $file = $request->file('alamat_slipgaji');
             $ext = $file->getClientOriginalExtension();
-            $path = $file->storeAs('student/berkas/'.$folder, $student->id_user.'-slipgaji.'.$ext);
+            $path = $file->storeAs('student/'.$folder.'/berkas', $student->id_user.'-slipgaji.'.$ext);
             $student->alamat_slipgaji = $path;
         }
         if($request->hasFile('alamat_sktm')){
             $file = $request->file('alamat_sktm');
             $ext = $file->getClientOriginalExtension();
-            $path = $file->storeAs('student/berkas/'.$folder, $student->id_user.'-sktm.'.$ext);
+            $path = $file->storeAs('student/'.$folder.'/berkas', $student->id_user.'-sktm.'.$ext);
             $student->alamat_sktm = $path;
         }
 
@@ -75,5 +76,17 @@ class StudentController extends Controller
                 'updated' => $request->all()
             ])
             ->toArray();
+    }
+
+    public function export_pdf(Request $request)
+    {
+        $this->validate($request, [
+            'id_user'       => 'required',
+        ]);
+
+        $data = Student::where('id_user','=',$request->id_user)->get();
+        //dd($data);
+        $pdf = PDF::loadView('pdf', array('data'=>$data));
+        return $pdf->download('From Pengajuan-'.$data[0]->nama.'.pdf');
     }
 }

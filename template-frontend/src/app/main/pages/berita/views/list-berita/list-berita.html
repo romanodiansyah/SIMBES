@@ -14,10 +14,6 @@
                     <md-icon md-font-icon="icon-newspaper"></md-icon>
                     <span translate="EC.BERITA">Berita</span>
                 </div>
-                <div class="product-count secondary-text">
-                    <span translate="EC.TOTAL_BERITA">Total Berita:</span>
-                    <span>{{vm.products.length}}</span>
-                </div>
             </div>
 
             <div class="search" layout="row" layout-align="start center" flex>
@@ -27,7 +23,7 @@
             </div>
 
             <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoAddProduct()">
+                <md-button class="md-raised md-background" ng-click="vm.gotoAddlistNews()">
                     <span translate="EC.TAMBAH_BERITA">Tambah Berita</span>
                 </md-button>
             </div>
@@ -55,22 +51,12 @@
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Image</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
                                     <span class="column-title">Judul</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Deskripsi</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Active</span>
+                                    <span class="column-title">Status Aktif</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
@@ -81,14 +67,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="product in ::vm.products">
-                            <td>{{product.id}}</td>
-                            <td><img class="product-image" ng-src="{{product.images[0].url}}"></td>
-                            <td>{{product.judul}}</td>
-                            <td>{{product.deskripsi}}</td>
-                            <td>{{product.active}}</td>
+                        <tr ng-repeat="listNews in ::vm.listNews">
+                            <td>{{listNews.id_berita}}</td>
+                            <td>{{listNews.judul}}</td>
+                            <td>{{listNews.status_aktif}}</td>
                             <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Beasiswa Details"
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotolistNewsDetail(listNews.id)" aria-label="Beasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_BERITA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>

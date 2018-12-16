@@ -7,13 +7,12 @@
         .controller('ListBeasiswaController', ListBeasiswaController);
 
     /** @ngInject */
-    function ListBeasiswaController($state, Products)
+    function ListBeasiswaController($state, $scope, api, $http, $localStorage)
     {
         var vm = this;
 
         // Data
-        vm.products = Products;
-
+        
         vm.dtInstance = {};
         vm.dtOptions = {
             dom         : 'rt<"bottom"<"left"<"length"l>><"right"<"info"i><"pagination"p>>>',
@@ -24,28 +23,8 @@
                     width  : '72px'
                 },
                 {
-                    // Target the image column
-                    targets   : 1,
-                    filterable: false,
-                    sortable  : false,
-                    width     : '80px'
-                },
-                // {
-                //     // Target the price column
-                //     targets: 4,
-                //     render : function (data, type)
-                //     {
-                //         if ( type === 'display' )
-                //         {
-                //             return '<div class="layout-align-start-start layout-row">' + '<i class="s16 icon-currency-usd"></i>' + '<span>' + data + '</span>' + '</div>';
-                //         }
-
-                //         return data;
-                //     }
-                // },
-                {
                     // Target the quantity column
-                    targets: 5,
+                    targets: 3,
                     render : function (data, type)
                     {
                         if ( type === 'display' )
@@ -69,7 +48,7 @@
                 },
                 {
                     // Target the status column
-                    targets   : 13,
+                    targets   : 7,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -98,7 +77,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 14,
+                    targets           : 8,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
@@ -126,15 +105,23 @@
         };
 
         // Methods
-        vm.gotoAddProduct = gotoAddProduct;
-        vm.gotoProductDetail = gotoProductDetail;
+        vm.gotoAddBeasiswa = gotoAddBeasiswa;
+        vm.gotoBeasiswaDetail = gotoBeasiswaDetail;
 
         //////////
+        // *api
+        $http.get(api.baseUrl + 'beasiswa').then(function (response){
+            vm.beasiswas = response.data.data;
+            console.log('Data beasiswa:', vm.beasiswas);
 
+        }, function (response){
+            console.log('Data failed :', response)
+            alert(response.data.message)
+        });
         /**
          * Go to add product
          */
-        function gotoAddProduct()
+        function gotoAddBeasiswa()
         {
             $state.go('app.pages_beasiswa_list-beasiswa.add');
         }
@@ -144,7 +131,7 @@
          *
          * @param id
          */
-        function gotoProductDetail(id)
+        function gotoBeasiswaDetail(id)
         {
             $state.go('app.pages_beasiswa_list-beasiswa.detail', {id: id});
         }

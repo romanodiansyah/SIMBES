@@ -7,12 +7,12 @@
         .controller('ListBeritaController', ListBeritaController);
 
     /** @ngInject */
-    function ListBeritaController($state, Products)
+    function ListBeritaController($state, api, $http, $localStorage)
     {
         var vm = this;
 
         // Data
-        vm.products = Products;
+        //vm.listNews = listNews;
 
         vm.dtInstance = {};
         vm.dtOptions = {
@@ -24,15 +24,8 @@
                     width  : '72px'
                 },
                 {
-                    // Target the image column
-                    targets   : 1,
-                    filterable: false,
-                    sortable  : false,
-                    width     : '80px'
-                },
-                {
                     // Target the status column
-                    targets   : 4,
+                    targets   : 2,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -61,7 +54,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 5,
+                    targets           : 3,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
@@ -87,27 +80,42 @@
             scrollY     : 'auto',
             responsive  : true
         };
-
+        vm.submitted = false;
         // Methods
-        vm.gotoAddProduct = gotoAddProduct;
-        vm.gotoProductDetail = gotoProductDetail;
-
+        vm.gotoAddlistNews = gotoAddlistNews;
+        vm.gotolistNewsDetail = gotolistNewsDetail;
         //////////
+        $http.get(api.baseUrl + 'admin/list/news').then(function (response){
+            vm.listNews = response.data.data;
+            console.log('Data news:', vm.listNews);
+            
+        }, function (response){
+            console.log('Data failed :', response)
+            
+            // alert(response.data.message)
+        });
+
+
+
+        
 
         /**
-         * Go to add product
+         * Go to add listNews
          */
-        function gotoAddProduct()
+        function gotoAddlistNews()
         {
+            
             $state.go('app.pages_berita_list-berita.add');
         }
 
+
+
         /**
-         * Go to product detail
+         * Go to listNews detail
          *
          * @param id
          */
-        function gotoProductDetail(id)
+        function gotolistNewsDetail(id)
         {
             $state.go('app.pages_berita_list-berita.detail', {id: id});
         }

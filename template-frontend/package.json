@@ -1,7 +1,9 @@
 {
     "name": "fuse",
     "version": "1.6.10",
-    "dependencies": {},
+    "dependencies": {
+        "local-storage": "^1.4.2"
+    },
     "scripts": {
         "test": "gulp test"
     },

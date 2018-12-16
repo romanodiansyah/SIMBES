@@ -16,7 +16,7 @@
                 </div>
                 <div class="product-count secondary-text">
                     <span translate="EC.TOTAL_BEASISWA">Total Beasiswa:</span>
-                    <span>{{vm.products.length}}</span>
+                    <span>{{vm.beasiswas.length}}</span>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
             </div>
 
             <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoAddProduct()">
+                <md-button class="md-raised md-background" ng-click="vm.gotoAddBeasiswa()">
                     <span translate="EC.TAMBAH_BEASISWA">Tambah Beasiswa</span>
                 </md-button>
             </div>
@@ -53,11 +53,11 @@
                                     <span class="column-title">ID</span>
                                 </div>
                             </th>
-                            <th class="secondary-text">
+                            <!-- <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Image</span>
                                 </div>
-                            </th>
+                            </th> -->
                             <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Nama</span>
@@ -70,17 +70,7 @@
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Deskripsi</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
                                     <span class="column-title">Kuota</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Jenjang Pendidikan</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
@@ -90,27 +80,12 @@
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">IPK Minimal</span>
+                                    <span class="column-title">Pembukaan</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Persyaratan (lainnya)</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Tanggal Pembukaan</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Tanggal Penutupan</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Surat Keputusan</span>
+                                    <span class="column-title">Penutupan</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
@@ -126,23 +101,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="product in ::vm.products">
-                            <td>{{product.id}}</td>
-                            <td><img class="product-image" ng-src="{{product.images[0].url}}"></td>
-                            <td>{{product.nama}}</td>
-                            <td>{{product.pendonor}}</td>
-                            <td>{{product.deskripsi}}</td>
-                            <td>{{product.jumlah_daftar}}</td>
-                            <td>{{product.jenjangPendidikan}}</td>
-                            <td>{{product.semester}}</td>
-                            <td>{{product.ipkMin}}</td>
-                            <td>{{product.persyaratan}}</td>
-                            <td>{{product.pembukaan}}</td>
-                            <td>{{product.penutupan}}</td>
-                            <td>{{product.sk}}</td>
-                            <td>{{product.active}}</td>
+                        <tr ng-repeat="beasiswa in ::vm.beasiswas">
+                            <td>{{beasiswa.id_beasiswa}}</td>
+                            <!-- <td><img class="product-image" ng-src="{{product.images[0].url}}"></td> -->
+                            <td>{{beasiswa.nama}}</td>
+                            <td>{{beasiswa.pendonor}}</td>
+                            <td>{{beasiswa.jumlah_daftar}}</td>
+                            <td>{{beasiswa.semester}}</td>
+                            <td>{{beasiswa.pembukaan}}</td>
+                            <td>{{beasiswa.penutupan}}</td>
+                            <td>{{beasiswa.status_aktif}}</td>
                             <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Beasiswa Details"
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoBeasiswaDetail(beasiswa.id_beasiswa)" aria-label="Beasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_BEASISWA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>

@@ -1,9 +1,9 @@
 {
     "LOGIN_V2": {
-        "INTRO_TITLE": "Sistem Informasi Beasiswa IPB!",
-        "INTRO_DESCRIPTION": "Student First: trust, respect, and responsibility",
+        "INTRO_TITLE": "Sistem Informasi Beasiswa IPB",
+        "INTRO_DESCRIPTION": "Student First: trust, respect, and responsibility.",
         "TITLE": "Log in to your account",
-        "DESCRIPTION": "Let's find your Beasiswa",
+        "DESCRIPTION": "Find Beasiswa to Finance Your Study",
         "EMAIL": "Email",
         "PASSWORD": "Password",
         "REMEMBER_ME": "Remember Me",

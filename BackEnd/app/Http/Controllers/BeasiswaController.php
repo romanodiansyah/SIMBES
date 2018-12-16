@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Beasiswa;
 use Auth;
+use App\Admin;
 use App\Transformers\BeasiswaTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -10,10 +11,10 @@ use Illuminate\Support\Facades\Input;
 class BeasiswaController extends Controller
 {
     //
-    public function createBeasiswa(Request $request, Beasiswa $beasiswa)
+    public function createBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
     {
         $this->validate($request, [
-            'id_adm'            => 'required',
+            // 'id_adm'            => 'required',
             'nama'              => 'required',
             'deskripsi'         => 'required',
             'persyaratan'       => 'required',
@@ -28,8 +29,10 @@ class BeasiswaController extends Controller
             'pendonor'          => 'required',
             'status_aktif'      => 'required',
         ]); 
+        $admin = $admin->find(Auth::user()->id_adm);
+        
         $beasiswa = $beasiswa->create([
-            'id_adm'            => $request->id_adm,
+            'id_adm'            => $admin->id_adm,
             'nama'              => $request->nama,
             'deskripsi'         => $request->deskripsi,
             'persyaratan'       => $request->persyaratan,
@@ -59,13 +62,12 @@ class BeasiswaController extends Controller
         return response()->json($beasiswa, 201);
 
     }
-    public function updateBeasiswa(Request $request, Beasiswa $beasiswa)
+    public function updateBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
     {
         $this->validate($request, [
             'id_beasiswa'       => 'required',
-            'id_adm'            => 'required',
+            // 'id_adm'            => 'required',
         ]);
-
         $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
         
         $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
@@ -109,5 +111,21 @@ class BeasiswaController extends Controller
             ->collection($beasiswa)
             ->transformWith(new BeasiswaTransformer)
             ->toArray();
+    }
+
+    public function search($key){
+        $beasiswa = Beasiswa::where('nama','LIKE','%'.$key.'%')
+            ->orwhere('deskripsi','LIKE','%'.$key.'%')
+            ->orwhere('persyaratan','LIKE','%'.$key.'%')
+            ->orwhere('jenjangPendidikan','LIKE','%'.$key.'%')
+            ->orwhere('semester','LIKE','%'.$key.'%')
+            ->orwhere('ipkMin','LIKE','%'.$key.'%')
+            ->orwhere('pendonor','LIKE','%'.$key.'%')
+            ->latest()->paginate(10);
+        
+        return fractal()
+            ->collection($beasiswa)
+            ->transformWith(new BeasiswaTransformer)
+            ->toArray();    
     }
 }
