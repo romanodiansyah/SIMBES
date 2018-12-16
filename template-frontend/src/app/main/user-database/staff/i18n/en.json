@@ -1,0 +1,17 @@
+{
+    "EC": {
+        "SEARCH": "Search",
+        "EDIT": "Edit",
+        "EMAIL": "Email",
+        "GO_TO_STAFF": "Go to Staff",
+        "DETAIL_STAFF": "Detail Staff",
+        "SIMPAN": "SIMPAN",
+        "INFORMASI_UMUM": "Informasi Umum",
+        "NO_PEGAWAI": "Nomor Pegawai",
+        "NAMA_STAFF": "Nama Lengkap",
+        "JENISKELAMIN": "Jenis Kelamin",
+        "STAFF": "Staff",
+        "TOTAL_STAFF": "Total Staff",
+        "TAMBAH_STAFF": "Tambah Staff"
+    }
+}
