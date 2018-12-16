@@ -88,7 +88,7 @@
         // * api
         $http.get(api.baseUrl + 'admin/list/student').then(function (response){
             vm.students = response.data.data;
-            console.log('Data mahasiswa:', vm.students);
+            console.log('Data Mahasiswa:', vm.students);
 
         }, function (response){
             console.log('Data failed :', response)
@@ -112,7 +112,7 @@
         {
             $http.get(api.baseUrl + 'admin/student/'+id).then(function (response){
                 vm.student = response.data.data;
-                console.log('Data mahasiswa:', vm.student);
+                console.log('Data Mahasiswa:', vm.student);
     
             }, function (response){
                 console.log('Data failed :', response)

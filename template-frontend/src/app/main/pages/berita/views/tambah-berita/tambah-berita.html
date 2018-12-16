@@ -12,6 +12,7 @@
             <div layout="row" layout-align="start center">
                 <div layout="column" layout-align="start start">
                     <div class="h2">
+                        {{vm.news.judul}}
                     </div>
                     <div class="subtitle secondary-text">
                         <span translate="EC.DETAIL_BERITA">Detail Berita</span>
@@ -53,7 +54,7 @@
                             
                             <md-input-container class="md-block">
                                 <label translate="EC.STATUS">Status Aktif</label>
-                                <md-select ng-model="vm.product.status_aktif">
+                                <md-select ng-model="vm.news.status_aktif">
                                     <md-option value="1">Aktif</md-option>
                                     <md-option value="0">Tidak Aktif</md-option>
                                 </md-select>

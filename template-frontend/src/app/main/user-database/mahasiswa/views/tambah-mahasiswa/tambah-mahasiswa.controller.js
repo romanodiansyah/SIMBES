@@ -12,12 +12,12 @@
         var vm = this;
         vm.submitted = false;
         vm.jenis_kelamin_int = 0;
+
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-        //vm.product = Product;
         
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
@@ -28,14 +28,13 @@
              testChunks               : false,
              progressCallbacksInterval: 1000*/
         };
+
         vm.ngFlow = {
             // ng-flow will be injected into here through its directive
             flow: {}
         };
 
         // Methods
-        //vm.saveProduct = saveProduct;
-        //vm.gotoProducts = gotoProducts;
         vm.isFormValid = isFormValid;
         vm.gotoStudents = gotoStudents;
         vm.saveStudent = saveStudent;
@@ -45,10 +44,10 @@
         {
             $http.get(api.baseUrl + 'admin/list/student').then(function (response){
                 vm.students = response.data.data;
-                console.log('Data mahasiswa:', vm.students);
+                console.log('Data Mahasiswa:', vm.students);
     
             }, function (response){
-                console.log('Data failed :', response)
+                console.log('Data failed:', response)
                 alert(response.data.message)
             });
             $state.go('app.user-database_mahasiswa_list-mahasiswa');
@@ -84,7 +83,7 @@
                         console.log(response);
                         alert(response.data.message);
                         vm.submitted = false;
-                        $state.go('app.pages_berita_list-mahasiswa.add');
+                        $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
                     });
             }
         }
