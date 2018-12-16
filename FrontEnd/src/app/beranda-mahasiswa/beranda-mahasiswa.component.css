@@ -301,7 +301,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .section-padding {
-  padding: 60px 0;
+  padding: 80px 0 40px 0;
 }
 
 #about .img-thumb img {
@@ -993,7 +993,8 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 .contact-form-area {
   background: #fff;
   box-shadow: 0 0 30px #ededed;
-  padding: 60px 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .contact-form-area h2 {

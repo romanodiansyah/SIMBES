@@ -13,10 +13,11 @@
   }
   
   body {
+      background-color: #F0F0F0;
       width: 100%;
       margin-top: 60px;
       margin: 72px 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Source Sans Pro", sans-serif;
       overflow-x: hidden;
   }
 
@@ -52,6 +53,7 @@
     width: 100%;
     border-collapse: collapse;
     padding: 20px;
+    font-size: 14px;
   }
   td {
     padding: 5px;
@@ -74,3 +76,7 @@
     cursor: context-menu;
   }
   
+  a {
+    text-decoration: none;
+    color: #0a819c;
+  }
