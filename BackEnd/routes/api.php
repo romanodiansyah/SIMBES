@@ -55,6 +55,7 @@ Route::post('pendaftar/update','PendaftarController@updatePendaftar');
 Route::post('pendaftar/delete','PendaftarController@deletePendaftar');
 Route::get('pendaftar','PendaftarController@readPendaftar');
 
-//rekomendasi
-Route::post('rekomendasi/create', 'RekomendasiController@createRekomendasi');
-
+//notifikasi
+Route::post('notifikasi/create','StatusController@createNotif');
+Route::post('notifikasi/check','StatusController@checkNotif');
+Route::post('notifikasi/read','StatusController@readNotif');
