@@ -3,11 +3,11 @@
     'use strict';
 
     angular
-        .module('app.user-database.mahasiswa')
-        .controller('ListMahasiswaController', ListMahasiswaController);
+        .module('app.user-database.staff')
+        .controller('ListStaffController', ListStaffController);
 
     /** @ngInject */
-    function ListMahasiswaController($state, api, $http, $localStorage)
+    function ListStaffController($state, api, $http, $localStorage)
     {
         var vm = this;
 
@@ -24,7 +24,7 @@
                 },
                 {
                     // Target the status column
-                    targets   : 6,
+                    targets   : 5,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -53,7 +53,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 7,
+                    targets           : 6,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
@@ -81,14 +81,14 @@
         };
 
         // Methods
-        vm.gotoAddStudent = gotoAddStudent;
-        vm.gotoStudentDetail = gotoStudentDetail;
+        vm.gotoAddStaff = gotoAddStaff;
+        vm.gotoProductDetail = gotoProductDetail;
 
         //////////
         // * api
-        $http.get(api.baseUrl + 'admin/list/student').then(function (response){
-            vm.students = response.data.data;
-            console.log('Data mahasiswa:', vm.students);
+        $http.get(api.baseUrl + 'admin/list/staff').then(function (response){
+            vm.staffs = response.data.data;
+            console.log('Data Staff:', vm.staffs);
 
         }, function (response){
             console.log('Data failed :', response)
@@ -98,9 +98,9 @@
         /**
          * Go to add product
          */
-        function gotoAddStudent()
+        function gotoAddStaff()
         {
-            $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
+            $state.go('app.user-database_staff_list-staff.add');
         }
 
         /**
@@ -108,9 +108,9 @@
          *
          * @param id
          */
-        function gotoStudentDetail(id)
+        function gotoProductDetail(id)
         {
-            $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id});
+            $state.go('app.user-database_staff_list-staff.detail', {id: id});
         }
     }
 })();

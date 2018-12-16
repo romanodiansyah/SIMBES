@@ -4,7 +4,7 @@
     <div class="header md-accent-bg" layout="row" layout-align="start center">
         <div class="white-fg" layout="row" layout-align="start center" flex>
             <md-button class="goto-products-button md-icon-button" aria-label="Go to Beasiswa"
-                       ng-click="vm.gotoProducts()"
+                       ng-click="vm.gotoBeasiswas()"
                        translate translate-attr-aria-label="EC.GO_TO_BEASISWA">
                 <md-icon md-font-icon="icon-arrow-left"></md-icon>
             </md-button>
@@ -12,7 +12,7 @@
             <div layout="row" layout-align="start center">
                 <div layout="column" layout-align="start start">
                     <div class="h2">
-                        {{vm.product.nama}}
+                        {{vm.beasiswa.nama}}
                     </div>
                     <div class="subtitle secondary-text">
                         <span translate="EC.DETAIL_BEASISWA">Detail Beasiswa</span>
@@ -22,8 +22,8 @@
         </div>
 
         <div>
-            <md-button class="md-raised md-background" ng-click="vm.saveProduct()"
-                       ng-disabled="!vm.isFormValid('productForm')">
+            <md-button class="md-raised md-background" ng-click="vm.saveBeasiswa(vm.beasiswa.id_beasiswa)"
+                       ng-disabled="!vm.isFormValid('beasiswaForm')">
                 <span translate="EC.SIMPAN">SIMPAN</span>
             </md-button>
         </div>
@@ -42,24 +42,24 @@
 
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
-                        <form id="productForm" name="productForm">
+                        <form id="beasiswaForm" name="beasiswaForm">
                             <md-input-container class="md-block">
                                 <label translate="EC.NAMA_BEASISWA">Nama Beasiswa</label>
-                                <input type="text" ng-model="vm.product.nama" required>
+                                <input type="text" ng-model="vm.beasiswa.nama" required>
                             </md-input-container>
                             
                             <md-input-container class="md-block">
                                 <label translate="EC.PENDONOR_BEASISWA">Pendonor Beasiswa</label>
-                                <input type="text" ng-model="vm.product.pendonor" required>
+                                <input type="text" ng-model="vm.beasiswa.pendonor" required>
                             </md-input-container>
 
                             <h3 class="secondary-text" translate="EC.DESKRIPSI_BEASISWA">Deskripsi Beasiswa</h3>
-                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.product.deskripsi"
+                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.deskripsi"
                                           class="pb-32"></text-angular>
                             
                             <md-input-container class="md-block">
                                 <label translate="EC.KUOTA_PENERIMAAN_BEASISWA">Kuota Penerimaan Beasiswa</label>
-                                <input type="number" step="1" ng-model="vm.product.jumlah_daftar">
+                                <input type="number" step="1" ng-model="vm.beasiswa.jumlah_daftar">
                             </md-input-container>
                         </form>
                     </div>
@@ -76,21 +76,21 @@
                         <form>
                             <md-input-container class="md-block">
                                 <label translate="EC.JENJANG_PENDIDIKAN">Jenjang Pendidikan</label>
-                                <input type="text" ng-model="vm.product.jenjangPendidikan">
+                                <input type="text" ng-model="vm.beasiswa.jenjangPendidikan">
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.SEMESTER">Semester</label>
-                                <input type="text" ng-model="vm.product.semester">
+                                <input type="text" ng-model="vm.beasiswa.semester">
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.IPK_MINIMAL">IPK Minimal</label>
-                                <input type="number" step="0.01" ng-model="vm.product.ipkMin">
+                                <input type="number" step="0.01" ng-model="vm.beasiswa.ipkMin">
                             </md-input-container>
 
                             <h3 class="secondary-text" translate="EC.PERSYARATAN_LAINNYA">Persyaratan (lainnya)</h3>
-                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.product.persyaratan"
+                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.persyaratan"
                                     class="pb-32"></text-angular>
                         </form>
                     </div>
@@ -136,18 +136,18 @@
                             <div layout-gt-sm="row" layout-align="start center">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label translate="EC.PEMBUKAAN_BEASISWA">Pembukaan Beasiswa</label>
-                                    <input type="date" ng-model="vm.product.pembukaan" max="vm.product.penutupan">
+                                    <input type="date" ng-model="vm.beasiswa.pembukaan" max="vm.beasiswa.penutupan">
                                 </md-input-container>
 
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label translate="EC.PENUTUPAN_BEASISWA">Penutupan Beasiswa</label>
-                                    <input type="date" ng-model="vm.product.penutupan" min="vm.product.pembukaan">
+                                    <input type="date" ng-model="vm.beasiswa.penutupan" min="vm.beasiswa.pembukaan">
                                 </md-input-container>
                             </div>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.SURAT_KEPUTUSAN_BEASISWA">Surat Keputusan Beasiswa</label>
-                                <input type="text" ng-model="vm.product.sk">
+                                <input type="text" ng-model="vm.beasiswa.sk">
                             </md-input-container>
                         </form>
                     </div>

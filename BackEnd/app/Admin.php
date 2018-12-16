@@ -25,4 +25,9 @@ class Admin extends Authenticatable
     {
         return $this->hasMany('App\Berita','id_adm','id_adm');
     }
+
+    public function beasiswa()
+    {
+        return $this->hasMany('App\Beasiswa','id_adm','id_adm');
+    }
 }

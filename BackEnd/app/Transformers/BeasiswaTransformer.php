@@ -15,6 +15,9 @@ class BeasiswaTransformer extends TransformerAbstract
     public function transform(Beasiswa $beasiswa)
     {
         return [
+            'id_beasiswa'       => $beasiswa->id_beasiswa,
+            'id_adm'            => $beasiswa->id_adm,
+            'nama_adm'          => $beasiswa->admin->nama,
             "nama"              => $beasiswa->nama,
             "deskripsi"         => $beasiswa->deskripsi,
             "persyaratan"       => $beasiswa->persyaratan,
