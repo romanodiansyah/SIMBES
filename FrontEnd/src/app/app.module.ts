@@ -19,6 +19,7 @@ import { DetailBeasiswaComponent } from './detail-beasiswa/detail-beasiswa.compo
 import { DaftarBeasiswaComponent } from './daftar-beasiswa/daftar-beasiswa.component'; 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatIconModule } from "@angular/material/icon";
 import { ProfilMahasiswaComponent } from './profil-mahasiswa/profil-mahasiswa.component';
 
 @NgModule({
@@ -76,7 +77,8 @@ import { ProfilMahasiswaComponent } from './profil-mahasiswa/profil-mahasiswa.co
     MatTabsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
