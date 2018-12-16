@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 Route::post('auth/admin/register','AuthController@register');
 Route::post('auth/admin/login','AuthController@loginAdmin');
 Route::get('admins', 'AdminController@admins');
+Route::get('admin/excel', 'AdminController@export_excel');
+Route::get('admin/zip', 'AdminController@export_zip');
 
 Route::group(['middleware' => ['auth:admin-api']], function(){ 
     //admin
