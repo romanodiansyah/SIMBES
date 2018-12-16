@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../beranda-mahasiswa/beranda-mahasiswa.component.css']
 })
 export class HeaderComponent implements OnInit {
-  udahLogin = false;
+  udahLogin:boolean = false;
   nama: string;
 
   constructor() { 

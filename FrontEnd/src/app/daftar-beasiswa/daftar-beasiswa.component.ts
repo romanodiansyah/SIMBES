@@ -16,7 +16,10 @@ export class DaftarBeasiswaComponent implements OnInit {
   pendaftarData : {id_beasiswa?:any; id_user?:any; status?:number; status_aktif?:number; alamat_berkas?:any}={};
 
   constructor(private http: HttpClient, private router:Router, private route:ActivatedRoute) {
-    
+    if(localStorage.getItem('token')==null){
+      this.router.navigate(['/login']);
+
+    }
   }
   
   daftar(){

@@ -26,7 +26,7 @@ export class BerandaMahasiswaComponent implements OnInit {
       // if (localStorage.getItem("token") != null) {
       this.http.get(url+'beasiswa/applicable').subscribe((res:any) => {
         console.log(res);
-        localStorage.setItem('listBeasiswaApplicable', res.data);
+        localStorage.setItem('listBeasiswaApplicable', JSON.stringify(res.data));
         this.listApplicableBeasiswa = res.data;
       },err =>{
         console.log("error get listBeasiswa", err);
@@ -36,7 +36,7 @@ export class BerandaMahasiswaComponent implements OnInit {
       console.log(this.listApplicableBeasiswa);
       this.http.get(url+'beasiswa/closed').subscribe((res:any) => {
         console.log(res);
-        localStorage.setItem('listBeasiswaclosed', res.data);
+        localStorage.setItem('listBeasiswaclosed', JSON.stringify(res.data));
         this.listClosedBeasiswa = res.data;
       },err =>{
         console.log("error get listBeasiswa", err);
@@ -45,7 +45,7 @@ export class BerandaMahasiswaComponent implements OnInit {
 
       this.http.get(url+'list/news').subscribe((res:any) => {
         console.log(res);
-        localStorage.setItem('listNews', res.data);
+        localStorage.setItem('listNews', JSON.stringify(res.data));
         this.listNews = res.data;
       },err =>{
         console.log("error get listNews", err);
