@@ -5,7 +5,7 @@
     angular
         .module('app.pages.beasiswa')
         .controller('TambahBeasiswaController', TambahBeasiswaController);
-
+    
     /** @ngInject */
     function TambahBeasiswaController($scope, $state, $http, $localStorage, api)
     {
