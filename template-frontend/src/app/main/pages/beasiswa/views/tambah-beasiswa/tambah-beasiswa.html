@@ -44,14 +44,6 @@
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form id="beasiswaForm" name="beasiswaForm">
                             <md-input-container class="md-block">
-                                <label translate="EC.STATUS">Status Aktif</label>
-                                <md-select ng-model="vm.product.status_aktif">
-                                    <md-option value="1">Aktif</md-option>
-                                    <md-option value="0">Tidak Aktif</md-option>
-                                </md-select>
-                            </md-input-container>
-
-                            <md-input-container class="md-block">
                                 <label translate="EC.NAMA_BEASISWA">Nama Beasiswa</label>
                                 <input type="text" ng-model="vm.beasiswa.nama" required>
                             </md-input-container>
@@ -69,6 +61,14 @@
                             <h3 class="secondary-text" translate="EC.DESKRIPSI_BEASISWA">Deskripsi Beasiswa</h3>
                             <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.deskripsi"
                                           class="pb-32"></text-angular>
+                            
+                            <md-input-container class="md-block">
+                                <label translate="EC.STATUS">Status Aktif</label>
+                                <md-select ng-model="vm.product.status_aktif">
+                                    <md-option value="1">Aktif</md-option>
+                                    <md-option value="0">Tidak Aktif</md-option>
+                                </md-select>
+                            </md-input-container>              
                         </form>
                     </div>
                 </md-tab-body>
@@ -82,15 +82,38 @@
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form>
-                            <md-input-container class="md-block">
+                            <!-- <md-input-container class="md-block">
                                 <label translate="EC.JENJANG_PENDIDIKAN">Jenjang Pendidikan</label>
                                 <input type="text" ng-model="vm.beasiswa.jenjangPendidikan">
+                            </md-input-container> -->
+
+                            <!-- <md-input-container class="md-block">
+                                <label translate="EC.SEMESTER">Semester</label>
+                                <input type="text" ng-model="vm.beasiswa.semester">
+                            </md-input-container> -->
+
+                            <md-input-container class="md-block">
+                                <label translate="EC.JENJANG_PENDIDIKAN">Jenjang Pendidikan</label>
+                                <md-select multiple="{{false}}" ng-model="vm.beasiswa.jenjangPendidikan">
+                                    <md-option value="1">S1</md-option>
+                                    <md-option value="2">S2</md-option>
+                                    <md-option value="3">D3</md-option>
+                                </md-select>
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.SEMESTER">Semester</label>
-                                <input type="text" ng-model="vm.beasiswa.semester">
+                                <md-select multiple="{{false}}" ng-model="vm.beasiswa.semester">
+                                    <md-option value="1">1</md-option>
+                                    <md-option value="2">2</md-option>
+                                    <md-option value="3">3</md-option>
+                                    <md-option value="4">4</md-option>
+                                    <md-option value="5">5</md-option>
+                                    <md-option value="6">6</md-option>
+                                    <md-option value="7">7</md-option>
+                                </md-select>
                             </md-input-container>
+
 
                             <md-input-container class="md-block">
                                 <label translate="EC.IPK_MINIMAL">IPK Minimal</label>
