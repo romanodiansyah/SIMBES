@@ -13,7 +13,7 @@ use Auth;
 class BeritaController extends Controller
 {
     public function listBerita(Berita $berita){
-        $beritas = $berita->latest()->paginate(10);
+        $beritas = $berita->latest()->paginate(5);
 
         return fractal()
             ->collection($beritas)
