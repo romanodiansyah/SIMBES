@@ -52,11 +52,15 @@ export class BerandaMahasiswaComponent implements OnInit {
       console.log(this.listNews);
     }
 
+
+
+
     gotoBeasiswaDetail(id){
       this.http.get(url+'beasiswa/view/'+id).subscribe((res:any) => {
         console.log(res);
         localStorage.setItem('beasiswa', res.data);
         this.beasiswa = res.data;
+        this.router.navigate(['detail']);
       },err =>{
         console.log("error get beasiswa", err);
       });

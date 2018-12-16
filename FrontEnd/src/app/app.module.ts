@@ -63,7 +63,7 @@ import { ProfilMahasiswaComponent } from './profil-mahasiswa/profil-mahasiswa.co
         component: ListBeritaComponent
       },
       {
-        path: 'detail',
+        path: 'detail/:id',
         component: DetailComponent
       },
       {
