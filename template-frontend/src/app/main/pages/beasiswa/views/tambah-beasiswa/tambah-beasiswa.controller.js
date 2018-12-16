@@ -33,8 +33,8 @@
         };
        
         // Methods
-        vm.saveProduct = saveProduct;
-        vm.gotoProducts = gotoProducts;
+        vm.saveBeasiswa = saveBeasiswa;
+        vm.gotoBeasiswas = gotoBeasiswas;
         vm.fileAdded = fileAdded;
         vm.upload = upload;
         vm.fileSuccess = fileSuccess;
@@ -42,9 +42,32 @@
         
         vm.select = select;
         //////////
+        function saveBeasiswa(id){
+            if ( id )
+            {
+                //BeasiswaService.updateProduct(vm.product.id, vm.product);
+            }
+            else
+            {
+                $http.post(api.baseUrl+ 'beasiswa/create', vm.beasiswa).then(function (response){
+                    console.log('beasiswa', response);
+                    $localStorage.beasiswa = response.data
+                    console.log(window.localStorage);
+                    // $state.go('app.dashboards.project');
+                    window.location.href = '/list-beasiswa'
+                    vm.submitted = true;
+                    
+                    }, function(response){
+                        console.log(response);
+                        alert(response.data.message);
+                        vm.submitted = false;
+                        $state.go('app.pages_beasiswa_list-beasiswa.add');
+                    });
+            }
 
+        }
         /**
-         * Save product
+         * Save Beasiswa
          */
         // function saveProduct()
         // {
@@ -66,7 +89,7 @@
         /**
          * Go to products page
          */
-        function gotoProducts()
+        function gotoBeasiswas()
         {
             $state.go('app.pages_beasiswa_list-beasiswa');
         }
@@ -96,7 +119,7 @@
             };
 
             // Append it to the file list
-            vm.files.push(uploadingFile);
+            //vm.files.push(uploadingFile);
         }
 
         /**
