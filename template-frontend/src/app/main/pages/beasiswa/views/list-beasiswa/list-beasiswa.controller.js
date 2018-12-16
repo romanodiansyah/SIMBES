@@ -7,13 +7,12 @@
         .controller('ListBeasiswaController', ListBeasiswaController);
 
     /** @ngInject */
-    function ListBeasiswaController($state, Products)
+    function ListBeasiswaController($state, $scope, api, $http, $localStorage)
     {
         var vm = this;
 
         // Data
-        vm.products = Products;
-
+        
         vm.dtInstance = {};
         vm.dtOptions = {
             dom         : 'rt<"bottom"<"left"<"length"l>><"right"<"info"i><"pagination"p>>>',
@@ -106,15 +105,23 @@
         };
 
         // Methods
-        vm.gotoAddProduct = gotoAddProduct;
-        vm.gotoProductDetail = gotoProductDetail;
+        vm.gotoAddBeasiswa = gotoAddBeasiswa;
+        vm.gotoBeasiswaDetail = gotoBeasiswaDetail;
 
         //////////
+        // *api
+        $http.get(api.baseUrl + 'beasiswa').then(function (response){
+            vm.beasiswas = response.data.data;
+            console.log('Data beasiswa:', vm.beasiswas);
 
+        }, function (response){
+            console.log('Data failed :', response)
+            alert(response.data.message)
+        });
         /**
          * Go to add product
          */
-        function gotoAddProduct()
+        function gotoAddBeasiswa()
         {
             $state.go('app.pages_beasiswa_list-beasiswa.add');
         }
@@ -124,7 +131,7 @@
          *
          * @param id
          */
-        function gotoProductDetail(id)
+        function gotoBeasiswaDetail(id)
         {
             $state.go('app.pages_beasiswa_list-beasiswa.detail', {id: id});
         }

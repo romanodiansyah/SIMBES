@@ -9,6 +9,7 @@
         public function transform(Student $student)
         {
             return [
+                'id_user'       => $student->id_user,
                 'nama'          => $student->nama,
                 'jenis_kelamin' => $student->jenis_kelamin,
                 'email'         => $student->email,

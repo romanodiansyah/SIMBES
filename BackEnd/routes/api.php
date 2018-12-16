@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 Route::post('auth/admin/register','AuthController@register');
 Route::post('auth/admin/login','AuthController@loginAdmin');
 Route::get('admins', 'AdminController@admins');
-Route::get('admin/excel', 'AdminController@export_excel');
 
-Route::group(['middleware' => ['auth:admin-api']], function(){
+Route::group(['middleware' => ['auth:admin-api']], function(){ 
     //admin
     Route::get('admin/beranda', 'AdminController@home');
     Route::post('admin/update/profile', 'AdminController@update');
@@ -19,6 +18,12 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::post('admin/create/student', 'AuthController@createStudent');
     Route::put('admin/update/student/{student}','AdminController@updateStudent');
     Route::post('admin/deactivate/student/{student}', 'AdminController@deactivateStudent');
+    //beasiswa
+Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
+Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
+Route::post('beasiswa/delete', 'BeasiswaController@deleteBeasiswa');
+Route::get('beasiswa','BeasiswaController@readBeasiswa');
+
     // berita
     Route::post('admin/create/news','BeritaController@createNews');
     Route::get('admin/list/news','BeritaController@listBerita');
@@ -39,15 +44,10 @@ Route::group(['middleware' => ['auth:student-api']], function () {
 });
 Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');
 Route::get('news/search/{key}','BeritaController@search');
-Route::get('student/pdf','StudentController@export_pdf');
-//beasiswa
-Route::post('beasiswa/create', 'BeasiswaController@createBeasiswa');
-Route::post('beasiswa/update', 'BeasiswaController@updateBeasiswa');
-Route::post('beasiswa/delete', 'BeasiswaController@deleteBeasiswa');
-Route::get('beasiswa','BeasiswaController@readBeasiswa');
 
 //pendaftar
 Route::post('pendaftar/create','PendaftarController@createPendaftar');
 Route::post('pendaftar/update','PendaftarController@updatePendaftar');
 Route::post('pendaftar/delete','PendaftarController@deletePendaftar');
 Route::get('pendaftar','PendaftarController@readPendaftar');
+

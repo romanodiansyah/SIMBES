@@ -82,7 +82,7 @@
 
         // Methods
         vm.gotoAddStudent = gotoAddStudent;
-        vm.gotoProductDetail = gotoProductDetail;
+        vm.gotoStudentDetail = gotoStudentDetail;
 
         //////////
         // * api
@@ -108,7 +108,7 @@
          *
          * @param id
          */
-        function gotoProductDetail(id)
+        function gotoStudentDetail(id)
         {
             $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id});
         }
