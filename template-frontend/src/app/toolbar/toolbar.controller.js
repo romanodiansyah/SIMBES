@@ -7,10 +7,10 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService)
+    function ToolbarController($rootScope, $q, $localStorage, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService)
     {
         var vm = this;
-
+        vm.user = $localStorage.user;
         // Data
         $rootScope.global = {
             search: ''

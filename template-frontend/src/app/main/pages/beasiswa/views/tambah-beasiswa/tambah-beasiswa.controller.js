@@ -37,7 +37,7 @@
         vm.gotoBeasiswas = gotoBeasiswas;
         vm.isFormValid = isFormValid;
         
-        vm.select = select;
+        //vm.select = select;
         //////////
         function saveBeasiswa(id){
             if ( id )
@@ -46,7 +46,7 @@
             }
             else
             {
-                $http.post(api.baseUrl+ 'beasiswa/create', vm.beasiswa).then(function (response){
+                $http.post(api.baseUrl+ 'admin/beasiswa/create', vm.beasiswa).then(function (response){
                     console.log('beasiswa', response);
                     $localStorage.beasiswa = response.data
                     console.log(window.localStorage);

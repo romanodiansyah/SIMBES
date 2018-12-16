@@ -23,59 +23,6 @@
                     width  : '72px'
                 },
                 {
-                    // Target the quantity column
-                    targets: 3,
-                    render : function (data, type)
-                    {
-                        if ( type === 'display' )
-                        {
-                            if ( parseInt(data) <= 5 )
-                            {
-                                return '<div class="quantity-indicator md-red-500-bg"></div><div>' + data + '</div>';
-                            }
-                            else if ( parseInt(data) > 5 && parseInt(data) <= 25 )
-                            {
-                                return '<div class="quantity-indicator md-amber-500-bg"></div><div>' + data + '</div>';
-                            }
-                            else
-                            {
-                                return '<div class="quantity-indicator md-green-600-bg"></div><div>' + data + '</div>';
-                            }
-                        }
-
-                        return data;
-                    }
-                },
-                {
-                    // Target the status column
-                    targets   : 7,
-                    filterable: false,
-                    render    : function (data, type)
-                    {
-                        if ( type === 'display' )
-                        {
-                            if ( data === 'true' )
-                            {
-                                return '<i class="icon-checkbox-marked-circle green-500-fg"></i>';
-                            }
-
-                            return '<i class="icon-cancel red-500-fg"></i>';
-                        }
-
-                        if ( type === 'filter' )
-                        {
-                            if ( data )
-                            {
-                                return '1';
-                            }
-
-                            return '0';
-                        }
-
-                        return data;
-                    }
-                },
-                {
                     // Target the actions column
                     targets           : 8,
                     responsivePriority: 1,
@@ -133,7 +80,16 @@
          */
         function gotoBeasiswaDetail(id)
         {
-            $state.go('app.pages_beasiswa_list-beasiswa.detail', {id: id});
+            $http.get(api.baseUrl + 'admin/news/'+id).then(function (response){
+                vm.news = response.data.data;
+                $localStorage.news = vm.news;
+                console.log('Data mahasiswa:', vm.news);
+                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.news});
+    
+            }, function (response){
+                console.log('Data failed :', response)
+                alert(response.data.message)    
+            });
         }
     }
 })();

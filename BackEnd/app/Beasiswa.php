@@ -18,7 +18,10 @@ class Beasiswa extends Authenticatable
         'semester','ipkMin','berkas','pembukaan', 'penutupan', 'jumlah_daftar',
         'sk', 'pendonor', 'status_aktif','alamat_berkas','alamat_foto',
     ];
-
+    protected $casts = [
+        'pembukaan' => 'datetime:Y-m-d',
+        'penutupan' => 'datetime:Y-m-d',
+    ];
     protected $hidden = [
     ];
 

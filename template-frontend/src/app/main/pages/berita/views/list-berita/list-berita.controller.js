@@ -26,31 +26,6 @@
                 {
                     // Target the status column
                     targets   : 2,
-                    filterable: false,
-                    render    : function (data, type)
-                    {
-                        if ( type === 'display' )
-                        {
-                            if ( data === 'true' )
-                            {
-                                return '<i class="icon-checkbox-marked-circle green-500-fg"></i>';
-                            }
-
-                            return '<i class="icon-cancel red-500-fg"></i>';
-                        }
-
-                        if ( type === 'filter' )
-                        {
-                            if ( data )
-                            {
-                                return '1';
-                            }
-
-                            return '0';
-                        }
-
-                        return data;
-                    }
                 },
                 {
                     // Target the actions column
@@ -117,7 +92,16 @@
          */
         function gotolistNewsDetail(id)
         {
-            $state.go('app.pages_berita_list-berita.detail', {id: id});
+            $http.get(api.baseUrl + 'admin/news/'+id).then(function (response){
+                vm.news = response.data.data;
+                $localStorage.news = vm.news;
+                console.log('Data mahasiswa:', vm.news);
+                $state.go('app.pages_berita_list-berita.detail', {id: id, Data: vm.news});
+    
+            }, function (response){
+                console.log('Data failed :', response)
+                alert(response.data.message)    
+            });
         }
     }
 })();

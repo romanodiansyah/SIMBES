@@ -10,7 +10,7 @@
         public function transform(Admin $admin)
         {
             return [
-                'id_user'       => $admin->id_user,
+                'id_adm'       => $admin->id_adm,
                 'no_pegawai'    => $admin->no_pegawai,
                 'nama'          => $admin->nama,
                 'jenis_kelamin' => $admin->jenis_kelamin,

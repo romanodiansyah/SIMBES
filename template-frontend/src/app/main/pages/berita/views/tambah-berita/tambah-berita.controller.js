@@ -11,7 +11,7 @@
     {
         var vm = this;
         vm.submitted = false;
-        
+        vm.news = $localStorage.news;
         vm.gotoListNews = gotoListNews;
         vm.saveNews = saveNews;
         vm.gotoNewsDetail = gotoNewsDetail;
@@ -20,12 +20,26 @@
             
             window.location.href = '/list-berita';
         }
-        function saveNews(){
-
-            // if(null){
+        function saveNews(id){
+            if(id){
+                $http.put(api.baseUrl+ 'admin/update/news/' + id, vm.news).then(function (response){
+                    console.log('news', response);
+                    $localStorage.news = response.data
+                    console.log(window.localStorage);
+                    // $state.go('app.dashboards.project');
+                    window.location.href = '/list-berita'
+                    vm.submitted = true;
+                    
+                    }, function(response){
+                        console.log(response)
+                        alert(response.data.message);
+                        vm.submitted = false;
+                    });
+            }                
+            else{
                 $http.post(api.baseUrl+ 'admin/create/news', vm.news).then(function (response){
                     console.log('news', response);
-                    $localStorage.user = response.data
+                    $localStorage.news = response.data
                     console.log(window.localStorage);
                     // $state.go('app.dashboards.project');
                     window.location.href = '/list-berita'
@@ -35,8 +49,8 @@
                         console.log(response);
                         alert(response.data.message);
                         vm.submitted = false;
-                        $state.go('app.pages_berita_list-berita.add');
                     });
+                }
             // }else{
             //     vm.newsId = vm.news.id_berita;
             //     $http.get(api.baseUrl + 'admin/news' + vm.newsId).then(function (response){
