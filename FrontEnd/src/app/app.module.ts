@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpModule } from '@angular/http'; 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
@@ -37,6 +38,7 @@ import { ProfilMahasiswaComponent } from './profil-mahasiswa/profil-mahasiswa.co
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([

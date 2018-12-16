@@ -144,9 +144,7 @@ class BeasiswaController extends Controller
     }
 
     public function viewBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
-    {
-        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
-    
+    {    
         return fractal()
         ->item($beasiswa)
         ->transformWith(new BeasiswaTransformer)
