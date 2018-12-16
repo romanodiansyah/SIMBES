@@ -7,13 +7,12 @@
         .controller('ListMahasiswaController', ListMahasiswaController);
 
     /** @ngInject */
-    function ListMahasiswaController($state, Products)
+    function ListMahasiswaController($state, api, $http, $localStorage)
     {
         var vm = this;
 
         // Data
-        vm.products = Products;
-
+        
         vm.dtInstance = {};
         vm.dtOptions = {
             dom         : 'rt<"bottom"<"left"<"length"l>><"right"<"info"i><"pagination"p>>>',
@@ -25,7 +24,7 @@
                 },
                 {
                     // Target the status column
-                    targets   : 7,
+                    targets   : 6,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -54,7 +53,7 @@
                 },
                 {
                     // Target the actions column
-                    targets           : 8,
+                    targets           : 7,
                     responsivePriority: 1,
                     filterable        : false,
                     sortable          : false
@@ -82,15 +81,24 @@
         };
 
         // Methods
-        vm.gotoAddProduct = gotoAddProduct;
+        vm.gotoAddStudent = gotoAddStudent;
         vm.gotoProductDetail = gotoProductDetail;
 
         //////////
+        // * api
+        $http.get(api.baseUrl + 'admin/list/student').then(function (response){
+            vm.students = response.data.data;
+            console.log('Data mahasiswa:', vm.students);
+
+        }, function (response){
+            console.log('Data failed :', response)
+            alert(response.data.message)
+        });
 
         /**
          * Go to add product
          */
-        function gotoAddProduct()
+        function gotoAddStudent()
         {
             $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
         }

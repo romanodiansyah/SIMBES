@@ -14,10 +14,6 @@
                     <md-icon md-font-icon="icon-baby"></md-icon>
                     <span translate="EC.MAHASISWA">Mahasiswa</span>
                 </div>
-                <div class="product-count secondary-text">
-                    <span translate="EC.TOTAL_MAHASISWA">Total Mahasiswa:</span>
-                    <span>{{vm.products.length}}</span>
-                </div>
             </div>
 
             <div class="search" layout="row" layout-align="start center" flex>
@@ -27,7 +23,7 @@
             </div>
 
             <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoAddProduct()">
+                <md-button class="md-raised md-background" ng-click="vm.gotoAddStudent()">
                     <span translate="EC.TAMBAH_MAHASISWA">Tambah Mahasiswa</span>
                 </md-button>
             </div>
@@ -70,11 +66,6 @@
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Password</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
                                     <span class="column-title">Departemen</span>
                                 </div>
                             </th>
@@ -96,17 +87,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="product in ::vm.products">
-                            <td>{{product.id}}</td>
-                            <td>{{product.nama}}</td>
-                            <td>{{product.jenis_kelamin}}</td>
-                            <td>{{product.email}}</td>
-                            <td>{{product.password}}</td>
-                            <td>{{product.jurusan}}</td>
-                            <td>{{product.fakultas}}</td>
-                            <td>{{product.active}}</td>
+                        <tr ng-repeat="student in ::vm.students">
+                            <td>{{student.id_user}}</td>
+                            <td>{{student.nama}}</td>
+                            <td>{{student.jenis_kelamin}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.jurusan}}</td>
+                            <td>{{student.fakultas}}</td>
+                            <td>{{student.status_aktif}}</td>
                             <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Beasiswa Details"
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(student.id_user)" aria-label="Beasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_MAHASISWA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>

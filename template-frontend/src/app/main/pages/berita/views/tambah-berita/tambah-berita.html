@@ -12,7 +12,6 @@
             <div layout="row" layout-align="start center">
                 <div layout="column" layout-align="start start">
                     <div class="h2">
-                        {{vm.news.judul}}
                     </div>
                     <div class="subtitle secondary-text">
                         <span translate="EC.DETAIL_BERITA">Detail Berita</span>
@@ -22,7 +21,7 @@
         </div>
 
         <div>
-            <md-button class="md-raised md-background" ng-click="vm.saveNews(vm.news)"
+            <md-button class="md-raised md-background" ng-click="vm.saveNews()"
                        ng-disabled="!vm.isFormValid('productForm')">
                 <span translate="EC.SIMPAN">SIMPAN</span>
             </md-button>
@@ -45,12 +44,12 @@
                         <form id="productForm" name="productForm">
                             <md-input-container class="md-block">
                                 <label translate="EC.NAMA_BERITA">Judul Berita</label>
-                                <input type="text" ng-model="vm.news.judul" required>{{vm.news.judul}}
+                                <input type="text" ng-model="vm.news.judul" required>
                             </md-input-container>
 
                             <h3 class="secondary-text" translate="EC.DESKRIPSI_BERITA">Deskripsi Berita</h3>
                             <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.news.deskripsi"
-                                          class="pb-32">{{vm.news.deskripsi}}</text-angular>
+                                          class="pb-32"></text-angular>
                             
                     
                             <!-- <md-icon md-font-icon="icon-clock" class="m-0 mr-16"></md-icon>
