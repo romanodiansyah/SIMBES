@@ -11,7 +11,7 @@
         <div class="header" layout="row" layout-align="space-between center">
             <div class="white-fg" layout="column" layout-align="start start">
                 <div class="h1" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-package-variant"></md-icon>
+                    <md-icon md-font-icon="icon-arrow-left" ng-click="vm.gotoListPendaftar()"></md-icon>
                     <span translate="EC.PENERIMA">Penerima Beasiswa</span>
                 </div>
                 <div class="product-count secondary-text">
@@ -19,10 +19,21 @@
                     <span>{{vm.beasiswas.length}}</span>
                 </div>
             </div>
-            <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoListPendaftar()">
-                    <span translate="EC.PENDAFTAR">Pendaftar Beasiswa</span>
-                </md-button>
+            <div layout-align="left">
+                <md-menu>
+                    <md-button class="md-raised md-background" ng-click="$mdOpenMenu()">
+                        <span translate="EC.EXPORT">Export</span>
+                        <md-icon md-font-icon="icon-chevron-down" class="icon s16" hide-xs></md-icon>
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item class="md-indent" ui-sref="app.pages_profile">
+                            <md-button>Export Data (.xlxs)</md-button>
+                        </md-menu-item>
+                        <md-menu-item class="md-indent" ui-sref="app.pages_profile">
+                            <md-button>Export Data (.rar)</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
             </div>
         </div>
         <!-- / CONTENT HEADER -->
@@ -80,7 +91,10 @@
                             <td>{{beasiswa.id_beasiswa}}</td>
                             <td>{{beasiswa.id_user}}</td>
                             <td>{{beasiswa.status}}</td>
-                            <td>{{beasiswa.status_aktif}}</td>
+
+                            <td ng-if="beasiswa.status_aktif == 1">Aktif</td>
+                            <td ng-if="beasiswa.status_aktif == 0">Tidak Aktif</td>
+
                             <td>{{beasiswa.alamat_berkas}}</td>
                         </tr>
                     </tbody>

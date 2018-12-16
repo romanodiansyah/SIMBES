@@ -95,6 +95,7 @@
         "PENERIMA": "Penerima Beasiswa",
         "TOTAL_PENERIMA": "Total Penerima:",
         "ACCEPT": "Accept",
-        "DECLINE": "Decline"
+        "DECLINE": "Decline",
+        "EXPORT": "Export"
     }
 }

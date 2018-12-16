@@ -110,7 +110,10 @@
                             <td width="15%">{{beasiswa.semester}}</td>
                             <td width="15%">{{beasiswa.pembukaan | date: 'dd MMMM yyyy'}}</td>
                             <td width="15%">{{beasiswa.penutupan | date: 'dd MMMM yyyy'}}</td>
-                            <td width="5%">{{beasiswa.status_aktif}}</td>
+
+                            <td width="5%" ng-if="beasiswa.status_aktif == 1">Aktif</td>
+                            <td width="5%" ng-if="beasiswa.status_aktif == 0">Tidak Aktif</td>
+
                             <td width="5%">
                                 <md-button class="edit-button md-icon-button" ng-click="vm.gotoBeasiswaDetail(beasiswa.id_beasiswa)" aria-label="Beasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_BEASISWA">

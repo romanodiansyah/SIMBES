@@ -151,4 +151,23 @@ class BeasiswaController extends Controller
         ->toArray();
     }
     
+    public function applicableBeasiswa(Beasiswa $beasiswa)
+    {
+        $beasiswa = $beasiswa->where('pembukaan','<=',Carbon::Now()->toDateString())->whereDate('penutupan','>=',Carbon::Now()->toDateString())->get();    
+
+        return fractal()
+            ->collection($beasiswa)
+            ->transformWith(new BeasiswaTransformer)
+            ->toArray();
+    }
+
+    public function closedBeasiswa(Beasiswa $beasiswa)
+    {
+        $beasiswa = $beasiswa->where('pembukaan','>',Carbon::Now()->toDateString())->whereDate('penutupan','<',Carbon::Now()->toDateString())->get();    
+
+        return fractal()
+            ->collection($beasiswa)
+            ->transformWith(new BeasiswaTransformer)
+            ->toArray();
+    }
 }

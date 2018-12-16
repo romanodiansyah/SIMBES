@@ -94,11 +94,37 @@
                         <tr ng-repeat="student in ::vm.students">
                             <td width="5%">{{student.id_user}}</td>
                             <td width="15%">{{student.nama}}</td>
-                            <td width="15%">{{student.jenis_kelamin}}</td>
+
+                            <td width="15%" ng-if="student.jenis_kelamin == 1">Laki-Laki</td>
+                            <td width="15%" ng-if="student.jenis_kelamin == 2">Perempuan</td>
+
                             <td width="15%">{{student.email}}</td>
-                            <td width="20%">{{student.jurusan}}</td>
-                            <td width="20%">{{student.fakultas}}</td>
-                            <td width="5%">{{student.status_aktif}}</td>
+
+                            <td width="20%" ng-if="student.jurusan == 1">Statistika</td>
+                            <td width="20%" ng-if="student.jurusan == 2">Geofisika dan Meteorologi</td>
+                            <td width="20%" ng-if="student.jurusan == 3">Biologi</td>
+                            <td width="20%" ng-if="student.jurusan == 4">Kimia</td>
+                            <td width="20%" ng-if="student.jurusan == 5">Matematika</td>
+                            <td width="20%" ng-if="student.jurusan == 6">Ilmu Komputer</td>
+                            <td width="20%" ng-if="student.jurusan == 7">Fisika</td>
+                            <td width="20%" ng-if="student.jurusan == 8">Biokimia</td>
+                            <td width="20%" ng-if="student.jurusan == 9">Aktuaria</td>
+
+                            <td width="20%" ng-if="student.fakultas == 1">Pertanian</td>
+                            <td width="20%" ng-if="student.fakultas == 2">Kedokteran Hewan</td>
+                            <td width="20%" ng-if="student.fakultas == 3">Perikanan dan Ilmu Kelautan</td>
+                            <td width="20%" ng-if="student.fakultas == 4">Peternakan</td>
+                            <td width="20%" ng-if="student.fakultas == 5">Kehutanan</td>
+                            <td width="20%" ng-if="student.fakultas == 6">Teknologi Pertanian</td>
+                            <td width="20%" ng-if="student.fakultas == 7">Matematika dan Ilmu Pengetahuan Alam</td>
+                            <td width="20%" ng-if="student.fakultas == 8">Ekonomi dan Manajemen</td>
+                            <td width="20%" ng-if="student.fakultas == 9">Ekologi Manusia</td>
+                            <td width="20%" ng-if="student.fakultas == 10">Sekolah Vokasi</td>
+                            <td width="20%" ng-if="student.fakultas == 11">Sekolah Bisnis</td>
+
+                            <td width="5%" ng-if="student.status_aktif == 1">Aktif</td>
+                            <td width="5%" ng-if="student.status_aktif == 0">Tidak Aktif</td>
+
                             <td width="5%">
                                 <md-button class="edit-button md-icon-button" ng-click="vm.gotoStudentDetail(student.id_user)" aria-label="Mahasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_MAHASISWA">
