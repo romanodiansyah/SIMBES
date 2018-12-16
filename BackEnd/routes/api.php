@@ -12,7 +12,9 @@ Route::get('admin/zip', 'AdminController@export_zip');
 Route::group(['middleware' => ['auth:admin-api']], function(){ 
     //admin
     Route::get('admin/beranda', 'AdminController@home');
+    Route::get('admin/{admin}','AdminController@readAdmin');
     Route::post('admin/update/profile', 'AdminController@update');
+    Route::put('admin/update/{admin}', 'AdminController@updateAdmin');
     Route::post('admin/deactivate', 'AdminController@deactivate');
     //student
     Route::get('admin/list/student','AdminController@listStudent');

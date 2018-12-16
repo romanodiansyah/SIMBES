@@ -40,8 +40,18 @@ class AdminController extends Controller
             ->toArray();
     }
 
+    public function readAdmin(Admin $admin, Request $request){
+        $admin = $admin->find($admin->id_adm);
+
+        return fractal()
+            ->item($admin)
+            ->transformWith(new AdminTransformer)
+            ->toArray();
+    }
+
     public function update(Request $request, Admin $admin){
         $admin = $admin->find(Auth::user()->id_adm);
+        
         $admin->no_pegawai = $request->get('no_pegawai',$admin->no_pegawai);
         $admin->nama = $request->get('nama',$admin->nama);
         $admin->jenis_kelamin = $request->get('jenis_kelamin',$admin->jenis_kelamin);
@@ -56,6 +66,25 @@ class AdminController extends Controller
             ])
             ->toArray();
     }
+
+    public function updateAdmin(Request $request, Admin $admin){
+        $admin = $admin->find($admin->id_adm);
+        
+        $admin->no_pegawai = $request->get('no_pegawai',$admin->no_pegawai);
+        $admin->nama = $request->get('nama',$admin->nama);
+        $admin->jenis_kelamin = $request->get('jenis_kelamin',$admin->jenis_kelamin);
+        $admin->email = $request->get('email',$admin->email);
+        $admin->save();
+
+        return fractal()
+            ->item($admin)
+            ->transformWith(new AdminTransformer)
+            ->addMeta([
+                'updated' => $request->all()
+            ])
+            ->toArray();
+    }
+
 
     public function deactivate(Admin $admin){
         if($admin->status_aktif == 1){

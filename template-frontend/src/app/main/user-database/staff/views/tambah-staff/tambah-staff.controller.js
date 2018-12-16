@@ -12,6 +12,7 @@
         var vm = this;
         vm.submitted = false;
         vm.jenis_kelamin_int = 0;
+        vm.admin = $localStorage.admin;
 
         // Data
         vm.taToolbar = [
@@ -46,9 +47,10 @@
          */
         function gotoAdmins()
         {
-            $http.get(api.baseUrl + 'admin/list/admin').then(function (response){
+            $http.get(api.baseUrl + 'admins').then(function (response){
                 vm.admins = response.data.data;
                 console.log('Data Staff:', vm.admins);
+                $state.go('app.user-database_staff_list-staff');
     
             }, function (response){
                 console.log('Data failed:', response)
@@ -57,36 +59,38 @@
             $state.go('app.user-database_staff_list-staff');
         }
 
-        function saveAdmin(data)
+        function saveAdmin(id)
         {
-            console.log(vm.admin.jenis_kelamin)
-            if (data)
+            if (id)
             {
-                //MahasiswaService.updateProduct(vm.product.id, vm.product);
-            }
-            else
-            {
-                if(vm.admin.jenis_kelamin=="Laki-laki"){
-                    console.log(vm.admin.jenis_kelamin)
-                    vm.jenis_kelamin_int = 1;
-                    vm.admin.jenis_kelamin = 1;
-                }else if(vm.admin.jenis_kelamin=="Perempuan"){
-                    vm.jenis_kelamin_int = 2;
-                    vm.admin.jenis_kelamin = 2;
-                }
-                $http.post(api.baseUrl+ 'admin/create/admin', vm.admin).then(function (response){
+                $http.put(api.baseUrl+ 'admin/update/' + id, vm.admin).then(function (response){
                     console.log('admin', response);
-                    $localStorage.user = response.data
+                    $localStorage.admin = response.data;
                     console.log(window.localStorage);
                     // $state.go('app.dashboards.project');
-                    window.location.href = '/list-staff'
+                    window.location.href = '/list-staff';
                     vm.submitted = true;
                     
                     }, function(response){
                         console.log(response);
-                        alert(response.data.message);
+                        alert('Data tidak valid');
                         vm.submitted = false;
-                        $state.go('app.user-database_staff_list-staff.add');
+                });
+            }
+            else
+            {
+                $http.post(api.baseUrl+ 'admin/create/admin', vm.admin).then(function (response){
+                    console.log('admin', response);
+                    $localStorage.admin = response.data;
+                    console.log(window.localStorage);
+                    // $state.go('app.dashboards.project');
+                    window.location.href = '/list-staff';
+                    vm.submitted = true;
+                    
+                    }, function(response){
+                        console.log(response);
+                        alert('Data tidak valid')
+                        vm.submitted = false;
                     });
             }
         }

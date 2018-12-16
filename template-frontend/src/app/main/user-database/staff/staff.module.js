@@ -44,12 +44,6 @@
                         controller : 'TambahStaffController as vm'
                     }
                 },
-                resolve: {
-                    Product: function (StaffService)
-                    {
-                        return StaffService.newProduct();
-                    }
-                },
                 bodyClass: 'staff'
             })
             .state('app.user-database_staff_list-staff.detail', {
@@ -58,12 +52,6 @@
                     'content@app': {
                         templateUrl: 'app/main/user-database/staff/views/tambah-staff/tambah-staff.html',
                         controller : 'TambahStaffController as vm'
-                    }
-                },
-                resolve  : {
-                    Product: function ($stateParams, Products, StaffService)
-                    {
-                        return StaffService.getProduct($stateParams.id);
                     }
                 },
                 bodyClass: 'staff'

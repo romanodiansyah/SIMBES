@@ -110,15 +110,16 @@
          */
         function gotoAdminDetail(id)
         {
-            $http.get(api.baseUrl + 'admin/admin/'+id).then(function (response){
+            $http.get(api.baseUrl + 'admin/'+id).then(function (response){
                 vm.admin = response.data.data;
+                $localStorage.admin = vm.admin;
                 console.log('Data Staff:', vm.admin);
+                $state.go('app.user-database_staff_list-staff.detail', {id: id, Data: vm.admin});
     
             }, function (response){
                 console.log('Data failed:', response)
                 alert(response.data.message)
             });
-            $state.go('app.user-database_staff_list-staff.detail', {id: id});
         }
     }
 })();

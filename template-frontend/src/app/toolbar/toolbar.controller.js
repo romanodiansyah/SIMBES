@@ -116,7 +116,8 @@
          */
         function logout()
         {
-            // Do logout here..
+            $localStorage.$reset();
+            $state.go('app.pages.auth.login-v2');
         }
 
         /**

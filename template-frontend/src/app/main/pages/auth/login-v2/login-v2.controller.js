@@ -20,7 +20,8 @@
         $localStorage.formLogin = $localStorage.formLogin ? $localStorage.formLogin : {};
         vm.form = $localStorage.formLogin;
 
-        
+        // $localStorage.token = {};
+        // $localStorage.user = {};
         // Methods
         function login()
         {
