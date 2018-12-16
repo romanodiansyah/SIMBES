@@ -97,7 +97,7 @@ class AuthController extends Controller
         if(!Auth::guard('student')->attempt(['email'=> $request->email,
             'password'=> $request->password]))
         {
-            return response()->json(['error' => 'email/password anda salah', 401]);
+            return response()->json(['error' => 'email/password anda salah'], 401);
         }
          $student = $student->find(Auth::guard('student')->user()->id_user);
          $response = fractal()
