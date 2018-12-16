@@ -37,7 +37,7 @@
                 <a routerLink="/detail/{{item.id_beasiswa}}">
                 <div class="content-text">
                   <h3 class="line-title"><a>{{item.nama}}</a></h3>
-                  <span>{{item.pembukaan}} - {{item.penutupan}}</span>
+                  <span>{{item.pembukaan}} s.d {{item.penutupan}}</span>
                   <p class="line-text">{{item.deskripsi}}</p>
                 </div>
               </a>
@@ -57,7 +57,7 @@
               <li *ngFor="let item2 of listClosedBeasiswa">
                 <div class="content-text">
                   <h3 class="line-title">{{item2.nama}}</h3>
-                  <span>{{item2.pembukaan}} - {{item2.penutupan}}</span>
+                  <span>{{item2.pembukaan}} s.d {{item2.penutupan}}</span>
                   <p class="line-text">{{item2.deskripsi}}</p>
                 </div>
               </li>
