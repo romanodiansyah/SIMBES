@@ -48,7 +48,7 @@ class AuthController extends Controller
         if(!Auth::guard('admin')->attempt(['email'=> $request->email,
             'password'=> $request->password]))
         {
-            return response()->json(['error' => 'email/password anda salah', 401]);
+            return response()->json(['error' => 'email/password anda salah'], 401);
         }
 
         $admin = $admin->find(Auth::guard('admin')->user()->id_adm);

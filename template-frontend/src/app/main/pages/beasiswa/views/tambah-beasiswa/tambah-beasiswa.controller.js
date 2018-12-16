@@ -42,7 +42,18 @@
         function saveBeasiswa(id){
             if ( id )
             {
-                //BeasiswaService.updateProduct(vm.product.id, vm.product);
+                $http.post(api.baseUrl + 'admin/beasiswa/update', vm.beasiswa).then(function(response){
+                    console.log('beasiswa', response);
+                    $localStorage.beasiswa = response.data
+                    console.log(window.localStorage);
+                    // $state.go('app.dashboards.project');
+                    window.location.href = '/list-beasiswa'
+                    vm.submitted = true;
+                }, function(response){
+                    console.log(response);
+                        alert('Data tidak valid');
+                        vm.submitted = false;
+                });
             }
             else
             {
