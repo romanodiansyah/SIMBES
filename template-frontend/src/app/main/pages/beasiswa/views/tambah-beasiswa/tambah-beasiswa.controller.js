@@ -10,16 +10,12 @@
     function TambahBeasiswaController($scope, $state, $http, $localStorage, api)
     {
         var vm = this;
-        
+
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-<<<<<<< HEAD
-=======
-        vm.product = Product;
->>>>>>> 38d7cf43217e6ab4b83cdf176a9cc80eeb4b6e93
 
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
@@ -34,11 +30,7 @@
             // ng-flow will be injected into here through its directive
             flow: {}
         };
-<<<<<<< HEAD
        
-=======
-
->>>>>>> 38d7cf43217e6ab4b83cdf176a9cc80eeb4b6e93
         // Methods
         vm.saveProduct = saveProduct;
         vm.gotoProducts = gotoProducts;
@@ -46,14 +38,8 @@
         vm.upload = upload;
         vm.fileSuccess = fileSuccess;
         vm.isFormValid = isFormValid;
-<<<<<<< HEAD
         
         vm.select = select;
-=======
-
-        vm.select = select;
-
->>>>>>> 38d7cf43217e6ab4b83cdf176a9cc80eeb4b6e93
         //////////
 
         /**
