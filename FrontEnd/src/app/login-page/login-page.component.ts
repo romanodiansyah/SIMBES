@@ -46,6 +46,7 @@ export class LoginPageComponent implements OnInit {
         localStorage.setItem('user', res.data);
         localStorage.setItem('token', res.meta.token);
         localStorage.setItem('id_user', res.data.id_user);
+        localStorage.setItem('nama', res.data.nama);
         
         //   this.http.get(url+'beasiswa', {headers: headers})
         // .subscribe((res:any) => {
