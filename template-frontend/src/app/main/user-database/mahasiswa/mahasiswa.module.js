@@ -34,12 +34,6 @@
                         controller : 'ListMahasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Products: function (MahasiswaService)
-                    {
-                        return MahasiswaService.getProducts();
-                    }
-                },
                 bodyClass: 'mahasiswa'
             })
             .state('app.user-database_mahasiswa_list-mahasiswa.add', {

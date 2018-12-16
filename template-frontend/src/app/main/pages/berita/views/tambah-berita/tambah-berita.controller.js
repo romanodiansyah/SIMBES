@@ -20,12 +20,10 @@
             
             window.location.href = '/list-berita';
         }
-        vm.news = news;
-        function saveNews(news){
-            console.log(vm.news)
+        function saveNews(){
 
-            if(null){
-                $http.post(api.baseUrl+ 'admin/create/news', news).then(function (response){
+            // if(null){
+                $http.post(api.baseUrl+ 'admin/create/news', vm.news).then(function (response){
                     console.log('news', response);
                     $localStorage.user = response.data
                     console.log(window.localStorage);
@@ -39,19 +37,19 @@
                         vm.submitted = false;
                         $state.go('app.pages_berita_list-berita.add');
                     });
-            }else{
-                vm.newsId = vm.news.id_berita;
-                $http.get(api.baseUrl + 'admin/news' + vm.newsId).then(function (response){
-                    vm.news = response.data;
-                    console.log('news:', vm.news);
-                    window.location.href = '/list-berita'
-                    vm.submitted = true;
+            // }else{
+            //     vm.newsId = vm.news.id_berita;
+            //     $http.get(api.baseUrl + 'admin/news' + vm.newsId).then(function (response){
+            //         vm.news = response.data;
+            //         console.log('news:', vm.news);
+            //         window.location.href = '/list-berita'
+            //         vm.submitted = true;
                     
-                }, function (response){
-                    console.log('Data failed :', response)
-                    // alert(response.data.message)
-                });
-            }
+            //     }, function (response){
+            //         console.log('Data failed :', response)
+            //         // alert(response.data.message)
+            //     });
+            // }
         }
 
 
