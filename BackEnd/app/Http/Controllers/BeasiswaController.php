@@ -21,7 +21,7 @@ class BeasiswaController extends Controller
             'jenjangPendidikan' => 'required',
             'semester'          => 'required',
             'ipkMin'            => 'required',
-            'berkas'            => 'required',
+            // 'berkas'            => 'required',
             'pembukaan'         => 'required',
             'penutupan'         => 'required',
             'jumlah_daftar'     => 'required',
