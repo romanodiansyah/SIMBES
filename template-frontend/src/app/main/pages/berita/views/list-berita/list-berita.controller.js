@@ -79,7 +79,7 @@
          */
         function gotoAddlistNews()
         {
-            $localStorage.news = "";
+            $localStorage.news = {};
             $state.go('app.pages_berita_list-berita.add');
         }
 

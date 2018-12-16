@@ -71,7 +71,7 @@
          */
         function gotoAddStudent()
         {
-            $localStorage.student = "";
+            $localStorage.student = {};
             $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
         }
 
