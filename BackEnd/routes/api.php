@@ -42,6 +42,7 @@ Route::post('auth/login','AuthController@loginStudent');
 Route::group(['middleware' => ['auth:student-api']], function () {
     Route::get('beranda', 'StudentController@home');
     Route::post('update/profile/{profile}','StudentController@updateProfile');
+    Route::get('student/pdf','StudentController@export_pdf');
     //berita
     
 });
