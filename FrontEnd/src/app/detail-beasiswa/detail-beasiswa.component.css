@@ -1,0 +1,14 @@
+td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  td:first-child {
+    color: #0a819c;
+    font-weight: 520;
+  }
+
+  table {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    padding: 10px;
+  }
