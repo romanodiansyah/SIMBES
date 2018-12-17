@@ -9,7 +9,6 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { BerandaMahasiswaComponent } from './beranda-mahasiswa/beranda-mahasiswa.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { DetailComponent } from './detail/detail.component';
@@ -18,9 +17,7 @@ import { ListBeritaComponent } from './list-berita/list-berita.component';
 import { DetailBeasiswaComponent } from './detail-beasiswa/detail-beasiswa.component';
 import { DaftarBeasiswaComponent } from './daftar-beasiswa/daftar-beasiswa.component'; 
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatFormFieldModule } from '@angular/material/form-field';
-
-
+import { MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -69,7 +66,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
