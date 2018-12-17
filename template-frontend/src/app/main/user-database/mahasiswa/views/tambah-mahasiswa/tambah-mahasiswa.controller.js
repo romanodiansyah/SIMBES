@@ -53,16 +53,28 @@
             $state.go('app.user-database_mahasiswa_list-mahasiswa');
         }
 
-        function saveStudent(data){
-           if (data)
-            {
-                //MahasiswaService.updateProduct(vm.product.id, vm.product);
+        function saveStudent(id){
+            if (id){
+                    vm.loadingStatus = true;
+                    $http.put(api.baseUrl + 'admin/update/student/'+ id, vm.student).then(function (response){
+                        console.log('update student', response);
+                        $localStorage.student = response.data
+                        console.log(window.localStorage);
+                        window.location.href = '/list-mahasiswa'
+                        vm.submitted = true;
+                        // vm.loadingStatus = false;
+                    }, function (response){
+                        console.log('Data Error:', response)
+                        vm.submitted = false;
+                        $state.go('app.user-database_mahasiswa_list-mahasiswa.detail');
+                        // vm.loadingStatus = false;
+                    });           
             }
             else
             {
                 $http.post(api.baseUrl+ 'admin/create/student', vm.student).then(function (response){
-                    console.log('student', response);
-                    $localStorage.user = response.data
+                    console.log('add student', response);
+                    $localStorage.student = response.data
                     console.log(window.localStorage);
                     // $state.go('app.dashboards.project');
                     window.location.href = '/list-mahasiswa'
@@ -76,35 +88,7 @@
                     });
             }
         }
-        /**
-         * Save product
-         */
-        // function saveProduct()
-        // {
-        //     // Since we have two-way binding in place, we don't really need
-        //     // this function to update the products array in the demo.
-        //     // But in real world, you would need this function to trigger
-        //     // an API call to update your database.
-        //     if ( vm.product.id )
-        //     {
-        //         MahasiswaService.updateProduct(vm.product.id, vm.product);
-        //     }
-        //     else
-        //     {
-        //         MahasiswaService.createProduct(vm.product);
-        //     }
-
-        // }
-
-        /**
-         * Go to products page
-         */
-        // function gotoProducts()
-        // {
-        //     $state.go('app.user-database_mahasiswa_list-mahasiswa');
-        // }
-
-
+        
         /**
          * Checks if the given form valid
          *

@@ -112,13 +112,9 @@
         {
             $http.get(api.baseUrl + 'admin/student/'+id).then(function (response){
                 vm.student = response.data.data;
-<<<<<<< HEAD
                 $localStorage.student = vm.student;
                 console.log('Data mahasiswa:', vm.student);
                 $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id, Data: vm.student});
-=======
-                console.log('Data Mahasiswa:', vm.student);
->>>>>>> 7ebaf4549366184e3660e3f909b01f21652abab8
     
             }, function (response){
                 console.log('Data failed :', response)
