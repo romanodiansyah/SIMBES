@@ -18,6 +18,8 @@ import { ListBeritaComponent } from './list-berita/list-berita.component';
 import { DetailBeasiswaComponent } from './detail-beasiswa/detail-beasiswa.component';
 import { DaftarBeasiswaComponent } from './daftar-beasiswa/daftar-beasiswa.component'; 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 @NgModule({
@@ -66,7 +68,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     ]),
     FormsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
