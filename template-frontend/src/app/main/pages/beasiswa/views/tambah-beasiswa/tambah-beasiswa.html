@@ -113,35 +113,11 @@
                             <h3 class="secondary-text" translate="EC.PERSYARATAN_LAINNYA">Persyaratan (lainnya)</h3>
                             <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.persyaratan"
                                     class="pb-32"></text-angular>
+                            
+                            <h3 class="secondary-text" translate="EC.BERKAS">Berkas Beasiswa</h3>
+                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.beasiswa.berkas"
+                                    class="pb-32"></text-angular>
                         </form>
-                    </div>
-                </md-tab-body>
-            </md-tab>
-
-            <md-tab>
-                <md-tab-label>
-                    <span translate="EC.BERKAS">Berkas Beasiswa</span>
-                </md-tab-label>
-    
-                <md-tab-body>
-                    <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
-    
-                        <!-- ADD FILE BUTTON -->
-                        <div id="file-uploader"
-                            flow-init="vm.ngFlowOptions"
-                            flow-name="vm.ngFlow.flow"
-                            flow-files-submitted="vm.upload()"
-                            flow-file-added="vm.fileAdded($file)"
-                            flow-file-success="vm.fileSuccess($file, $message)"
-                            flow-complete="vm.uploadComplete()">
-    
-                            <div class="upload-button" layout="column" layout-align="center center">
-                                <md-button class="md-accent md-raised" flow-btn>
-                                    UPLOAD A FILE
-                                </md-button>
-                            </div>
-                        </div>
-                        <!-- / ADD FILE BUTTON -->
                     </div>
                 </md-tab-body>
             </md-tab>
@@ -157,12 +133,12 @@
                             <div layout-gt-sm="row" layout-align="start center">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label translate="EC.PEMBUKAAN_BEASISWA">Pembukaan Beasiswa</label>
-                                    <input type="date" ng-model="vm.beasiswa.pembukaan" max="vm.beasiswa.penutupan">
+                                    <input type="date" ng-model="vm.beasiswa.pembukaan">
                                 </md-input-container>
 
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label translate="EC.PENUTUPAN_BEASISWA">Penutupan Beasiswa</label>
-                                    <input type="date" ng-model="vm.beasiswa.penutupan" min="vm.beasiswa.pembukaan">
+                                    <input type="date" ng-model="vm.beasiswa.penutupan">
                                 </md-input-container>
                             </div>
 
