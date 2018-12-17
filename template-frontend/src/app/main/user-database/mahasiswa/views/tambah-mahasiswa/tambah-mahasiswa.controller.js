@@ -12,12 +12,12 @@
         var vm = this;
         vm.submitted = false;
         vm.jenis_kelamin_int = 0;
+        vm.student = $localStorage.student;
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-        //vm.product = Product;
         
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
@@ -28,14 +28,13 @@
              testChunks               : false,
              progressCallbacksInterval: 1000*/
         };
+
         vm.ngFlow = {
             // ng-flow will be injected into here through its directive
             flow: {}
         };
 
         // Methods
-        //vm.saveProduct = saveProduct;
-        //vm.gotoProducts = gotoProducts;
         vm.isFormValid = isFormValid;
         vm.gotoStudents = gotoStudents;
         vm.saveStudent = saveStudent;
@@ -45,36 +44,37 @@
         {
             $http.get(api.baseUrl + 'admin/list/student').then(function (response){
                 vm.students = response.data.data;
-                console.log('Data mahasiswa:', vm.students);
+                console.log('Data Mahasiswa:', vm.students);
     
             }, function (response){
-                console.log('Data failed :', response)
+                console.log('Data failed:', response)
                 alert(response.data.message)
             });
             $state.go('app.user-database_mahasiswa_list-mahasiswa');
         }
 
-        function saveStudent(data){
-            console.log(vm.student.jenis_kelamin)
-            if (data)
-            {
-                //MahasiswaService.updateProduct(vm.product.id, vm.product);
+        function saveStudent(id){
+            if (id){
+                    vm.loadingStatus = true;
+                    $http.put(api.baseUrl + 'admin/update/student/'+ id, vm.student).then(function (response){
+                        console.log('update student', response);
+                        $localStorage.student = response.data
+                        console.log(window.localStorage);
+                        window.location.href = '/list-mahasiswa'
+                        vm.submitted = true;
+                        // vm.loadingStatus = false;
+                    }, function (response){
+                        console.log('Data Error:', response)
+                        vm.submitted = false;
+                        $state.go('app.user-database_mahasiswa_list-mahasiswa.detail');
+                        // vm.loadingStatus = false;
+                    });           
             }
             else
             {
-                if(vm.student.jenis_kelamin=="Laki-laki"){
-                    console.log(vm.student.jenis_kelamin)
-                    vm.jenis_kelamin_int = 1;
-                    vm.student.jenis_kelamin = 1;
-                }else if(vm.student.jenis_kelamin=="Perempuan"){
-                    vm.jenis_kelamin_int = 2;
-                    vm.student.jenis_kelamin = 2;
-                }
-                vm.student.jurusan = 1;
-                vm.student.fakultas = 2;
                 $http.post(api.baseUrl+ 'admin/create/student', vm.student).then(function (response){
-                    console.log('student', response);
-                    $localStorage.user = response.data
+                    console.log('add student', response);
+                    $localStorage.student = response.data
                     console.log(window.localStorage);
                     // $state.go('app.dashboards.project');
                     window.location.href = '/list-mahasiswa'
@@ -84,39 +84,11 @@
                         console.log(response);
                         alert(response.data.message);
                         vm.submitted = false;
-                        $state.go('app.pages_berita_list-mahasiswa.add');
+                        $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
                     });
             }
         }
-        /**
-         * Save product
-         */
-        // function saveProduct()
-        // {
-        //     // Since we have two-way binding in place, we don't really need
-        //     // this function to update the products array in the demo.
-        //     // But in real world, you would need this function to trigger
-        //     // an API call to update your database.
-        //     if ( vm.product.id )
-        //     {
-        //         MahasiswaService.updateProduct(vm.product.id, vm.product);
-        //     }
-        //     else
-        //     {
-        //         MahasiswaService.createProduct(vm.product);
-        //     }
-
-        // }
-
-        /**
-         * Go to products page
-         */
-        // function gotoProducts()
-        // {
-        //     $state.go('app.user-database_mahasiswa_list-mahasiswa');
-        // }
-
-
+        
         /**
          * Checks if the given form valid
          *

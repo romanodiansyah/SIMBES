@@ -54,12 +54,6 @@
                         controller : 'TambahMahasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Product: function ($stateParams, Products, MahasiswaService)
-                    {
-                        return MahasiswaService.getProduct($stateParams.id);
-                    }
-                },
                 bodyClass: 'mahasiswa'
             });
 

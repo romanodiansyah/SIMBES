@@ -7,9 +7,11 @@
         .controller('TambahStaffController', TambahStaffController);
 
     /** @ngInject */
-    function TambahStaffController($scope, $document, $state, StaffService, Product)
+    function TambahStaffController($scope, $document, $state, $localStorage, api, $http)
     {
         var vm = this;
+        vm.submitted = false;
+        vm.jenis_kelamin_int = 0;
 
         // Data
         vm.taToolbar = [
@@ -33,38 +35,60 @@
         };
 
         // Methods
-        vm.saveProduct = saveProduct;
-        vm.gotoProducts = gotoProducts;
+        vm.saveAdmin = saveAdmin;
+        vm.gotoAdmins = gotoAdmins;
         vm.isFormValid = isFormValid;
 
         //////////
 
         /**
-         * Save product
+         * Go to products page
          */
-        function saveProduct()
+        function gotoAdmins()
         {
-            // Since we have two-way binding in place, we don't really need
-            // this function to update the products array in the demo.
-            // But in real world, you would need this function to trigger
-            // an API call to update your database.
-            if ( vm.product.id )
+            $http.get(api.baseUrl + 'admin/list/admin').then(function (response){
+                vm.admins = response.data.data;
+                console.log('Data Staff:', vm.admins);
+    
+            }, function (response){
+                console.log('Data failed:', response)
+                alert(response.data.message)
+            });
+            $state.go('app.user-database_staff_list-staff');
+        }
+
+        function saveAdmin(data)
+        {
+            console.log(vm.admin.jenis_kelamin)
+            if (data)
             {
-                StaffService.updateProduct(vm.product.id, vm.product);
+                //MahasiswaService.updateProduct(vm.product.id, vm.product);
             }
             else
             {
-                StaffService.createProduct(vm.product);
+                if(vm.admin.jenis_kelamin=="Laki-laki"){
+                    console.log(vm.admin.jenis_kelamin)
+                    vm.jenis_kelamin_int = 1;
+                    vm.admin.jenis_kelamin = 1;
+                }else if(vm.admin.jenis_kelamin=="Perempuan"){
+                    vm.jenis_kelamin_int = 2;
+                    vm.admin.jenis_kelamin = 2;
+                }
+                $http.post(api.baseUrl+ 'admin/create/admin', vm.admin).then(function (response){
+                    console.log('admin', response);
+                    $localStorage.user = response.data
+                    console.log(window.localStorage);
+                    // $state.go('app.dashboards.project');
+                    window.location.href = '/list-staff'
+                    vm.submitted = true;
+                    
+                    }, function(response){
+                        console.log(response);
+                        alert(response.data.message);
+                        vm.submitted = false;
+                        $state.go('app.user-database_staff_list-staff.add');
+                    });
             }
-
-        }
-
-        /**
-         * Go to products page
-         */
-        function gotoProducts()
-        {
-            $state.go('app.user-database_staff_list-staff');
         }
 
         /**

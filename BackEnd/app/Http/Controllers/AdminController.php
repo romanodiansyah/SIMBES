@@ -96,17 +96,21 @@ class AdminController extends Controller
     }
 
     public function updateStudent(Request $request, Student $student){
-        $this->validate($request, [
-            'nama'          => 'required',
-            'email'         => 'required|email|unique:students',
-            'jenis_kelamin' => 'required',
-            'password'      => 'required|min:6',
-            'jurusan'       => 'required',
-            'fakultas'      => 'required',
-            'status_aktif'  => 'required'
-        ]);
-
+        // $this->validate($request, [
+        //     'nama'          => 'required',
+        //     'email'         => 'required|email|unique:students',
+        //     'jenis_kelamin' => 'required',
+        //     'password'      => 'required|min:6',
+        //     'jurusan'       => 'required',
+        //     'fakultas'      => 'required',
+        //     'status_aktif'  => 'required'
+        // ]);
         $student = $student->find($student->id_user);
+        if($request->email != $student->email){
+            $this->validate($request,[
+                'email' => 'unique:students'
+            ]);
+        }
         $student->update([
             'nama'          => request('nama'),
             'email'         => request('email'),

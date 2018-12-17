@@ -4,7 +4,7 @@
     <div class="header md-accent-bg" layout="row" layout-align="start center">
         <div class="white-fg" layout="row" layout-align="start center" flex>
             <md-button class="goto-products-button md-icon-button" aria-label="Go to Staff"
-                       ng-click="vm.gotoProducts()"
+                       ng-click="vm.gotoAdmins()"
                        translate translate-attr-aria-label="EC.GO_TO_STAFF">
                 <md-icon md-font-icon="icon-arrow-left"></md-icon>
             </md-button>
@@ -12,7 +12,7 @@
             <div layout="row" layout-align="start center">
                 <div layout="column" layout-align="start start">
                     <div class="h2">
-                        {{vm.product.nama}}
+                        {{vm.admin.nama}}
                     </div>
                     <div class="subtitle secondary-text">
                         <span translate="EC.DETAIL_STAFF">Detail Staff</span>
@@ -22,8 +22,8 @@
         </div>
 
         <div>
-            <md-button class="md-raised md-background" ng-click="vm.saveProduct()"
-                       ng-disabled="!vm.isFormValid('productForm')">
+            <md-button class="md-raised md-background" ng-click="vm.saveAdmin(vm.admin.id_admin)"
+                       ng-disabled="!vm.isFormValid('adminForm')">
                 <span translate="EC.SIMPAN">SIMPAN</span>
             </md-button>
         </div>
@@ -42,20 +42,20 @@
 
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
-                        <form id="productForm" name="productForm">
+                        <form id="adminForm" name="adminForm">
                             <md-input-container class="md-block">
                                 <label translate="EC.NO_PEGAWAI">Nomor Pegawai</label>
-                                <input type="text" ng-model="vm.product.no_pegawai" required>
+                                <input type="text" ng-model="vm.admin.no_pegawai" required>
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.NAMA_MAHASISWA">Nama Lengkap</label>
-                                <input type="text" ng-model="vm.product.nama" required>
+                                <input type="text" ng-model="vm.admin.nama" required>
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.JENISKELAMIN">Jenis Kelamin</label>
-                                <md-select ng-model="vm.product.jenis_kelamin">
+                                <md-select ng-model="vm.admin.jenis_kelamin">
                                     <md-option value="1">Laki-Laki</md-option>
                                     <md-option value="2">Perempuan</md-option>
                                 </md-select>
@@ -63,12 +63,12 @@
 
                             <md-input-container class="md-block">
                                 <label translate="EC.EMAIL">Email</label>
-                                <input type="email" ng-model="vm.product.email" required>
+                                <input type="email" ng-model="vm.admin.email" required>
                             </md-input-container>
 
                             <md-input-container class="md-block">
                                 <label translate="EC.STATUS">Status Aktif</label>
-                                <md-select ng-model="vm.product.status_aktif">
+                                <md-select ng-model="vm.admin.status_aktif">
                                     <md-option value="1">Aktif</md-option>
                                     <md-option value="0">Tidak Aktif</md-option>
                                 </md-select>
