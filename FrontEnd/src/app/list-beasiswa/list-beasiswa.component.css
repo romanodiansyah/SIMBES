@@ -13,9 +13,11 @@
   }
   
   body {
+      width: 100%;
       margin-top: 60px;
-      margin: 72px 20px; 
+      margin: 72px 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
   }
 
   .title {
@@ -46,9 +48,10 @@
   }
   table {
     display: block;
-    max-height: 500px;
+    box-sizing: border-box;
     width: 100%;
     border-collapse: collapse;
+    padding: 20px;
   }
   td {
     padding: 5px;
