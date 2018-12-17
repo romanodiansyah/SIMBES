@@ -1,0 +1,99 @@
+<div id="e-commerce-products" class="page-layout carded fullwidth" layout="row">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg md-accent-bg"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center" layout="column" flex>
+
+        <!-- CONTENT HEADER -->
+        <div class="header" layout="row" layout-align="space-between center">
+            <div class="white-fg" layout="column" layout-align="start start">
+                <div class="h1" layout="row" layout-align="start center">
+                    <md-icon md-font-icon="icon-person"></md-icon>
+                    <span translate="EC.PENDAFTAR">Pendaftar Beasiswa</span>
+                </div>
+                <div class="product-count secondary-text">
+                    <span translate="EC.TOTAL_PENDAFTAR">Total Pendaftar:</span>
+                    <span>{{vm.beasiswas.length}}</span>
+                </div>
+            </div>
+
+            <div class="search" layout="row" layout-align="start center" flex>
+                <md-icon md-font-icon="icon-magnify" class="white-text icon search-icon"></md-icon>
+                <input id="e-commerce-products-search" class="search-input" type="text" placeholder="Search"
+                       translate translate-attr-placeholder="EC.SEARCH" flex>
+            </div>
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card" layout="column" flex>
+
+            <!-- CONTENT -->
+            <div class="content fullpage-datatable" layout="column" flex>
+
+                <table class="dataTable row-border hover" datatable="ng" dt-instance="vm.dtInstance"
+                       dt-options="vm.dtOptions">
+                    <thead>
+                        <tr>
+                            <th class="secondary-text" width="15%">
+                                <div class="table-header">
+                                    <span class="column-title">ID Pendaftar</span>
+                                </div>
+                            </th>
+
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title" width="15%">ID Beasiswa</span>
+                                </div>
+                            </th>
+
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title" width="15%">ID Mahasiswa</span>
+                                </div>
+                            </th>
+
+                            <th class="secondary-text" width="20%">
+                                <div class="table-header">
+                                    <span class="column-title">Status</span>
+                                </div>
+                            </th>
+
+                            <th class="secondary-text" width="15%">
+                                <div class="table-header">
+                                    <span class="column-title">Status Aktif</span>
+                                </div>
+                            </th>
+
+                            <th class="secondary-text" width="20%">
+                                <div class="table-header">
+                                    <span class="column-title">Alamat Berkas</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="beasiswa in ::vm.beasiswas">
+                            <td width="15%">{{beasiswa.id_pendaftar}}</td>
+                            <td width="15%">{{beasiswa.id_beasiswa}}</td>
+                            <td width="15%">{{beasiswa.id_user}}</td>
+                            <td width="20%">{{beasiswa.status}}</td>
+                            <td width="15%">{{beasiswa.status_aktif}}</td>
+                            <td width="20%">{{beasiswa.alamat_berkas}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

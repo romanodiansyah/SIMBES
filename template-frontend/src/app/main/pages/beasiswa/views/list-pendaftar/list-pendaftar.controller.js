@@ -3,11 +3,11 @@
     'use strict';
 
     angular
-        .module('app.user-database.mahasiswa')
-        .controller('ListMahasiswaController', ListMahasiswaController);
+        .module('app.pages.beasiswa')
+        .controller('ListPendaftarBeasiswaController', ListPendaftarBeasiswaController);
 
     /** @ngInject */
-    function ListMahasiswaController($state, api, $http, $localStorage)
+    function ListPendaftarBeasiswaController($state, $scope, api, $http, $localStorage)
     {
         var vm = this;
 
@@ -18,13 +18,23 @@
             dom         : 'rt<"bottom"<"left"<"length"l>><"right"<"info"i><"pagination"p>>>',
             columnDefs  : [
                 {
-                    // Target the id column
+                    // Target the id_pendaftar column
                     targets: 0,
                     width  : '72px'
                 },
                 {
+                    // Target the id_beasiswa column
+                    targets: 1,
+                    width  : '72px'
+                },
+                {
+                    // Target the id_user column
+                    targets: 2,
+                    width  : '72px'
+                },
+                {
                     // Target the status column
-                    targets   : 6,
+                    targets   : 4,
                     filterable: false,
                     render    : function (data, type)
                     {
@@ -50,13 +60,6 @@
 
                         return data;
                     }
-                },
-                {
-                    // Target the actions column
-                    targets           : 7,
-                    responsivePriority: 1,
-                    filterable        : false,
-                    sortable          : false
                 }
             ],
             initComplete: function ()
@@ -81,52 +84,18 @@
         };
 
         // Methods
-        vm.gotoAddStudent = gotoAddStudent;
-        vm.gotoStudentDetail = gotoStudentDetail;
+        vm.gotoAddBeasiswa = gotoAddBeasiswa;
 
         //////////
-        // * api
-        $http.get(api.baseUrl + 'admin/list/student').then(function (response){
-            vm.students = response.data.data;
-            console.log('Data Mahasiswa:', vm.students);
+
+        // *api
+        $http.get(api.baseUrl + 'beasiswa').then(function (response){
+            vm.beasiswas = response.data.data;
+            console.log('Data Pendaftar Beasiswa:', vm.beasiswas);
 
         }, function (response){
             console.log('Data failed :', response)
             alert(response.data.message)
         });
-
-        /**
-         * Go to add product
-         */
-        function gotoAddStudent()
-        {
-            $state.go('app.user-database_mahasiswa_list-mahasiswa.add');
-        }
-
-        /**
-         * Go to product detail
-         *
-         * @param id
-         */
-        function gotoStudentDetail(id)
-        {
-            $http.get(api.baseUrl + 'admin/student/'+id).then(function (response){
-                vm.student = response.data.data;
-<<<<<<< HEAD
-                $localStorage.student = vm.student;
-                console.log('Data mahasiswa:', vm.student);
-                $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id, Data: vm.student});
-=======
-                console.log('Data Mahasiswa:', vm.student);
->>>>>>> 7ebaf4549366184e3660e3f909b01f21652abab8
-    
-            }, function (response){
-                console.log('Data failed :', response)
-                alert(response.data.message)
-                $state.go('app.user-database_mahasiswa_list-mahasiswa');    
-            });
-    
-            $state.go('app.user-database_mahasiswa_list-mahasiswa.detail', {id: id});
-        }
     }
 })();
