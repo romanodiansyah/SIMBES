@@ -11,6 +11,7 @@
             return [
                 'id_user'       => $student->id_user,
                 'nama'          => $student->nama,
+                'password'      => $student->password,
                 'jenis_kelamin' => $student->jenis_kelamin,
                 'email'         => $student->email,
                 'ipk'           => $student->ipk,

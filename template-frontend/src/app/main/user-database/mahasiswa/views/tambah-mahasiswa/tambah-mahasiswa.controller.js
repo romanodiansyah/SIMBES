@@ -12,7 +12,7 @@
         var vm = this;
         vm.submitted = false;
         vm.jenis_kelamin_int = 0;
-
+        vm.student = $localStorage.student;
         // Data
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
@@ -54,23 +54,12 @@
         }
 
         function saveStudent(data){
-            console.log(vm.student.jenis_kelamin)
-            if (data)
+           if (data)
             {
                 //MahasiswaService.updateProduct(vm.product.id, vm.product);
             }
             else
             {
-                if(vm.student.jenis_kelamin=="Laki-laki"){
-                    console.log(vm.student.jenis_kelamin)
-                    vm.jenis_kelamin_int = 1;
-                    vm.student.jenis_kelamin = 1;
-                }else if(vm.student.jenis_kelamin=="Perempuan"){
-                    vm.jenis_kelamin_int = 2;
-                    vm.student.jenis_kelamin = 2;
-                }
-                vm.student.jurusan = 1;
-                vm.student.fakultas = 2;
                 $http.post(api.baseUrl+ 'admin/create/student', vm.student).then(function (response){
                     console.log('student', response);
                     $localStorage.user = response.data
