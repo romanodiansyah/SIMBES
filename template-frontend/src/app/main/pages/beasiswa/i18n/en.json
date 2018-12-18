@@ -83,14 +83,18 @@
         "PENUTUPAN_BEASISWA": "Penutupan Beasiswa",
         "SURAT_KEPUTUSAN_BEASISWA": "Surat Keputusan Beasiswa",
         "BEASISWA": "Beasiswa",
-        "TOTAL_BEASISWA": "Total Beasiswa",
+        "TOTAL_BEASISWA": "Total Beasiswa:",
         "TAMBAH_BEASISWA": "Tambah Beasiswa",
         "BERKAS": "Berkas Beasiswa",
         "STATUS": "Status Aktif",
         "PENDAFTAR": "Pendaftar Beasiswa",
-        "TOTAL_PENDAFTAR": "Total Pendaftar",
+        "TOTAL_PENDAFTAR": "Total Pendaftar:",
         "DETAIL_PENDAFTAR": "Detail Pendaftar",
         "EC.EXPORT_EXCEL": "Export (.xlxs)",
-        "EC.EXPORT_RAR": "Export (.rar)"
+        "EC.EXPORT_RAR": "Export (.rar)",
+        "PENERIMA": "Penerima Beasiswa",
+        "TOTAL_PENERIMA": "Total Penerima:",
+        "ACCEPT": "Accept",
+        "DECLINE": "Decline"
     }
 }

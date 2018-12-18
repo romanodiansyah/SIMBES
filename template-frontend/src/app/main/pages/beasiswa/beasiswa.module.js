@@ -65,6 +65,16 @@
                     }
                 },
                 bodyClass: 'beasiswa'
+            })
+            .state('app.pages_beasiswa_list-penerima', {
+                url      : '/list-penerima',
+                views    : {
+                    'content@app': {
+                        templateUrl: 'app/main/pages/beasiswa/views/list-penerima/list-penerima.html',
+                        controller : 'ListPenerimaBeasiswaController as vm'
+                    }
+                },
+                bodyClass: 'beasiswa'
             });
 
         // Translation
@@ -88,6 +98,11 @@
         msNavigationServiceProvider.saveItem('pages.beasiswa.list-pendaftar', {
             title: 'List Pendaftar Beasiswa',
             state: 'app.pages_beasiswa_list-pendaftar'
+        });
+
+        msNavigationServiceProvider.saveItem('pages.beasiswa.list-penerima', {
+            title: 'List Penerima Beasiswa',
+            state: 'app.pages_beasiswa_list-penerima'
         });
     }
 })();

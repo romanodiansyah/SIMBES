@@ -4,10 +4,10 @@
 
     angular
         .module('app.pages.beasiswa')
-        .controller('ListPendaftarBeasiswaController', ListPendaftarBeasiswaController);
+        .controller('ListPenerimaBeasiswaController', ListPenerimaBeasiswaController);
 
     /** @ngInject */
-    function ListPendaftarBeasiswaController($state, $scope, api, $http, $localStorage)
+    function ListPenerimaBeasiswaController($state, $scope, api, $http, $localStorage)
     {
         var vm = this;
 
@@ -55,7 +55,7 @@
         };
 
         // Methods
-        vm.gotoListPenerima = gotoListPenerima;
+        vm.gotoListPendaftar = gotoListPendaftar;
 
         //////////
 
@@ -72,9 +72,9 @@
         /**
          * Go to add product
          */
-        function gotoListPenerima()
+        function gotoListPendaftar()
         {
-            $state.go('app.pages_beasiswa_list-penerima');
-        }
+            $state.go('app.pages_beasiswa_list-pendaftar');
+        };
     }
 })();
