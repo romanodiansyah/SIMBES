@@ -12,8 +12,8 @@
         var vm = this;
         vm.submitted = false;
         vm.beasiswa = $localStorage.beasiswa;
-        $localStorage.formBeasiswa = $localStorage.formBeasiswa ? $localStorage.formBeasiswa : {};
-        vm.beasiswa = $localStorage.formBeasiswa;
+        // $localStorage.formBeasiswa = $localStorage.formBeasiswa ? $localStorage.formBeasiswa : {};
+        // vm.beasiswa = $localStorage.formBeasiswa;
 
         // Data
         vm.taToolbar = [

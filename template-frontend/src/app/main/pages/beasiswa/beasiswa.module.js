@@ -34,12 +34,6 @@
                         controller : 'ListBeasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Products: function (BeasiswaService)
-                    {
-                        return BeasiswaService.getProducts();
-                    }
-                },
                 bodyClass: 'beasiswa'
             })
             .state('app.pages_beasiswa_list-beasiswa.add', {
@@ -48,12 +42,6 @@
                     'content@app': {
                         templateUrl: 'app/main/pages/beasiswa/views/tambah-beasiswa/tambah-beasiswa.html',
                         controller : 'TambahBeasiswaController as vm'
-                    }
-                },
-                resolve: {
-                    Product: function (BeasiswaService)
-                    {
-                        return BeasiswaService.newProduct();
                     }
                 },
                 bodyClass: 'beasiswa'
@@ -66,12 +54,6 @@
                         controller : 'TambahBeasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Product: function ($stateParams, Products, BeasiswaService)
-                    {
-                        return BeasiswaService.getProduct($stateParams.id);
-                    }
-                },
                 bodyClass: 'beasiswa'
             })
             .state('app.pages_beasiswa_list-pendaftar', {
@@ -80,12 +62,6 @@
                     'content@app': {
                         templateUrl: 'app/main/pages/beasiswa/views/list-pendaftar/list-pendaftar.html',
                         controller : 'ListPendaftarBeasiswaController as vm'
-                    }
-                },
-                resolve  : {
-                    Products: function (BeasiswaService)
-                    {
-                        return BeasiswaService.getProducts();
                     }
                 },
                 bodyClass: 'beasiswa'
