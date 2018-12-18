@@ -31,35 +31,6 @@
                     // Target the id_user column
                     targets: 2,
                     width  : '72px'
-                },
-                {
-                    // Target the status column
-                    targets   : 4,
-                    filterable: false,
-                    render    : function (data, type)
-                    {
-                        if ( type === 'display' )
-                        {
-                            if ( data === 'true' )
-                            {
-                                return '<i class="icon-checkbox-marked-circle green-500-fg"></i>';
-                            }
-
-                            return '<i class="icon-cancel red-500-fg"></i>';
-                        }
-
-                        if ( type === 'filter' )
-                        {
-                            if ( data )
-                            {
-                                return '1';
-                            }
-
-                            return '0';
-                        }
-
-                        return data;
-                    }
                 }
             ],
             initComplete: function ()
@@ -83,6 +54,9 @@
             responsive  : true
         };
 
+        // Methods
+        vm.gotoListPenerima = gotoListPenerima;
+
         //////////
 
         // *api
@@ -94,5 +68,13 @@
             console.log('Data failed :', response)
             alert(response.data.message)
         });
+
+        /**
+         * Go to add product
+         */
+        function gotoListPenerima()
+        {
+            $state.go('app.pages_beasiswa_list-penerima');
+        }
     }
 })();

@@ -28,7 +28,7 @@
 
             // Apps
             'app.dashboards',
-            'app.calendar',
+            // 'app.calendar',
             // 'app.e-commerce',
             // 'app.mail',
             // 'app.chat',

@@ -34,12 +34,6 @@
                         controller : 'ListBeasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Products: function (BeasiswaService)
-                    {
-                        return BeasiswaService.getProducts();
-                    }
-                },
                 bodyClass: 'beasiswa'
             })
             .state('app.pages_beasiswa_list-beasiswa.add', {
@@ -48,12 +42,6 @@
                     'content@app': {
                         templateUrl: 'app/main/pages/beasiswa/views/tambah-beasiswa/tambah-beasiswa.html',
                         controller : 'TambahBeasiswaController as vm'
-                    }
-                },
-                resolve: {
-                    Product: function (BeasiswaService)
-                    {
-                        return BeasiswaService.newProduct();
                     }
                 },
                 bodyClass: 'beasiswa'
@@ -66,12 +54,6 @@
                         controller : 'TambahBeasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Product: function ($stateParams, Products, BeasiswaService)
-                    {
-                        return BeasiswaService.getProduct($stateParams.id);
-                    }
-                },
                 bodyClass: 'beasiswa'
             })
             .state('app.pages_beasiswa_list-pendaftar', {
@@ -82,10 +64,14 @@
                         controller : 'ListPendaftarBeasiswaController as vm'
                     }
                 },
-                resolve  : {
-                    Products: function (BeasiswaService)
-                    {
-                        return BeasiswaService.getProducts();
+                bodyClass: 'beasiswa'
+            })
+            .state('app.pages_beasiswa_list-penerima', {
+                url      : '/list-penerima',
+                views    : {
+                    'content@app': {
+                        templateUrl: 'app/main/pages/beasiswa/views/list-penerima/list-penerima.html',
+                        controller : 'ListPenerimaBeasiswaController as vm'
                     }
                 },
                 bodyClass: 'beasiswa'
@@ -112,6 +98,11 @@
         msNavigationServiceProvider.saveItem('pages.beasiswa.list-pendaftar', {
             title: 'List Pendaftar Beasiswa',
             state: 'app.pages_beasiswa_list-pendaftar'
+        });
+
+        msNavigationServiceProvider.saveItem('pages.beasiswa.list-penerima', {
+            title: 'List Penerima Beasiswa',
+            state: 'app.pages_beasiswa_list-penerima'
         });
     }
 })();

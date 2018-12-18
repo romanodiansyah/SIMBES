@@ -19,7 +19,6 @@
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-        vm.product = Product;
 
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
@@ -49,9 +48,7 @@
         {
             $http.get(api.baseUrl + 'admins').then(function (response){
                 vm.admins = response.data.data;
-                console.log('Data Staff:', vm.admins);
-                $state.go('app.user-database_staff_list-staff');
-    
+                console.log('Data Staff:', vm.admins);    
             }, function (response){
                 console.log('Data failed:', response)
                 alert(response.data.message)
@@ -63,6 +60,7 @@
         {
             if (id)
             {
+                vm.loadingStatus = true;
                 $http.put(api.baseUrl+ 'admin/update/' + id, vm.admin).then(function (response){
                     console.log('admin', response);
                     $localStorage.admin = response.data;
@@ -75,11 +73,12 @@
                         console.log(response);
                         alert('Data tidak valid');
                         vm.submitted = false;
+                        $state.go('app.user-database_staff_list-staff.detail');
                 });
             }
             else
             {
-                $http.post(api.baseUrl+ 'admin/create/admin', vm.admin).then(function (response){
+                $http.post(api.baseUrl+ 'auth/admin/register', vm.admin).then(function (response){
                     console.log('admin', response);
                     $localStorage.admin = response.data;
                     console.log(window.localStorage);
@@ -91,6 +90,7 @@
                         console.log(response);
                         alert('Data tidak valid')
                         vm.submitted = false;
+                        $state.go('app.user-database_staff_list-staff.add');
                     });
             }
         }

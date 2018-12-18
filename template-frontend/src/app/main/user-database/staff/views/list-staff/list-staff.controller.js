@@ -23,35 +23,6 @@
                     width  : '72px'
                 },
                 {
-                    // Target the status column
-                    targets   : 5,
-                    filterable: false,
-                    render    : function (data, type)
-                    {
-                        if ( type === 'display' )
-                        {
-                            if ( data === 'true' )
-                            {
-                                return '<i class="icon-checkbox-marked-circle green-500-fg"></i>';
-                            }
-
-                            return '<i class="icon-cancel red-500-fg"></i>';
-                        }
-
-                        if ( type === 'filter' )
-                        {
-                            if ( data )
-                            {
-                                return '1';
-                            }
-
-                            return '0';
-                        }
-
-                        return data;
-                    }
-                },
-                {
                     // Target the actions column
                     targets           : 6,
                     responsivePriority: 1,
@@ -86,7 +57,7 @@
 
         //////////
         // * api
-        $http.get(api.baseUrl + 'admin/list/admin').then(function (response){
+        $http.get(api.baseUrl + 'admins').then(function (response){
             vm.admins = response.data.data;
             console.log('Data Staff:', vm.admins);
 
@@ -100,6 +71,7 @@
          */
         function gotoAddAdmin()
         {
+            $localStorage.admin = "";
             $state.go('app.user-database_staff_list-staff.add');
         }
 

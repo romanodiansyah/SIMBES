@@ -12,16 +12,16 @@
             <div class="white-fg" layout="column" layout-align="start start">
                 <div class="h1" layout="row" layout-align="start center">
                     <md-icon md-font-icon="icon-package-variant"></md-icon>
-                    <span translate="EC.PENDAFTAR">Pendaftar Beasiswa</span>
+                    <span translate="EC.PENERIMA">Penerima Beasiswa</span>
                 </div>
                 <div class="product-count secondary-text">
-                    <span translate="EC.TOTAL_PENDAFTAR">Total Pendaftar:</span>
+                    <span translate="EC.TOTAL_PENERIMA">Total Penerima:</span>
                     <span>{{vm.beasiswas.length}}</span>
                 </div>
             </div>
             <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoListPenerima()">
-                    <span translate="EC.PENERIMA">Penerima Beasiswa</span>
+                <md-button class="md-raised md-background" ng-click="vm.gotoListPendaftar()">
+                    <span translate="EC.PENDAFTAR">Pendaftar Beasiswa</span>
                 </md-button>
             </div>
         </div>
@@ -37,65 +37,51 @@
                        dt-options="vm.dtOptions">
                     <thead>
                         <tr>
-                            <th class="secondary-text" width="10%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">ID Pendaftar</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="10%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">ID Beasiswa</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="10%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">ID Mahasiswa</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="10%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Status</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="10%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Status Aktif</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="10%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Alamat Berkas</span>
-                                </div>
-                            </th>
-
-                            <th class="secondary-text" width="40%">
-                                <div class="table-header">
-                                    <span class="column-title">Actions</span>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="beasiswa in ::vm.beasiswas">
-                            <td width="10%">{{beasiswa.id_pendaftar}}</td>
-                            <td width="10%">{{beasiswa.id_beasiswa}}</td>
-                            <td width="10%">{{beasiswa.id_user}}</td>
-                            <td width="10%">{{beasiswa.status}}</td>
-                            <td width="10%">{{beasiswa.status_aktif}}</td>
-                            <td width="10%">{{beasiswa.alamat_berkas}}</td>
-                            <td width="40%">
-                                <md-button class="md-raised md-background" ng-click="vm.gotoListPendaftar()">
-                                    <span translate="EC.ACCEPT">Accept</span>
-                                </md-button>
-                                <md-button class="md-raised md-background" ng-click="vm.gotoListPendaftar()">
-                                    <span translate="EC.DECLINE">Decline</span>
-                                </md-button>
-                            </td>
+                            <td>{{beasiswa.id_pendaftar}}</td>
+                            <td>{{beasiswa.id_beasiswa}}</td>
+                            <td>{{beasiswa.id_user}}</td>
+                            <td>{{beasiswa.status}}</td>
+                            <td>{{beasiswa.status_aktif}}</td>
+                            <td>{{beasiswa.alamat_berkas}}</td>
                         </tr>
                     </tbody>
                 </table>

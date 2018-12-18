@@ -4,10 +4,10 @@
 
     angular
         .module('app.pages.beasiswa')
-        .controller('ListBeasiswaController', ListBeasiswaController);
+        .controller('ListPenerimaBeasiswaController', ListPenerimaBeasiswaController);
 
     /** @ngInject */
-    function ListBeasiswaController($state, $scope, api, $http, $localStorage)
+    function ListPenerimaBeasiswaController($state, $scope, api, $http, $localStorage)
     {
         var vm = this;
 
@@ -18,16 +18,19 @@
             dom         : 'rt<"bottom"<"left"<"length"l>><"right"<"info"i><"pagination"p>>>',
             columnDefs  : [
                 {
-                    // Target the id column
+                    // Target the id_pendaftar column
                     targets: 0,
                     width  : '72px'
                 },
                 {
-                    // Target the actions column
-                    targets           : 8,
-                    responsivePriority: 1,
-                    filterable        : false,
-                    sortable          : false
+                    // Target the id_beasiswa column
+                    targets: 1,
+                    width  : '72px'
+                },
+                {
+                    // Target the id_user column
+                    targets: 2,
+                    width  : '72px'
                 }
             ],
             initComplete: function ()
@@ -52,45 +55,26 @@
         };
 
         // Methods
-        vm.gotoAddBeasiswa = gotoAddBeasiswa;
-        vm.gotoBeasiswaDetail = gotoBeasiswaDetail;
+        vm.gotoListPendaftar = gotoListPendaftar;
 
         //////////
+
         // *api
         $http.get(api.baseUrl + 'beasiswa').then(function (response){
             vm.beasiswas = response.data.data;
-            console.log('Data beasiswa:', vm.beasiswas);
+            console.log('Data Pendaftar Beasiswa:', vm.beasiswas);
 
         }, function (response){
             console.log('Data failed :', response)
             alert(response.data.message)
         });
+
         /**
          * Go to add product
          */
-        function gotoAddBeasiswa()
+        function gotoListPendaftar()
         {
-            $localStorage.beasiswa = "";
-            $state.go('app.pages_beasiswa_list-beasiswa.add');
-        }
-
-        /**
-         * Go to product detail
-         *
-         * @param id
-         */
-        function gotoBeasiswaDetail(id)
-        {
-            $http.get(api.baseUrl + 'admin/beasiswa/view/'+id).then(function (response){
-                vm.beasiswa = response.data.data;
-                $localStorage.beasiswa = vm.beasiswa;
-                console.log('Data beasiswaa:', vm.beasiswa);
-                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.beasiswa});
-    
-            }, function (response){
-                console.log('Data failed :', response)
-                alert(response.data.message)    
-            });
-        }
+            $state.go('app.pages_beasiswa_list-pendaftar');
+        };
     }
 })();

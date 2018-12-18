@@ -11,8 +11,9 @@
     {
         var vm = this;
         vm.submitted = false;
-        $localStorage.formBeasiswa = $localStorage.formBeasiswa ? $localStorage.formBeasiswa : {};
-        vm.beasiswa = $localStorage.formBeasiswa;
+        vm.beasiswa = $localStorage.beasiswa;
+        // $localStorage.formBeasiswa = $localStorage.formBeasiswa ? $localStorage.formBeasiswa : {};
+        // vm.beasiswa = $localStorage.formBeasiswa;
 
         // Data
         vm.taToolbar = [
@@ -40,12 +41,10 @@
         vm.gotoBeasiswas = gotoBeasiswas;
         vm.isFormValid = isFormValid;
         
-        //vm.select = select;
         //////////
         function saveBeasiswa(id){
-            if ( id )
-            {
-                $http.post(api.baseUrl + 'admin/beasiswa/update', vm.beasiswa).then(function(response){
+            if ( id ){
+                $http.post(api.baseUrl + 'admin/beasiswa/update/'+ id, vm.beasiswa).then(function(response){
                     console.log('beasiswa', response);
                     $localStorage.beasiswa = response.data
                     console.log(window.localStorage);
@@ -54,8 +53,8 @@
                     vm.submitted = true;
                 }, function(response){
                     console.log(response);
-                        alert('Data tidak valid');
-                        vm.submitted = false;
+                    alert('Data tidak valid');
+                    vm.submitted = false;
                 });
             }
             else
@@ -77,26 +76,6 @@
             }
 
         }
-        
-        /**
-         * Save Beasiswa
-         */
-        // function saveProduct()
-        // {
-        //     // Since we have two-way binding in place, we don't really need
-        //     // this function to update the products array in the demo.
-        //     // But in real world, you would need this function to trigger
-        //     // an API call to update your database.
-        //     if ( vm.product.id )
-        //     {
-        //         BeasiswaService.updateProduct(vm.product.id, vm.product);
-        //     }
-        //     else
-        //     {
-        //         BeasiswaService.createProduct(vm.product);
-        //     }
-
-        // }
 
         /**
          * Go to products page

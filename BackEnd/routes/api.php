@@ -24,10 +24,10 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::post('admin/deactivate/student/{student}', 'AdminController@deactivateStudent');
     //beasiswa admin
     Route::post('admin/beasiswa/create', 'BeasiswaController@createBeasiswa');
-    Route::post('admin/beasiswa/update', 'BeasiswaController@updateBeasiswa');
+    Route::post('admin/beasiswa/update/{beasiswa}', 'BeasiswaController@updateBeasiswa');
     Route::post('admin/beasiswa/delete', 'BeasiswaController@deleteBeasiswa');
     Route::get('admin/beasiswa','BeasiswaController@readBeasiswa');
-    Route::get('admin/beasiswa/view','BeasiswaController@viewBeasiswa');
+    Route::get('admin/beasiswa/view/{beasiswa}','BeasiswaController@viewBeasiswa');
 
     // berita
     Route::post('admin/create/news','BeritaController@createNews');

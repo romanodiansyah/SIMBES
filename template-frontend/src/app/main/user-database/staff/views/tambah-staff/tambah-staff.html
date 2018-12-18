@@ -67,6 +67,11 @@
                             </md-input-container>
 
                             <md-input-container class="md-block">
+                                <label translate="EC.PASSWORD">Password</label>
+                                <input type="password" ng-model="vm.admin.password" required>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
                                 <label translate="EC.STATUS">Status Aktif</label>
                                 <md-select ng-model="vm.admin.status_aktif">
                                     <md-option value="1">Aktif</md-option>
