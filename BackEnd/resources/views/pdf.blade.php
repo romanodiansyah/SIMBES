@@ -1,3 +1,4 @@
+<img src="{{asset('logo-ipb.png')}}">
 <h1>Customer List</h1>
 <table>
 <thead>
@@ -15,6 +16,8 @@
         <td>{{ $customer->nama }}</td>
         <td>{{ $customer->email }}</td>
         <td>{{ $customer->ipk }}</td>
+        <td>{{ $customer->fakultas }}</td>
+        <td>{{ $customer->jurusan }}</td>
     </tr>
     @endforeach
 </tbody>
