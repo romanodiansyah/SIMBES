@@ -71,6 +71,7 @@
          */
         function gotoAddAdmin()
         {
+            $localStorage.admin = "";
             $state.go('app.user-database_staff_list-staff.add');
         }
 
