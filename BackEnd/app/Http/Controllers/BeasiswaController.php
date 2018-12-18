@@ -68,12 +68,6 @@ class BeasiswaController extends Controller
     }
     public function updateBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
     {
-        $this->validate($request, [
-            'id_beasiswa'       => 'required',
-            // 'id_adm'            => 'required',
-        ]);
-        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
-        
         $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
         if ($request->hasFile('alamat_foto')){
             $ext = Input::file('alamat_foto')->getClientOriginalExtension();

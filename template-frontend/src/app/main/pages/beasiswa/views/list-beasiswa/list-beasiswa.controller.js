@@ -80,11 +80,11 @@
          */
         function gotoBeasiswaDetail(id)
         {
-            $http.get(api.baseUrl + 'admin/news/'+id).then(function (response){
-                vm.news = response.data.data;
-                $localStorage.news = vm.news;
-                console.log('Data mahasiswa:', vm.news);
-                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.news});
+            $http.get(api.baseUrl + 'admin/beasiswa/view/',id).then(function (response){
+                vm.beasiswa = response.data.data;
+                $localStorage.beasiswa = vm.beasiswa;
+                console.log('Data beasiswaa:', vm.beasiswa);
+                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.beasiswa});
     
             }, function (response){
                 console.log('Data failed :', response)
