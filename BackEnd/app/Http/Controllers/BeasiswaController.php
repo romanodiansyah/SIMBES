@@ -76,12 +76,12 @@ class BeasiswaController extends Controller
         
         if($request->has('pembukaan')){
             $tanggal1 = Carbon::parse($request->pembukaan)->toDateTimeString();
-            $beasiswa->update($request->except('pembukaan' => $tanggal1));
+            $beasiswa->update(['pembukaan' => $tanggal1]);
         }
         if($request->has('penutupan'))
         {
             $tanggal2 = Carbon::parse($request->penutupan)->toDateTimeString();
-            $beasiswa->update('penutupan' => $tanggal2));
+            $beasiswa->update(['penutupan' => $tanggal2]);
         }
         
         $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
