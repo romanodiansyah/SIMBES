@@ -45,7 +45,7 @@
         //////////
         function saveBeasiswa(id){
             if ( id ){
-                $http.post(api.baseUrl + 'admin/beasiswa/update'+ id, vm.beasiswa).then(function(response){
+                $http.post(api.baseUrl + 'admin/beasiswa/update/'+ id, vm.beasiswa).then(function(response){
                     console.log('beasiswa', response);
                     $localStorage.beasiswa = response.data
                     console.log(window.localStorage);
