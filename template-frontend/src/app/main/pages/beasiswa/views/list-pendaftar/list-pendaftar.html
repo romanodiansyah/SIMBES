@@ -14,17 +14,36 @@
                     <md-icon md-font-icon="icon-person"></md-icon>
                     <span translate="EC.PENDAFTAR">Pendaftar Beasiswa</span>
                 </div>
-                <div class="product-count secondary-text">
-                    <span translate="EC.TOTAL_PENDAFTAR">Total Pendaftar:</span>
-                    <span>{{vm.beasiswas.length}}</span>
-                </div>
             </div>
 
-            <div class="search" layout="row" layout-align="start center" flex>
-                <md-icon md-font-icon="icon-magnify" class="white-text icon search-icon"></md-icon>
-                <input id="e-commerce-products-search" class="search-input" type="text" placeholder="Search"
-                       translate translate-attr-placeholder="EC.SEARCH" flex>
+            <div>
+                <md-menu-bar>
+                    <md-menu md-position-mode="left bottom">
+                        <md-menu-content width="3">
+                            <md-menu-item ui-sref="app.pages_profile">
+                                <md-button class="md-raised md-background">My Profile</md-button>
+                            </md-menu-item>
+                            
+                            <md-menu-divider></md-menu-divider>
+                            
+                            <md-menu-item>
+                                <md-button class="md-raised md-background" ng-click="vm.logout()">Logout</md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-bar>
+
+
+                <!-- <md-button class="md-raised md-background" ng-click="vm.gotoAddBeasiswa()">
+                    <span translate="EC.EXPORT_EXCEL">Export (.xlxs)</span>
+                </md-button> -->
             </div>
+
+            <!-- <div>
+                <md-button class="md-raised md-background" ng-click="vm.gotoAddBeasiswa()">
+                    <span translate="EC.EXPORT_RAR">Export (.rar)</span>
+                </md-button>
+            </div> -->
         </div>
         <!-- / CONTENT HEADER -->
 
@@ -38,7 +57,7 @@
                        dt-options="vm.dtOptions">
                     <thead>
                         <tr>
-                            <th class="secondary-text" width="15%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">ID Pendaftar</span>
                                 </div>
@@ -46,43 +65,59 @@
 
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title" width="15%">ID Beasiswa</span>
+                                    <span class="column-title">ID Beasiswa</span>
                                 </div>
                             </th>
 
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title" width="15%">ID Mahasiswa</span>
+                                    <span class="column-title">ID Mahasiswa</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="20%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Status</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="15%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Status Aktif</span>
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="20%">
+                            <th class="secondary-text">
                                 <div class="table-header">
                                     <span class="column-title">Alamat Berkas</span>
+                                </div>
+                            </th>
+
+                            <th class="secondary-text">
+                                <div class="table-header">
+                                    <span class="column-title">Actions</span>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="beasiswa in ::vm.beasiswas">
-                            <td width="15%">{{beasiswa.id_pendaftar}}</td>
-                            <td width="15%">{{beasiswa.id_beasiswa}}</td>
-                            <td width="15%">{{beasiswa.id_user}}</td>
-                            <td width="20%">{{beasiswa.status}}</td>
-                            <td width="15%">{{beasiswa.status_aktif}}</td>
-                            <td width="20%">{{beasiswa.alamat_berkas}}</td>
+                            <td>{{beasiswa.id_pendaftar}}</td>
+                            <td>{{beasiswa.id_beasiswa}}</td>
+                            <td>{{beasiswa.id_user}}</td>
+                            <td>{{beasiswa.status}}</td>
+                            <td>{{beasiswa.status_aktif}}</td>
+                            <td>{{beasiswa.alamat_berkas}}</td>
+                            <td>
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Product details"
+                                           translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
+                                    <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
+                                </md-button>
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Product details"
+                                           translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
+                                    <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
+                                </md-button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

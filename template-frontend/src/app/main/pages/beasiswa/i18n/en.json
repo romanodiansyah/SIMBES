@@ -89,6 +89,8 @@
         "STATUS": "Status Aktif",
         "PENDAFTAR": "Pendaftar Beasiswa",
         "TOTAL_PENDAFTAR": "Total Pendaftar",
-        "DETAIL_PENDAFTAR": "Detail Pendaftar"
+        "DETAIL_PENDAFTAR": "Detail Pendaftar",
+        "EC.EXPORT_EXCEL": "Export (.xlxs)",
+        "EC.EXPORT_RAR": "Export (.rar)"
     }
 }

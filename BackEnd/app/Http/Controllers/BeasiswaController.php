@@ -7,6 +7,7 @@ use App\Admin;
 use App\Transformers\BeasiswaTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
 
 class BeasiswaController extends Controller
 {
@@ -30,6 +31,9 @@ class BeasiswaController extends Controller
             // 'status_aktif'      => 'required',
         ]); 
         $admin = $admin->find(Auth::user()->id_adm);
+
+        $tanggal1 = Carbon::parse($request->pembukaan)->toDateTimeString();
+        $tanggal2 = Carbon::parse($request->penutupan)->toDateTimeString();
         
         $beasiswa = $beasiswa->create([
             'id_adm'            => $admin->id_adm,
@@ -40,8 +44,8 @@ class BeasiswaController extends Controller
             'semester'          => $request->semester[0],
             'ipkMin'            => $request->ipkMin,
             'berkas'            => $request->berkas,
-            'pembukaan'         => $request->pembukaan,
-            'penutupan'         => $request->penutupan,
+            'pembukaan'         => $tanggal1,
+            'penutupan'         => $tanggal2,
             'jumlah_daftar'     => $request->jumlah_daftar,
             'sk'                => $request->sk,
             'pendonor'          => $request->pendonor,
