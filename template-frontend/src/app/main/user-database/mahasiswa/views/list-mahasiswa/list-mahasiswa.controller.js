@@ -23,35 +23,6 @@
                     width  : '72px'
                 },
                 {
-                    // Target the status column
-                    targets   : 6,
-                    filterable: false,
-                    render    : function (data, type)
-                    {
-                        if ( type === 'display' )
-                        {
-                            if ( data === 'true' )
-                            {
-                                return '<i class="icon-checkbox-marked-circle green-500-fg"></i>';
-                            }
-
-                            return '<i class="icon-cancel red-500-fg"></i>';
-                        }
-
-                        if ( type === 'filter' )
-                        {
-                            if ( data )
-                            {
-                                return '1';
-                            }
-
-                            return '0';
-                        }
-
-                        return data;
-                    }
-                },
-                {
                     // Target the actions column
                     targets           : 7,
                     responsivePriority: 1,

@@ -83,14 +83,14 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="admin in ::vm.admins">
-                            <td width="10%">{{admin.id_user}}</td>
+                            <td width="10%">{{admin.id_adm}}</td>
                             <td width="15%">{{admin.no_pegawai}}</td>
                             <td width="20%">{{admin.nama}}</td>
                             <td width="15%">{{admin.jenis_kelamin}}</td>
                             <td width="20%">{{admin.email}}</td>
                             <td width="10%">{{admin.status_aktif}}</td>
                             <td width="10%">
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoAdminDetail(admin.id_admin)" aria-label="Staff Details"
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoAdminDetail(admin.id_adm)" aria-label="Staff Details"
                                            translate translate-attr-aria-label="EC.DETAIL_STAFF">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>
