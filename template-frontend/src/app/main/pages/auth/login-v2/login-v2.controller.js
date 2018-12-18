@@ -35,15 +35,15 @@
                 console.log('login', response);
                 $localStorage.user = response.data.data
                 $localStorage.token = response.data.meta.token
+                alert(response)
                 // console.log(window.localStorage);
                 // $state.go('app.dashboards.project');
                 window.location.href = '/dashboard-project'
                 vm.submitted = false;
-                
             }, function(response){
                 console.log(response);
-                alert(response.data.message);
-                $state.go('app.pages.auth.login-v2');
+                alert('Login gagal.',response.data.message);
+                $state.go('app.pages_auth_login-v2');
                 vm.submitted = false;
             });
         }
