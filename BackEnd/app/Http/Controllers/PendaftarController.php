@@ -44,8 +44,7 @@ class PendaftarController extends Controller
                 return "Pendaftaran telah ditutup!";
             }
             else{
-                $pendaftar = $pendaftar->create([
-                    'id_pendaftar'      => $request->id_pendaftar,
+                $pendaftar = pendaftar::create([
                     'id_beasiswa'       => $request->id_beasiswa,
                     'id_user'           => $request->id_user,
                     'status'            => $request->status,
@@ -109,5 +108,29 @@ class PendaftarController extends Controller
             ->collection($student)
             ->transformWith(new StudentTransformer)
             ->toArray();
+    }
+
+    public function acceptPendaftar(Request $request)
+    {
+        $this->validate($request, [
+            'id_pendaftar'       => 'required',
+            // 'id_adm'            => 'required',
+        ]);
+        $pendaftar = pendaftar::findOrFail($request->id_pendaftar);
+        $pendaftar->update(['status' => '2']);
+
+        return response()->json($pendaftar,201);
+    }
+
+    public function declinePendaftar(Request $request)
+    {
+        $this->validate($request, [
+            'id_pendaftar'       => 'required',
+            // 'id_adm'            => 'required',
+        ]);
+        $pendaftar = pendaftar::findOrFail($request->id_pendaftar);
+        $pendaftar->update(['status' => '3']);
+
+        return response()->json($pendaftar,201);
     }
 }
