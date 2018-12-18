@@ -68,6 +68,22 @@ class BeasiswaController extends Controller
     }
     public function updateBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
     {
+        $this->validate($request, [
+            'id_beasiswa'       => 'required',
+            // 'id_adm'            => 'required',
+        ]);
+        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
+        
+        if($request->has('pembukaan')){
+            $tanggal1 = Carbon::parse($request->pembukaan)->toDateTimeString();
+            $beasiswa->update(['pembukaan' => $tanggal1]);
+        }
+        if($request->has('penutupan'))
+        {
+            $tanggal2 = Carbon::parse($request->penutupan)->toDateTimeString();
+            $beasiswa->update(['penutupan' => $tanggal2]);
+        }
+        
         $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
         if ($request->hasFile('alamat_foto')){
             $ext = Input::file('alamat_foto')->getClientOriginalExtension();
@@ -103,7 +119,7 @@ class BeasiswaController extends Controller
 
     public function readBeasiswa(Beasiswa $beasiswa)
     {
-        $beasiswa = $beasiswa->all();
+        $beasiswa = $beasiswa->all();    
 
         return fractal()
             ->collection($beasiswa)
@@ -129,7 +145,8 @@ class BeasiswaController extends Controller
 
     public function viewBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
     {
-        // $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
+        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
+    
         return fractal()
         ->item($beasiswa)
         ->transformWith(new BeasiswaTransformer)
