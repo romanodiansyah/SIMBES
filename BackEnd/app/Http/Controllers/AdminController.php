@@ -213,6 +213,14 @@ class AdminController extends Controller
                 Storage::makeDirectory('student/'.$pendaftar->id_user.'/ZIP/data/', 0775, true); //creates directory
             
             }
+            
+            $fakultas = ['Fakultas Pertanian','Fakultas Kedokteran Hewan','Fakultas Perikanan dan Ilmu Kelautan', 'Fakultas Peternakan',
+            'Fakultas Kehutanan','Fakultas Teknologi Pertanian','Fakultas Matematika dan Ilmu Pengetahuan Alam','Fakultas Ekonomi Manajemen',
+            'Fakultas Ekologi Manusia','Sekolah Vokasi','Sekolah Bisnis'];
+            $departemen = ['Statistika','Geofisika dan Meteorologi','Biologi','Kimia','Matematika','Ilmu Komputer','Fisika','Biokimia','Aktuaria'];
+
+            $data->fakultas = $fakultas[$data->fakultas - 1];
+            $data->jurusan = $departemen[$data->jurusan - 1];
             $pdf = PDF::loadView('pdf', array('data'=>$data));            
             $pdf->save(storage_path().'/app/student/'.$pendaftar->id_user.'/ZIP/data/'.'From Pengajuan-'.$data[0]->id_user.'.pdf');
             $allFilesbeasiswa = Storage::files('beasiswa/'.$sementara1->id_user.'/berkas'.'/');

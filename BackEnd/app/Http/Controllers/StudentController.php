@@ -83,8 +83,15 @@ class StudentController extends Controller
         $this->validate($request, [
             'id_user'       => 'required',
         ]);
+        
+        $fakultas = ['Fakultas Pertanian','Fakultas Kedokteran Hewan','Fakultas Perikanan dan Ilmu Kelautan', 'Fakultas Peternakan',
+                    'Fakultas Kehutanan','Fakultas Teknologi Pertanian','Fakultas Matematika dan Ilmu Pengetahuan Alam','Fakultas Ekonomi Manajemen',
+                    'Fakultas Ekologi Manusia','Sekolah Vokasi','Sekolah Bisnis'];
+        $departemen = ['Statistika','Geofisika dan Meteorologi','Biologi','Kimia','Matematika','Ilmu Komputer','Fisika','Biokimia','Aktuaria'];
 
         $data = Student::where('id_user','=',$request->id_user)->get();
+        $data[0]->fakultas = $fakultas[$data[0]->fakultas - 1];
+        $data[0]->jurusan = $departemen[$data[0]->jurusan - 1];
         //dd($data);
         $pdf = PDF::loadView('pdf', array('data'=>$data));
         return $pdf->download('From Pengajuan-'.$data[0]->nama.'.pdf');
