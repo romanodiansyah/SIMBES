@@ -92,11 +92,11 @@ class BeasiswaController extends Controller
         $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
         if($beasiswa->status_aktif == 0)
         {
-            $beasiswa->update(['status_aktif => 1']);
+            $beasiswa->update(['status_aktif' => '1']);
         }
         else
         {
-            $beasiswa->update(['status_aktif => 0']);
+            $beasiswa->update(['status_aktif' => '0']);
         }
         return $beasiswa;
     }
@@ -135,4 +135,5 @@ class BeasiswaController extends Controller
         ->transformWith(new BeasiswaTransformer)
         ->toArray();
     }
+    
 }

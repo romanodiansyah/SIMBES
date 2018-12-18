@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::put('admin/update/news/{berita}','BeritaController@update');
     Route::put('admin/deactivate/news/{berita}', 'BeritaController@deactivate');
     
+    // pendaftar
+    Route::post('pendaftar/accept','PendaftarController@acceptPendaftar');
+    Route::post('pendaftar/decline','PendaftarController@declinePendaftar');
 });
 
 
