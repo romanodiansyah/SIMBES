@@ -11,6 +11,7 @@
     {
         var vm = this;
         vm.submitted = false;
+        vm.beasiswa = $localStorage.beasiswa;
         $localStorage.formBeasiswa = $localStorage.formBeasiswa ? $localStorage.formBeasiswa : {};
         vm.beasiswa = $localStorage.formBeasiswa;
 
@@ -43,9 +44,8 @@
         //vm.select = select;
         //////////
         function saveBeasiswa(id){
-            if ( id )
-            {
-                $http.post(api.baseUrl + 'admin/beasiswa/update', vm.beasiswa).then(function(response){
+            if ( id ){
+                $http.post(api.baseUrl + 'admin/beasiswa/update/'+ id, vm.beasiswa).then(function(response){
                     console.log('beasiswa', response);
                     $localStorage.beasiswa = response.data
                     console.log(window.localStorage);
@@ -54,8 +54,8 @@
                     vm.submitted = true;
                 }, function(response){
                     console.log(response);
-                        alert('Data tidak valid');
-                        vm.submitted = false;
+                    alert('Data tidak valid');
+                    vm.submitted = false;
                 });
             }
             else

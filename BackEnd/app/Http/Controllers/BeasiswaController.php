@@ -68,12 +68,6 @@ class BeasiswaController extends Controller
     }
     public function updateBeasiswa(Request $request, Beasiswa $beasiswa, Admin $admin)
     {
-        $this->validate($request, [
-            'id_beasiswa'       => 'required',
-            // 'id_adm'            => 'required',
-        ]);
-        $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
-        
         $beasiswa->update($request->except('alamat_foto','alamat_berkas'));
         if ($request->hasFile('alamat_foto')){
             $ext = Input::file('alamat_foto')->getClientOriginalExtension();
@@ -98,11 +92,11 @@ class BeasiswaController extends Controller
         $beasiswa = Beasiswa::findOrFail($request->id_beasiswa);
         if($beasiswa->status_aktif == 0)
         {
-            $beasiswa->update(['status_aktif => 1']);
+            $beasiswa->update(['status_aktif' => '1']);
         }
         else
         {
-            $beasiswa->update(['status_aktif => 0']);
+            $beasiswa->update(['status_aktif' => '0']);
         }
         return $beasiswa;
     }
@@ -141,4 +135,5 @@ class BeasiswaController extends Controller
         ->transformWith(new BeasiswaTransformer)
         ->toArray();
     }
+    
 }
