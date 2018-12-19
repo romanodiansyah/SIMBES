@@ -85,8 +85,8 @@
             $http.get(api.baseUrl + 'admin/beasiswa/view/'+id).then(function (response){
                 vm.beasiswa = response.data.data;
                 $localStorage.beasiswa = vm.beasiswa;
-                console.log('Data Beasiswa:', vm.beasiswa);
-                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.beasiswa});
+                console.log('Data beasiswaa:', vm.beasiswa);
+                $state.go('app.pages_beasiswa_list-beasiswa.detail', {id: id, Data: vm.beasiswa});
     
             }, function (response){
                 console.log('Data failed :', response)
@@ -94,9 +94,18 @@
             });
         }
 
-        function gotoListPendaftar()
+        function gotoListPendaftar(id)
         {
-            $state.go('app.pages_beasiswa_list-pendaftar')
+            $http.post(api.baseUrl + 'pendaftar/'+id).then(function (response){
+                vm.pendaftars = response.data.data;
+                $localStorage.pendaftars = vm.pendaftars;
+                console.log('Data Pendaftar:', vm.pendaftars);
+                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.pendaftars});
+    
+            }, function (response){
+                console.log('Data failed :', response)
+                alert(response.data.message)    
+            });
         }
     }
 })();
