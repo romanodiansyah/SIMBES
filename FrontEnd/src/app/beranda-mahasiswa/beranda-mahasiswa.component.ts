@@ -53,6 +53,9 @@ export class BerandaMahasiswaComponent implements OnInit {
       console.log(this.listNews);
     }
 
+
+
+
     gotoBeasiswaDetail(id){
       this.http.get(url+'beasiswa/view/'+id).subscribe((res:any) => {
         console.log("1",res);
@@ -60,7 +63,11 @@ export class BerandaMahasiswaComponent implements OnInit {
         console.log("3", res.data.data);
         localStorage.setItem('beasiswa', res.data);
         this.beasiswa = res.data;
+<<<<<<< HEAD
+        this.router.navigate(['detail']);
+=======
         this.router.navigate(['/detail']);
+>>>>>>> 148042e379461357fcad21ba4b4496350ac41f9e
       },err =>{
         console.log("error get beasiswa", err);
       });
