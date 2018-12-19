@@ -103,5 +103,5 @@ a:focus {
 }
 
 a:hover {
-    text-decoration: underline;
+    color:rgb(0, 86, 129);
 }

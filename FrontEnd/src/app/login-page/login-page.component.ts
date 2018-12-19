@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../Services/auth.service";
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 const url = "http://localhost:8000/api/";
 
@@ -13,12 +14,13 @@ const url = "http://localhost:8000/api/";
 export class LoginPageComponent implements OnInit {
 
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   myform : FormGroup;
 
   formLogin : {email?: any; password?:any;}={};
 
+  token:any;
 
   ngOnInit() {
     
@@ -39,9 +41,13 @@ export class LoginPageComponent implements OnInit {
     // console.log(headers);
 
     this.http.post(url+'auth/login', JSON.stringify(this.formLogin), {headers: headers})
-      .subscribe(res => {
-        console.log(res)
+      .subscribe((res:any) => {
+        console.log(res);
+        localStorage.setItem('user', res.data);
+        localStorage.setItem('token', res.meta.token);
+  
         // this.storage.set('token', )
+        this.router.navigate(['']);
       },err =>{
         console.log("error", err);
       });
