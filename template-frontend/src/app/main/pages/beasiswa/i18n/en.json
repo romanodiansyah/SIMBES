@@ -96,6 +96,7 @@
         "TOTAL_PENERIMA": "Total Penerima:",
         "ACCEPT": "Accept",
         "DECLINE": "Decline",
-        "EXPORT": "Export"
+        "EXPORT": "Export",
+        "LIST_PENDAFTAR": "List Pendaftar"
     }
 }
