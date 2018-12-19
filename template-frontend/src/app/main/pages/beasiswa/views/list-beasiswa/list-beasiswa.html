@@ -68,7 +68,7 @@
                                     <span class="column-title" width="10%">Pendonor</span>
                                 </div>
                             </th>
-                            <th class="secondary-text" width="15%">
+                            <th class="secondary-text" width="10%">
                                 <div class="table-header">
                                     <span class="column-title">Kuota</span>
                                 </div>
@@ -93,7 +93,7 @@
                                     <span class="column-title">Status Aktif</span>
                                 </div>
                             </th>
-                            <th class="secondary-text" width="5%">
+                            <th class="secondary-text" width="10%">
                                 <div class="table-header">
                                     <span class="column-title">Actions</span>
                                 </div>
@@ -106,7 +106,7 @@
                             <!-- <td><img class="product-image" ng-src="{{product.images[0].url}}"></td> -->
                             <td width="15%">{{beasiswa.nama}}</td>
                             <td width="10%">{{beasiswa.pendonor}}</td>
-                            <td width="15%">{{beasiswa.jumlah_daftar}}</td>
+                            <td width="10%">{{beasiswa.jumlah_daftar}}</td>
                             <td width="15%">{{beasiswa.semester}}</td>
                             <td width="15%">{{beasiswa.pembukaan | date: 'dd MMMM yyyy'}}</td>
                             <td width="15%">{{beasiswa.penutupan | date: 'dd MMMM yyyy'}}</td>
@@ -114,10 +114,14 @@
                             <td width="5%" ng-if="beasiswa.status_aktif == 1">Aktif</td>
                             <td width="5%" ng-if="beasiswa.status_aktif == 0">Tidak Aktif</td>
 
-                            <td width="5%">
+                            <td width="10%">
                                 <md-button class="edit-button md-icon-button" ng-click="vm.gotoBeasiswaDetail(beasiswa.id_beasiswa)" aria-label="Beasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_BEASISWA">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
+                                </md-button>
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoListPendaftar(beasiswa.id_beasiswa)" aria-label="List Pendaftar"
+                                           translate translate-attr-aria-label="EC.LIST_PENDAFTAR">
+                                    <md-icon md-font-icon="icon-open-in-new" class="s16"></md-icon>
                                 </md-button>
                             </td>
                         </tr>
