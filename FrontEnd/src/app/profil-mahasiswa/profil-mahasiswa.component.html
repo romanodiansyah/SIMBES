@@ -6,122 +6,59 @@
           <div class="contact-form-area">          
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 
-                <div id="profile" class="page-layout simple tabbed">
-
-                    <!-- HEADER -->
-                    <div class="header md-accent-bg" layout="column" layout-align="center center" layout-gt-sm="row" layout-align-gt-sm="space-between end">
-                        <div class="user-info" layout="column" layout-align="center center" layout-gt-sm="row" layout-align-gt-sm="start center">
-                            <!-- <img class="profile-image avatar huge" src="assets/images/avatars/prawito.png"> -->
-                
-                            <div class="name">Test</div>
-                        </div>
-                
-                    </div>
-                    <!-- / HEADER -->
-                
-                    <!-- CONTENT -->
-                    <div class="content" flex>
-                
-                        <div layout="row" layout-wrap>
-                
-                            <div class="about" layout="column" flex="100" flex-gt-sm="80" flex-gt-md="80" style="margin: 5vh auto;">
-                
-                                <div class="profile-box info-box general md-whiteframe-1dp" layout="column">
-                                    <header class="md-accent-bg">
-                                        <div class="title" translate="PROFILE.GENERAL_INFORMATION">General Information</div>
-                                    </header>
+                    <div class="container bootstrap snippet">
+                            <div class="row">
+                            <div class="col-sm-3"><!--left col-->
                         
-                                    <div class="content">
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.GENDER">Gender</div>
-                                            <div class="info">Male</div>
-                                        </div>
-                        
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.BIRTHDAY">Birthday</div>
-                                            <div class="info">Test</div>
-                                        </div>
-                        
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.LOCATIONS">Locations</div>
-                                            <div class="info location" ng-repeat="location in vm.about.general.locations">
-                                                <span>Test</span>
-                                                <md-icon md-font-icon="icon-map-marker" class="s16"></md-icon>
-                                            </div>
-                                        </div>
-                        
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.ABOUT_ME">About Me</div>
-                                            <div class="info">Test</div>
-                                        </div>
-                                    </div>
+                              <div class="text-center">
+                                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar"> <br>
+                                <input type="file" class="text-center center-block file-upload">
+                              </div><hr><br>
+                                  
                                 </div>
+                                <div class="col-sm-9">
+                                      
+                                  <div class="tab-content">
+                                    <div class="tab-pane active" id="home">
+                                          <form class="form" action="##" method="post" id="registrationForm">
+                                              <div class="form-group">
+                                                  
+                                                  <div class="col-xs-6">
+                                                      <label for="nama"><h4>Nama</h4></label>
+                                                      <input type="text" class="form-control" name="nama" id="nama" placeholder="nama">
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  
+                                                  <div class="col-xs-6">
+                                                      <label for="email"><h4>Email</h4></label>
+                                                      <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com">
+                                                  </div>
+                                              </div>
+                                              <div class="col-xs-6">
+                                                    <label for="alamat"><h4>Alamat</h4></label>
+                                                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="alamat">
+                                                </div>
+                                                
+                                                <div class="col-xs-6">
+                                                        <label for="telepon"><h4>Telepon</h4></label>
+                                                        <input type="text" class="form-control" name="telepon" id="telepon" placeholder="telepon">
+                                                    </div>
+                                              <div class="form-group">
+                                                   <div class="col-xs-12">
+                                                    <br>
+                                                        <button style="margin-right:10px;" class="btn btn-lg btn-common" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                                </div>
+                                              </div>
+                                          </form>
+                                      
+                                      <hr>
+                                      </div>
+                                      </div>
+                                  </div><!--/tab-content-->
                         
-                                <div class="profile-box info-box work md-whiteframe-1dp" layout="column">
-                                    <header class="md-accent-bg">
-                                        <div class="title" translate="PROFILE.WORK">Work</div>
-                                    </header>
-                        
-                                    <div class="content">
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.OCCUPATION">Occupation</div>
-                                            <div class="info">Test</div>
-                                        </div>
-                        
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.SKILLS">Skills</div>
-                                            <div class="info">Test</div>
-                                        </div>
-                        
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.JOBS">Jobs</div>
-                                            <table class="info jobs">
-                                                <tr class="job" ng-repeat="job in vm.about.work.jobs">
-                                                    <td class="company">Test</td>
-                                                    <td class="date">Test</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                                <div class="profile-box info-box contact md-whiteframe-1dp" layout="column">
-                                    <header class="md-accent-bg">
-                                        <div class="title" translate="PROFILE.CONTACT">Contact</div>
-                                    </header>
-                                    <div class="content">
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.ADDRESS">Address</div>
-                                            <div class="info">Test</div>
-                                        </div>
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.TEL">Tel.</div>
-                                            <div class="info" ng-repeat="tel in vm.about.contact.tel">
-                                                <span>Test</span>
-                                            </div>
-                                        </div>
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.WEBSITE">Website</div>
-                                            <div class="info" ng-repeat="website in vm.about.contact.websites">
-                                                <span>Test</span>
-                                            </div>
-                                        </div>
-                                        <div class="info-line">
-                                            <div class="title" translate="PROFILE.EMAILS">Emails</div>
-                                            <div class="info" ng-repeat="email in vm.about.contact.emails">
-                                                <span>Test</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        </div>
-                
-                    </div>
-                    <!-- / CONTENT -->
-                
-                </div>
+                                </div><!--/col-9-->
+                            </div><!--/row-->
 
               </div>
           </div>

@@ -19,7 +19,8 @@ export class BerandaMahasiswaComponent implements OnInit {
  // headers = new HttpHeaders().set('Content-Type','application/json');
   constructor(
     private router: Router,
-    public http: HttpClient) { 
+    public http: HttpClient
+    ) { 
       // let headers = new Headers({'Content-Type':'application/json'});
       // let options = new RequestOptions({headers: headers});
       // if (localStorage.getItem("token") != null) {
