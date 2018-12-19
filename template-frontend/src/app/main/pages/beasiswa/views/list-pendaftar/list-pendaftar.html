@@ -15,7 +15,7 @@
                  </div>
                 <div class="h1" layout="row" layout-align="start center">
                     <md-icon></md-icon>
-                    <span>{{beasiswa.nama}}</span>
+                    <span>{{pendaftar.nama_beasiswa}}</span>
                 </div>
                 <div class="product-count secondary-text">
                     <span translate="EC.TOTAL_PENDAFTAR">Total Pendaftar:</span>
@@ -54,11 +54,11 @@
                        dt-options="vm.dtOptions">
                     <thead>
                         <tr>
-                            <th class="secondary-text" width="10%">
+                            <!-- <th class="secondary-text" width="10%">
                                 <div class="table-header">
                                     <span class="column-title">ID Pendaftar</span>
                                 </div>
-                            </th>
+                            </th> -->
 
                             <th class="secondary-text" width="10%">
                                 <div class="table-header">
@@ -92,9 +92,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="pendaftar in ::vm.pendaftars, i in index">
-                            <td width="10%">{{i++}}</td>
-                            <td width="10%">{{pendaftar.nama}}</td>
+                        <tr ng-repeat="pendaftar in ::vm.pendaftars">
+                            <!-- <td width="10%">{{pendaftar.id_pendaftar}}</td> -->
+                            <td width="10%">{{pendaftar.nama_user}}</td>
                             <td width="20%">{{pendaftar.email}}</td>
 
                             <td width="20%" ng-if="pendaftar.alamat_berkas == 1">
@@ -103,6 +103,8 @@
                                 </md-button>
                             </td>
                             <td width="20%" ng-if="pendaftar.alamat_berkas == 0">Tidak ada berkas</td>
+                            <td width="20%" ng-if="pendaftar.alamat_berkas == null">Tidak ada berkas</td>
+
 
                             <td width="10%" ng-if="pendaftar.status_aktif == 1">Aktif</td>
                             <td width="10%" ng-if="pendaftar.status_aktif == 0">Tidak Aktif</td>

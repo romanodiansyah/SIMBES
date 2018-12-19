@@ -11,6 +11,7 @@
     {
         var vm = this;
         vm.pendaftars = $localStorage.pendaftars;
+        console.log(vm.pendaftars)
         // Data
         
         vm.dtInstance = {};
@@ -54,7 +55,7 @@
         // *api
         $http.get(api.baseUrl + 'beasiswa').then(function (response){
             vm.beasiswas = response.data.data;
-            console.log('Data Pendaftar Beasiswa:', vm.beasiswas);
+            console.log('Data  Beasiswa:', vm.beasiswas);
 
         }, function (response){
             console.log('Data failed :', response)
