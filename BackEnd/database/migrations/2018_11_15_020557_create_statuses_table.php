@@ -18,7 +18,7 @@ class CreateStatusesTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->integer('status');
             $table->integer('id_pendaftar')->unsigned();
-            $table->foreign('id_pendaftar')->references('id_pendaftar')->on('pendaftars')->onDelete('cascade');
+            $table->integer('id_beasiswa')->unsigned();
             $table->timestamps();
         });
     }
