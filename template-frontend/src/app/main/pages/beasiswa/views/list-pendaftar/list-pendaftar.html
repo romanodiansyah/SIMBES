@@ -22,7 +22,7 @@
                     <span>{{vm.beasiswas.length}}</span>
                 </div>
             </div>
-            <div layout-align="left">
+            <div class="actions" layout="row" layout-align="end center">
                 <md-button class="md-raised md-background" ng-click="vm.gotoListPenerima()">
                     <span translate="EC.PENERIMA">Penerima Beasiswa</span>
                 </md-button>
@@ -84,7 +84,7 @@
                                 </div>
                             </th>
 
-                            <th class="secondary-text" width="40%">
+                            <th class="secondary-text" width="30%">
                                 <div class="table-header">
                                     <span class="column-title">Actions</span>
                                 </div>
@@ -95,7 +95,7 @@
                         <tr ng-repeat="beasiswa in ::vm.beasiswas">
                             <td width="10%">{{beasiswa.id_pendaftar}}</td>
                             <td width="10%">{{beasiswa.nama}}</td>
-                            <td width="10%">{{beasiswa.email}}</td>
+                            <td width="20%">{{beasiswa.email}}</td>
 
                             <td width="20%" ng-if="beasiswa.alamat_berkas == 1">
                                 <md-button class="md-raised md-background">
@@ -107,11 +107,11 @@
                             <td width="10%" ng-if="beasiswa.status_aktif == 1">Aktif</td>
                             <td width="10%" ng-if="beasiswa.status_aktif == 0">Tidak Aktif</td>
 
-                            <td width="40%">
-                                <md-button class="md-raised md-background" ng-click="vm.gotoListPendaftar()">
+                            <td width="30%">
+                                <md-button class="md-raised md-accent" ng-click="vm.gotoListPendaftar()">
                                     <span translate="EC.ACCEPT">Accept</span>
                                 </md-button>
-                                <md-button class="md-raised md-background" ng-click="vm.gotoListPendaftar()">
+                                <md-button class="md-raised md-primary" ng-click="vm.gotoListPendaftar()">
                                     <span translate="EC.DECLINE">Decline</span>
                                 </md-button>
                             </td>
