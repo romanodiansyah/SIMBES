@@ -90,9 +90,15 @@
                             <td width="10%">{{admin.id_adm}}</td>
                             <td width="15%">{{admin.no_pegawai}}</td>
                             <td width="20%">{{admin.nama}}</td>
-                            <td width="15%">{{admin.jenis_kelamin}}</td>
+
+                            <td width="15%" ng-if="admin.jenis_kelamin == 1">Laki-Laki</td>
+                            <td width="15%" ng-if="admin.jenis_kelamin == 0">Perempuan</td>
+
                             <td width="20%">{{admin.email}}</td>
-                            <td width="10%">{{admin.status_aktif}}</td>
+
+                            <td width="10%" ng-if="admin.status_aktif == 1">Aktif</td>
+                            <td width="10%" ng-if="admin.status_aktif == 0">Tidak Aktif</td>
+
                             <td width="10%">
                                 <md-button class="edit-button md-icon-button" ng-click="vm.gotoAdminDetail(admin.id_adm)" aria-label="Staff Details"
                                            translate translate-attr-aria-label="EC.DETAIL_STAFF">

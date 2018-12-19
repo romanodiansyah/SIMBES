@@ -91,7 +91,10 @@
                             <td>{{beasiswa.id_beasiswa}}</td>
                             <td>{{beasiswa.id_user}}</td>
                             <td>{{beasiswa.status}}</td>
-                            <td>{{beasiswa.status_aktif}}</td>
+
+                            <td ng-if="beasiswa.status_aktif == 1">Aktif</td>
+                            <td ng-if="beasiswa.status_aktif == 0">Tidak Aktif</td>
+
                             <td>{{beasiswa.alamat_berkas}}</td>
                         </tr>
                     </tbody>

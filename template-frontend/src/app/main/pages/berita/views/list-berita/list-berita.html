@@ -74,7 +74,10 @@
                         <tr ng-repeat="listNews in ::vm.listNews">
                             <td width="5%">{{listNews.id_berita}}</td>
                             <td width="75%">{{listNews.judul}}</td>
-                            <td width="10%">{{listNews.status_aktif}}</td>
+
+                            <td width="10%" ng-if="listNews.status_aktif == 1">Aktif</td>
+                            <td width="10%" ng-if="listNews.status_aktif == 0">Tidak Aktif</td>
+
                             <td width="10%">
                                 <md-button class="edit-button md-icon-button" ng-click="vm.gotolistNewsDetail(listNews.id_berita)" aria-label="Beasiswa Details"
                                            translate translate-attr-aria-label="EC.DETAIL_BERITA">
