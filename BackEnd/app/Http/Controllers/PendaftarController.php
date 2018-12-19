@@ -10,6 +10,8 @@ use Auth;
 //use App\Transformers\PendaftarTransformer;
 use Illuminate\Support\Facades\Input;
 use App\Transformers\StudentTransformer;
+
+use App\Transformers\PendaftarTransformer;
 use Carbon\Carbon;
 
 class PendaftarController extends Controller
@@ -103,13 +105,15 @@ class PendaftarController extends Controller
           }
         return $pendaftar;
     }
-    public function readPendaftar(Beasiswa $beasiswa,pendaftar $pendaftar, Student $student)
+    public function readPendaftar(Beasiswa $beasiswa, pendaftar $pendaftar)
     {
-        $pendaftar = pendaftar::where('id_beasiswa','=',$beasiswa->id_beasiswa)->first();
-        $student = Student::where('id_user','=',$pendaftar->id_user)->get();
+        $pendaftar = pendaftar::where('id_beasiswa','=',$beasiswa->id_beasiswa)->get();
+        // $student = Student::where('id_user','=',$pendaftar->id_user)->get();
+        // $baru = 
+
         return fractal()
-            ->collection($student)
-            ->transformWith(new StudentTransformer)
+            ->collection($pendaftar)
+            ->transformWith(new PendaftarTransformer)
             ->toArray();
     }
 
