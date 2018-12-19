@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     // pendaftar
     Route::post('pendaftar/accept','PendaftarController@acceptPendaftar');
     Route::post('pendaftar/decline','PendaftarController@declinePendaftar');
+    // notifikasi
+    Route::post('notifikasi/create','StatusController@createNotif');
 });
 
 
@@ -55,7 +57,6 @@ Route::group(['middleware' => ['auth:student-api']], function () {
     Route::get('pendaftar','PendaftarController@readPendaftar');
 
     //notifikasi
-    Route::post('notifikasi/create','StatusController@createNotif');
     Route::post('notifikasi/check','StatusController@checkNotif');
     Route::post('notifikasi/read','StatusController@readNotif');
 
