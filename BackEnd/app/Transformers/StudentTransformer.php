@@ -9,6 +9,8 @@
         public function transform(Student $student)
         {
             return [
+                'id_pendaftar'  =>  $student->pendaftar->id_pendaftar,
+                'status'  =>  $student->pendaftar->status,
                 'id_user'       => $student->id_user,
                 'nama'          => $student->nama,
                 'password'      => $student->password,

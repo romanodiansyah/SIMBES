@@ -20,4 +20,13 @@ class pendaftar extends Model
     
         protected $hidden = [
         ];
+
+        public function student()
+    {
+        return $this->belongsTo('App\Student','id_user','id_user');
+    }
+    public function beasiswa()
+    {
+        return $this->belongsTo('App\Beasiswa','id_beasiswa','id_beasiswa');
+    }
 }

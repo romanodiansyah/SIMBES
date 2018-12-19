@@ -29,4 +29,9 @@ class Beasiswa extends Authenticatable
     {
         return $this->belongsTo('App\Admin','id_adm','id_adm');
     }
+
+    public function pendaftar()
+    {
+        return $this->hasMany('App\pendaftar','id_beasiswa','id_beasiswa');
+    }
 }

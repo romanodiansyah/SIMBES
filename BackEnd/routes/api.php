@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     // notifikasi
     Route::post('notifikasi/create','StatusController@createNotif');
 });
-
+Route::get('pendaftar/{beasiswa}/tes','PendaftarController@readPendaftar');
 
 Route::group(['middleware' => ['auth:student-api']], function () {
     Route::get('beranda', 'StudentController@home');

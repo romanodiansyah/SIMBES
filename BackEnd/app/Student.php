@@ -30,4 +30,9 @@ class Student extends Authenticatable
     {
         return $this->hasOne('App\Student','id_user');
     }
+
+    public function pendaftar()
+    {
+        return $this->hasMany('App\pendaftar','id_user','id_user');
+    }
 }
