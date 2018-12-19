@@ -12,12 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listBeasiswa">
-        <td align="left"><a href="detail">{{item.nama}}</a></td>
+      <tr *ngFor="let item of listBeasiswa" >
+        
+        <td align="left"><a routerLink="/detail/{{item.id_beasiswa}}">{{item.nama}}</a></td>
         <td align="left">{{item.deskripsi}}</td>
         <td align="left"></td>
         <td align="center">{{item.pembukaan}}<br> s.d <br>{{item.penutupan}}</td>
         <!-- <td align="left">Jumlah Pendaftar : 43 orang</td> -->
+        
     </tr>
     </tbody>
   </table>

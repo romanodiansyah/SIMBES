@@ -21,16 +21,6 @@
                     // Target the id_pendaftar column
                     targets: 0,
                     width  : '72px'
-                },
-                {
-                    // Target the id_beasiswa column
-                    targets: 1,
-                    width  : '72px'
-                },
-                {
-                    // Target the id_user column
-                    targets: 2,
-                    width  : '72px'
                 }
             ],
             initComplete: function ()
@@ -56,6 +46,7 @@
 
         // Methods
         vm.gotoListPenerima = gotoListPenerima;
+        vm.gotoListBeasiswa = gotoListBeasiswa;
 
         //////////
 
@@ -75,6 +66,11 @@
         function gotoListPenerima()
         {
             $state.go('app.pages_beasiswa_list-penerima');
+        }
+
+        function gotoListBeasiswa()
+        {
+            $state.go('app.pages_beasiswa_list-beasiswa');
         }
     }
 })();
