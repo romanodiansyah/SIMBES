@@ -107,7 +107,9 @@
                             <td width="10%" ng-if="pendaftar.status_aktif == 1">Aktif</td>
                             <td width="10%" ng-if="pendaftar.status_aktif == 0">Tidak Aktif</td>
 
-                            <td width="30%">
+                            <td width="30%" ng-if="pendaftar.status == 2">Diterima</td>
+                            <td width="30%" ng-if="pendaftar.status == 3">Ditolak</td>
+                            <td width="30%" ng-if="pendaftar.status == 1">
                                 <md-button class="md-raised md-accent" ng-click="vm.AccPendaftar(pendaftar.id_pendaftar)">
                                     <span translate="EC.ACCEPT">Accept</span>
                                 </md-button>
