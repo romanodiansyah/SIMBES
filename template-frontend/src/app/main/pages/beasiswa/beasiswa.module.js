@@ -99,10 +99,5 @@
             title: 'List Pendaftar Beasiswa',
             state: 'app.pages_beasiswa_list-pendaftar'
         });
-
-        msNavigationServiceProvider.saveItem('pages.beasiswa.list-penerima', {
-            title: 'List Penerima Beasiswa',
-            state: 'app.pages_beasiswa_list-penerima'
-        });
     }
 })();

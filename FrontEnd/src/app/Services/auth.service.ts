@@ -33,7 +33,8 @@ export class AuthService {
 
         this.http.post(url+'/login', JSON.stringify(credentials), {headers: headers})
           .subscribe(res => {
-              // localStorage.setItem('token', res.data.meta.token);
+              console.log(res);
+              // localStorage.setItem('token', res.json().meta.token);
               this.storage.set(this.HAS_LOGGED_IN, true);
               resolve(res);
             
@@ -57,6 +58,8 @@ export class AuthService {
       this.http.post(url+'/admin/register', credentials, {headers: headers})
         .subscribe(res => {
           console.log("Masuk");
+          // localStorage.setItem('token', res);
+          this.storage.set(this.HAS_LOGGED_IN, true);
           resolve(res);
           
         }, (err) => {
