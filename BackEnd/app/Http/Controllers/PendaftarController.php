@@ -97,12 +97,9 @@ class PendaftarController extends Controller
           }
         return $pendaftar;
     }
-    public function readPendaftar(Request $request,pendaftar $pendaftar, Student $student)
+    public function readPendaftar(Beasiswa $beasiswa,pendaftar $pendaftar, Student $student)
     {
-        $this->validate($request,[
-            'id_beasiswa'   => 'required',
-        ]);
-        $pendaftar = pendaftar::where('id_beasiswa','=',$request->id_beasiswa)->first();
+        $pendaftar = pendaftar::where('id_beasiswa','=',$beasiswa->id_beasiswa)->first();
         $student = Student::where('id_user','=',$pendaftar->id_user)->get();
         return fractal()
             ->collection($student)
@@ -110,25 +107,15 @@ class PendaftarController extends Controller
             ->toArray();
     }
 
-    public function acceptPendaftar(Request $request)
+    public function acceptPendaftar(pendaftar $pendaftar)
     {
-        $this->validate($request, [
-            'id_pendaftar'       => 'required',
-            // 'id_adm'            => 'required',
-        ]);
-        $pendaftar = pendaftar::findOrFail($request->id_pendaftar);
         $pendaftar->update(['status' => '2']);
 
         return response()->json($pendaftar,201);
     }
 
-    public function declinePendaftar(Request $request)
+    public function declinePendaftar(pendaftar $pendaftar)
     {
-        $this->validate($request, [
-            'id_pendaftar'       => 'required',
-            // 'id_adm'            => 'required',
-        ]);
-        $pendaftar = pendaftar::findOrFail($request->id_pendaftar);
         $pendaftar->update(['status' => '3']);
 
         return response()->json($pendaftar,201);

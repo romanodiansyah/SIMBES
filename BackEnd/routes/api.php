@@ -37,8 +37,9 @@ Route::group(['middleware' => ['auth:admin-api']], function(){
     Route::put('admin/deactivate/news/{berita}', 'BeritaController@deactivate');
     
     // pendaftar
-    Route::post('pendaftar/accept','PendaftarController@acceptPendaftar');
-    Route::post('pendaftar/decline','PendaftarController@declinePendaftar');
+    Route::post('pendaftar/accept/{beasiswa}','PendaftarController@acceptPendaftar');
+    Route::post('pendaftar/decline/{beasiswa}','PendaftarController@declinePendaftar');
+    Route::post('pendaftar/{beasiswa}','PendaftarController@readPendaftar');
     // notifikasi
     Route::post('notifikasi/create','StatusController@createNotif');
 });
@@ -54,7 +55,7 @@ Route::group(['middleware' => ['auth:student-api']], function () {
     Route::post('pendaftar/create','PendaftarController@createPendaftar');
     Route::post('pendaftar/update','PendaftarController@updatePendaftar');
     Route::post('pendaftar/delete','PendaftarController@deletePendaftar');
-    Route::get('pendaftar','PendaftarController@readPendaftar');
+    
 
     //notifikasi
     Route::post('notifikasi/check','StatusController@checkNotif');
