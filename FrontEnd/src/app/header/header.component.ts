@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../beranda-mahasiswa/beranda-mahasiswa.component.css']
 })
 export class HeaderComponent implements OnInit {
+  udahLogin:boolean = false;
+  nama: string;
 
-  constructor() { }
+  constructor() { 
+    if(localStorage.getItem['token']){
+        this.udahLogin=true;
+        this.nama=localStorage.getItem['nama'];        
+    }
+  }
 
   ngOnInit() {
   }

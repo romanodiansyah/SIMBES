@@ -43,9 +43,14 @@ export class LoginPageComponent implements OnInit {
     this.http.post(url+'auth/login', JSON.stringify(this.formLogin), {headers: headers})
       .subscribe((res:any) => {
         console.log(res);
-        localStorage.setItem('user', res.data);
+        localStorage.setItem('user', JSON.stringify(res.data));
         localStorage.setItem('token', res.meta.token);
         localStorage.setItem('id_user', res.data.id_user);
+        localStorage.setItem('nama', res.data.nama);
+        localStorage.setItem('email', res.data.email);
+        localStorage.setItem('alamat', res.data.alamat);
+        localStorage.setItem('telepon', res.data.telepon);
+        
         
         //   this.http.get(url+'beasiswa', {headers: headers})
         // .subscribe((res:any) => {
