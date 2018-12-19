@@ -10,7 +10,7 @@ export class DetailBeasiswaComponent implements OnInit {
 
   constructor() { 
     this.beasiswa = localStorage.getItem('beasiswa');
-
+    console.log(this.beasiswa)
   }
 
   ngOnInit() {

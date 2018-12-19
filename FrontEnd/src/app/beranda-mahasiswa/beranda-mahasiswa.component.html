@@ -33,9 +33,9 @@
                 <i class="icon-graduation"></i>
                 <h2 class="timelin-title">Pendaftaran Dibuka</h2>
               </li>
-              <li *ngFor="let item of listApplicableBeasiswa">
+              <li *ngFor="let item of listApplicableBeasiswa" >
                 <div class="content-text">
-                  <h3 class="line-title"><a ngClick="gotoBeasiswaDetail(item.id)">{{item.nama}}</a></h3>
+                  <h3 class="line-title"><a (click)="gotoBeasiswaDetail(item.id_beasiswa)">{{item.nama}}</a></h3>
                   <span>{{item.pembukaan}} - {{item.penutupan}}</span>
                   <p class="line-text">{{item.deskripsi}}</p>
                 </div>
