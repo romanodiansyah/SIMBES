@@ -100,7 +100,7 @@
                 vm.pendaftars = response.data.data;
                 $localStorage.pendaftars = vm.pendaftars;
                 console.log('Data Pendaftar:', vm.pendaftars);
-                $state.go('app.pages_berita_list-beasiswa.detail', {id: id, Data: vm.pendaftars});
+                $state.go('app.pages_beasiswa_list-pendaftar', {id: id, Data: vm.pendaftars});
     
             }, function (response){
                 console.log('Data failed :', response)
