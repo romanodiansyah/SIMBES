@@ -27,7 +27,9 @@ class PendaftarController extends Controller
         $pendaftar = pendaftar::where('id_beasiswa','=',$request->id_beasiswa)->where('id_user','=',$request->id_user)->get();
         if(!$pendaftar->isEmpty())
         {
-            return response()->json("message","Anda sudah mendaftar!");
+            return response()->json(array(
+                "code"      =>  "405",
+                "message"   => "Anda sudah mendaftar!"),405);        
         }
         $beasiswa = Beasiswa::where('id_beasiswa','=',$request->id_beasiswa)->first();
        //dd($beasiswa);
@@ -36,12 +38,16 @@ class PendaftarController extends Controller
        $datenow = Carbon::parse(date('Y-m-d H:i:s'));
         if($pembukaan > $datenow)
         {
-            return response()->json("message","Pendaftaran belum dibuka!");
+            return response()->json(array(
+                "code"      =>  "405",
+                "message"   => "Anda sudah mendaftar!"),405);         
         }
         else{
             if($penutupan < $datenow)
             {
-                return response()->json("message", "Pendaftaran telah ditutup!");//"Pendaftaran telah ditutup!";
+                return response()->json(array(
+                        "code"      =>  "405",
+                        "message"   => "Pendaftaran telah ditutup!"),405);
             }
             else{
                 $pendaftar = pendaftar::create([
