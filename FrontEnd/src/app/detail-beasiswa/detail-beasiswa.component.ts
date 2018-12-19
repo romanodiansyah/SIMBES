@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-beasiswa.component.css']
 })
 export class DetailBeasiswaComponent implements OnInit {
+  beasiswa: any;
 
-  constructor() { }
+  constructor() { 
+    this.beasiswa = localStorage.getItem('beasiswa');
+
+  }
 
   ngOnInit() {
   }

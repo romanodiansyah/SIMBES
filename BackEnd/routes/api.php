@@ -79,4 +79,6 @@ Route::post('auth/login','AuthController@loginStudent');
 Route::get('admins/beranda', 'AdminController@beranda')->middleware('auth:admin');
 Route::get('news/search/{key}','BeritaController@search');
 
+Route::get('list/news','BeritaController@listBerita');
+
 

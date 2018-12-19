@@ -13,6 +13,9 @@ const url = "http://localhost:8000/api/";
 export class BerandaMahasiswaComponent implements OnInit {
     listApplicableBeasiswa: any[];
     listClosedBeasiswa: any[];
+    listNews: any[];
+
+    beasiswa: any;
  // headers = new HttpHeaders().set('Content-Type','application/json');
   constructor(
     private router: Router,
@@ -28,6 +31,7 @@ export class BerandaMahasiswaComponent implements OnInit {
         console.log("error get listBeasiswa", err);
       });
       // }
+
       console.log(this.listApplicableBeasiswa);
       this.http.get(url+'beasiswa/closed').subscribe((res:any) => {
         console.log(res);
@@ -37,8 +41,28 @@ export class BerandaMahasiswaComponent implements OnInit {
         console.log("error get listBeasiswa", err);
       });
       console.log(this.listClosedBeasiswa);
+
+      this.http.get(url+'list/news').subscribe((res:any) => {
+        console.log(res);
+        localStorage.setItem('listNews', res.data);
+        this.listNews = res.data;
+      },err =>{
+        console.log("error get listNews", err);
+      });
+      console.log(this.listNews);
     }
 
+    gotoBeasiswaDetail(id){
+      this.http.get(url+'beasiswa/view/'+id).subscribe((res:any) => {
+        console.log(res);
+        localStorage.setItem('beasiswa', res.data);
+        // this.beasiswa = res.data;
+        // console.log(this.beasiswa);
+        this.router.navigate(['detail']);
+      },err =>{
+        console.log("error get beasiswa", err);
+      });
+    }
   ngOnInit() {
   }
 
