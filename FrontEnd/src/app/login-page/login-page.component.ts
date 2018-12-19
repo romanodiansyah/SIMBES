@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
 
   
   constructor(private http: HttpClient, private router: Router) { }
-
+  beasiswa: any[];
   myform : FormGroup;
 
   formLogin : {email?: any; password?:any;}={};
@@ -45,8 +45,16 @@ export class LoginPageComponent implements OnInit {
         console.log(res);
         localStorage.setItem('user', res.data);
         localStorage.setItem('token', res.meta.token);
-  
-        // this.storage.set('token', )
+        
+        //   this.http.get(url+'beasiswa', {headers: headers})
+        // .subscribe((res:any) => {
+        //   console.log(res);
+        //   localStorage.setItem('listBeasiswa', res.data);
+        //   this.beasiswa = res.data;
+        // },err =>{
+        //   console.log("error get listBeasiswa", err);
+        // });
+        // // this.storage.set('token', )
         this.router.navigate(['']);
       },err =>{
         console.log("error", err);

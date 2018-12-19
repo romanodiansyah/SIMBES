@@ -68,9 +68,13 @@ Route::group(['middleware' => ['auth:student-api']], function () {
 
 // HOME BEBAS
 Route::get('beasiswa','BeasiswaController@readBeasiswa');
+<<<<<<< HEAD
+Route::get('beasiswa/view/{beasiswa}','BeasiswaController@viewBeasiswa');
+=======
 Route::get('beasiswa/view','BeasiswaController@viewBeasiswa');
 Route::get('beasiswa/applicable','BeasiswaController@applicableBeasiswa');
 Route::get('beasiswa/closed','BeasiswaController@closedBeasiswa');
+>>>>>>> 179c9f6ec7c216d8e87a87249b5f32d54e5c6084
 
 // STUDENT
 Route::post('auth/login','AuthController@loginStudent');

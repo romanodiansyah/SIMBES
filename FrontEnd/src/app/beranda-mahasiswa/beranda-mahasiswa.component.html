@@ -24,6 +24,8 @@
     <h3 class="section-title wow flipInX" data-wow-delay="0.4s"><a class="title" href="listbeasiswa">Daftar Beasiswa</a></h3>
     <div class="container">
       <div class="row">
+
+
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="education wow fadeInRight" data-wow-delay="0.3s">
             <ul class="timeline">
@@ -31,16 +33,18 @@
                 <i class="icon-graduation"></i>
                 <h2 class="timelin-title">Pendaftaran Dibuka</h2>
               </li>
-              <li>
+              <li *ngFor="let item of beasiswa">
                 <div class="content-text">
-                  <h3 class="line-title">Judul Beasiswa</h3>
-                  <span>pembukaan - penutupan</span>
-                  <p class="line-text">deskripsi singkat</p>
+                  <h3 class="line-title">{{item.nama}}</h3>
+                  <span>{{item.pembukaan}} - {{item.penutupan}}</span>
+                  <p class="line-text">{{item.deskripsi}}</p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
+
+
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="experience wow fadeInRight" data-wow-delay="0.6s">
             <ul class="timeline">
