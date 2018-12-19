@@ -4,22 +4,22 @@
   <table>
     <thead>
       <tr>
-        <th align="right">No</th>
         <th align="left">Nama Beasiswa</th>
         <th align="left">Deskripsi</th>
         <th align="left">Status</th>
         <th align="left">Periode Pendaftaran</th>
-        <th align="left">Informasi</th>
+        <!-- <th align="left">Informasi</th> -->
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td align="right">1</td>
-        <td align="left"><a href="detail">Beasiswa Sobat Bumi (Pertamina Foundation) Tahun</a></td>
-        <td align="left">Beasiswa Pertamina Sobat Bumi diberikan kepada mahasiswa/ mahasiswi yang mendukung, menerapkan, serta menciptakan budaya dan kehidupan yang ramah terhadap lingkungan secara konsisten dan berkelanjutan. Beasiswa ini ditujukan kepada mahasiswa program Sarjana (S-1) Reguler. Beasiswa meliputi biaya pendidikan dan biaya hidup.</td>
-        <td align="left">Pendaftaran Dibuka</td>
-        <td align="center">13 Des 2018<br> s.d <br> 31 Des 2018</td>
-        <td align="left">Jumlah Pendaftar : 43 orang</td>
+      <tr *ngFor="let item of listBeasiswa" >
+        
+        <td align="left"><a routerLink="/detail/{{item.id_beasiswa}}">{{item.nama}}</a></td>
+        <td align="left">{{item.deskripsi}}</td>
+        <td align="left"></td>
+        <td align="center">{{item.pembukaan}}<br> s.d <br>{{item.penutupan}}</td>
+        <!-- <td align="left">Jumlah Pendaftar : 43 orang</td> -->
+        
     </tr>
     </tbody>
   </table>

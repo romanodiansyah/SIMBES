@@ -19,7 +19,8 @@ export class BerandaMahasiswaComponent implements OnInit {
  // headers = new HttpHeaders().set('Content-Type','application/json');
   constructor(
     private router: Router,
-    public http: HttpClient) { 
+    public http: HttpClient
+    ) { 
       // let headers = new Headers({'Content-Type':'application/json'});
       // let options = new RequestOptions({headers: headers});
       // if (localStorage.getItem("token") != null) {
@@ -52,11 +53,21 @@ export class BerandaMahasiswaComponent implements OnInit {
       console.log(this.listNews);
     }
 
+
+
+
     gotoBeasiswaDetail(id){
       this.http.get(url+'beasiswa/view/'+id).subscribe((res:any) => {
-        console.log(res);
+        console.log("1",res);
+        console.log("2", res.data);
+        console.log("3", res.data.data);
         localStorage.setItem('beasiswa', res.data);
         this.beasiswa = res.data;
+<<<<<<< HEAD
+        this.router.navigate(['detail']);
+=======
+        this.router.navigate(['/detail']);
+>>>>>>> 148042e379461357fcad21ba4b4496350ac41f9e
       },err =>{
         console.log("error get beasiswa", err);
       });

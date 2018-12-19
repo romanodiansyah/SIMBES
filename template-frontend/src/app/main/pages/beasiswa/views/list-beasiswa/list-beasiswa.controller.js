@@ -54,12 +54,13 @@
         // Methods
         vm.gotoAddBeasiswa = gotoAddBeasiswa;
         vm.gotoBeasiswaDetail = gotoBeasiswaDetail;
+        vm.gotoListPendaftar = gotoListPendaftar;
 
         //////////
         // *api
         $http.get(api.baseUrl + 'beasiswa').then(function (response){
             vm.beasiswas = response.data.data;
-            console.log('Data beasiswa:', vm.beasiswas);
+            console.log('Data Beasiswa:', vm.beasiswas);
 
         }, function (response){
             console.log('Data failed :', response)
@@ -91,6 +92,11 @@
                 console.log('Data failed :', response)
                 alert(response.data.message)    
             });
+        }
+
+        function gotoListPendaftar()
+        {
+            $state.go('app.pages_beasiswa_list-pendaftar')
         }
     }
 })();
