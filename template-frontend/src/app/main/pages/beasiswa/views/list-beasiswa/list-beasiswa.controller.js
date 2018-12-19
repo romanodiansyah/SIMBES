@@ -70,7 +70,7 @@
          */
         function gotoAddBeasiswa()
         {
-            $localStorage.beasiswa = "";
+            $localStorage.beasiswa = {};
             $state.go('app.pages_beasiswa_list-beasiswa.add');
         }
 
