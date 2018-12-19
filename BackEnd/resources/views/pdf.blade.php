@@ -25,8 +25,8 @@
 </table> -->
 
  <body>
-<!-- <img src="{{asset('logo-ipb.png')}}" align="right" width="90" height="90"> -->
-<h1>Formulir Beasiswa Institut Pertanian Bogor</h1>
+<!-- <img src="{{asset('logo-ipb.png')}}" align="right" width="90" height="90">
+<h1>Formulir Beasiswa Institut Pertanian Bogor</h1> -->
 
   <table width="50%" border="0" align="center" cellpadding="7">
 <tbody>
