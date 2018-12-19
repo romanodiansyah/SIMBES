@@ -18,6 +18,7 @@ import { DetailBeasiswaComponent } from './detail-beasiswa/detail-beasiswa.compo
 import { DaftarBeasiswaComponent } from './daftar-beasiswa/daftar-beasiswa.component'; 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { ProfilMahasiswaComponent } from './profil-mahasiswa/profil-mahasiswa.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/ma
     ListBeasiswaComponent,
     ListBeritaComponent,
     DetailBeasiswaComponent,
-    DaftarBeasiswaComponent
+    DaftarBeasiswaComponent,
+    ProfilMahasiswaComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,10 @@ import { MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/ma
       {
         path: 'detail',
         component: DetailComponent
+      },
+      {
+        path: 'profil',
+        component: ProfilMahasiswaComponent
       }
     ]),
     FormsModule,
