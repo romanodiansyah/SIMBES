@@ -96,7 +96,7 @@
 
         function gotoListPendaftar(id)
         {
-            $http.post(api.baseUrl + 'pendaftar/'+id+'/tes').then(function (response){
+            $http.get(api.baseUrl + 'pendaftar/'+id+'/tes').then(function (response){
                 vm.pendaftars = response.data.data;
                 $localStorage.pendaftars = vm.pendaftars;
                 console.log('Data Pendaftar:', vm.pendaftars);

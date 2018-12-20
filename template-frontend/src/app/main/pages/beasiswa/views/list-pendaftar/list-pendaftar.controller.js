@@ -78,9 +78,9 @@
 
         function AccPendaftar(id){
             $http.post(api.baseUrl + 'pendaftar/accept/'+id).then(function (response){
-                vm.AccPendaftar = response.data.data;
-                console.log('acc pendaftar', vm.beasiswas);
-    
+                vm.AccPendaftar = response.data;
+                console.log('acc pendaftar', vm.AccPendaftar);
+                $state.go('app.pages_beasiswa_list-pendaftar');
             }, function (response){
                 console.log('Data failed :', response)
                 alert(response.data.message)
